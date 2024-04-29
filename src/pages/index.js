@@ -1,11 +1,12 @@
 import React from 'react';
-import MastheadLockup from '../components/MastheadLockup';
+//import MastheadLockup from '../components/MastheadLockup';
+import MastheadContainer from '../components/MastheadContainer';
 
-const MastheadContainer = () => (
-  <div className="bg-gradient-to-r from-masthead-start to-masthead-end h-64 text-white p-8">
-    <MastheadLockup/>
-  </div>
-);
+// const MastheadContainer = () => (
+//   <div className="bg-gradient-to-r from-masthead-start to-masthead-end h-64 text-white p-8">
+//     <MastheadLockup/>
+//   </div>
+// );
 
 const MastheadHero = () => (
   <div className="bg-gray-300 h-48 p-8">Masthead Hero</div>
