@@ -2,10 +2,7 @@ import React from 'react';
 import MastheadContainer from '../components/MastheadContainer';
 import MastheadHero from '../components/MastheadHero';
 import LeftRail from '../components/LeftRail';
-
-// const LeftRail = () => (
-//     <div className="bg-gray-200 w-20 p-8">Left Rail</div>
-// );
+import MobileHeroCarousel from '../components/MobileHeroCarousel';
 
 const ColorCard = ({ bgColor }) => (
     <div className={`h-32 w-full ${bgColor} m-2 shadow-lg rounded-lg`}>Color Card</div>
@@ -13,10 +10,6 @@ const ColorCard = ({ bgColor }) => (
 
 const ImageCard = () => (
     <div className="h-32 w-full bg-gray-400 m-2 shadow-lg rounded-lg">Image Card</div>
-);
-
-const MobileHeroCarousel = () => (
-    <div className="bg-gray-500 h-32 p-8">Mobile Hero Carousel</div>
 );
 
 const Footer = () => (

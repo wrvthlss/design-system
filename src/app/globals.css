@@ -4,3 +4,11 @@
 html {
     background-color: #f5f5f5;
 }
+.swiper-link {
+    white-space: nowrap; /* Prevents text from wrapping */
+}
+
+.swiper-slide {
+    width: 120px !important;
+    margin-right: 0 !important;
+}
