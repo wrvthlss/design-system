@@ -23,7 +23,7 @@ const MastheadHero = () => (
                     <p className="text-xl font-semibold mb-4" style={{ fontSize: '2rem', fontWeight: 600 }}>
                         NEW: Variable-driven brand & theme modes
                     </p>
-                    <p className="mb-4" style={{ fontSize: '0.875rem', lineHeight: '1.375' }}>
+                    <p className="mb-4 opacity-75" style={{ fontSize: '0.875rem', lineHeight: '1.375' }}>
                         We're excited to announce a pivotal enhancement to our Figma design system--Variables!
                     </p>
                     <button className="bg-primary text-white px-6 py-2 rounded-full w-full sm:w-auto" style={{ padding: '10px 24px' }}>Try it out</button> {/* Responsive full width */}

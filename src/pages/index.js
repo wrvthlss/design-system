@@ -1,10 +1,11 @@
 import React from 'react';
 import MastheadContainer from '../components/MastheadContainer';
 import MastheadHero from '../components/MastheadHero';
+import LeftRail from '../components/LeftRail';
 
-const LeftRail = () => (
-    <div className="bg-gray-200 w-20 p-8">Left Rail</div>
-);
+// const LeftRail = () => (
+//     <div className="bg-gray-200 w-20 p-8">Left Rail</div>
+// );
 
 const ColorCard = ({ bgColor }) => (
     <div className={`h-32 w-full ${bgColor} m-2 shadow-lg rounded-lg`}>Color Card</div>
@@ -34,8 +35,13 @@ function Home() {
             </div>
             <div className="lg:px-19 px-0"> {/* Adds 76px padding inside the component for all other components */}
                 <MastheadHero />
+                <div className='sm:hidden'>
+                    <MobileHeroCarousel />
+                </div>
                 <div className="flex">
-                    <LeftRail />
+                    <div className="hidden sm:block">
+                        <LeftRail />
+                    </div>
                     <div className="grid grid-cols-2 gap-4 flex-1">
                         {/* Row 1 */}
                         <ColorCard bgColor="bg-card-blue" />
@@ -54,10 +60,9 @@ function Home() {
                         <ColorCard bgColor="bg-card-blue" />
                     </div>
                 </div>
-                <MobileHeroCarousel />
-                <Footer />
-                <SubFooter />
             </div>
+            <Footer />
+            <SubFooter />
         </div>
     );
 }

@@ -23,6 +23,7 @@ module.exports = {
 				},
 				'white': '#FFFFFF',
 				'black': '#000000',
+				'htmlbg': '#F5F5F5',
 			},
 			borderRadius: {
 				'full': '100px',
