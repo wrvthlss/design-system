@@ -3,6 +3,7 @@ import MastheadContainer from '../components/MastheadContainer';
 import MastheadHero from '../components/MastheadHero';
 import LeftRail from '../components/LeftRail';
 import MobileHeroCarousel from '../components/MobileHeroCarousel';
+import Footer from '../components/Footer';
 
 const ColorCard = ({ bgColor }) => (
     <div className={`h-32 w-full ${bgColor} m-2 shadow-lg rounded-lg`}>Color Card</div>
@@ -12,12 +13,8 @@ const ImageCard = () => (
     <div className="h-32 w-full bg-gray-400 m-2 shadow-lg rounded-lg">Image Card</div>
 );
 
-const Footer = () => (
-    <div className="bg-gray-600 h-20 p-8">Footer</div>
-);
-
 const SubFooter = () => (
-    <div className="bg-gray-700 h-10 p-8">Sub Footer</div>
+    <div className="bg-white h-10 p-8">Sub Footer</div>
 );
 
 function Home() {
@@ -35,7 +32,7 @@ function Home() {
                     <div className="hidden sm:block">
                         <LeftRail />
                     </div>
-                    <div className="grid grid-cols-2 gap-4 flex-1">
+                    <div className="grid grid-cols-2 gap-4 flex-1 my-30">
                         {/* Row 1 */}
                         <ColorCard bgColor="bg-card-blue" />
                         <ImageCard />
