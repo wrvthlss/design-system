@@ -34,6 +34,7 @@ module.exports = {
 				'44': '2.75rem', // This is the exact value for the button height
 				'174': '10.875rem', // Custom width for WhiteFilledButton and GhostedButton
 				'114': '7.125rem', // Custom width for PrimaryButtonSmall
+				'19': '76px',
 			},
 			opacity: {
 				'75': '0.75',
