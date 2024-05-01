@@ -19,7 +19,7 @@ function Home() {
             <div className="w-full">
                 <MastheadContainer /> {/* Full width component */}
             </div>
-            <div className="lg:px-19 px-0"> {/* Adds 76px padding inside the component for all other components */}
+            <div className="lg:px-19"> {/* Adds 76px padding inside the component for all other components */}
                 <MastheadHero />
                 <div className='sm:hidden'>
                     <MobileHeroCarousel />
@@ -30,7 +30,7 @@ function Home() {
                     </div>
                     <div style={{ marginLeft: 'auto', maxWidth: 'calc(100% - 76px)' }}>
 
-                        <div className="grid grid-cols-2 gap-48 flex-1 my-30 align-items-start">
+                        <div className="galleryGrid grid-cols-2 gap-48 flex-1 my-30 align-items-start">
                             {/* Dynamically render cards based on data */}
                             {cardData.colorCards.map((card) => (
                                 <ColorCard bgColor="bg-card-blue" key={card.id} {...card} />

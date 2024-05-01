@@ -12,7 +12,7 @@ html {
     width: 120px !important;
     margin-right: 0 !important;
 }
-.grid {
+.galleryGrid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     align-items: start;
