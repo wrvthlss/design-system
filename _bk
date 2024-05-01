@@ -5,13 +5,17 @@ import LeftRail from '../components/LeftRail';
 import MobileHeroCarousel from '../components/MobileHeroCarousel';
 import Footer from '../components/Footer';
 import SubFooter from '../components/SubFooter';
-
-import cardData from '../components/CardData';
-
 import ColorCard from '../components/ColorCard';
-import ImageCard from '../components/ImageCard';
 
 
+
+const ColorCard = ({ bgColor }) => (
+    <div className={`h-32 w-full ${bgColor} m-2 shadow-lg rounded-lg`}>Color Card</div>
+);
+
+const ImageCard = () => (
+    <div className="h-32 w-full bg-gray-400 m-2 shadow-lg rounded-lg">Image Card</div>
+);
 
 function Home() {
     return (
@@ -28,20 +32,22 @@ function Home() {
                     <div className="hidden sm:block">
                         <LeftRail />
                     </div>
-                    <div style={{ marginLeft: 'auto', maxWidth: 'calc(100% - 76px)' }}>
+                    <div className="grid grid-cols-2 gap-4 flex-1 my-30">
+                        {/* Row 1 */}
+                        <ColorCard bgColor="bg-card-blue" />
+                        <ImageCard />
 
-                        <div className="grid grid-cols-2 gap-48 flex-1 my-30 align-items-start">
-                            {/* Dynamically render cards based on data */}
-                            {cardData.colorCards.map((card) => (
-                                <ColorCard bgColor="bg-card-blue" key={card.id} {...card} />
-                            ))}
-                            <div className='my-60'>
-                                {cardData.imageCards.map((card) => (
-                                    <ImageCard key={card.id} {...card} />
-                                ))}
-                            </div>
+                        {/* Row 2 */}
+                        <ImageCard />
+                        <ImageCard />
 
-                        </div>
+                        {/* Row 3 */}
+                        <ColorCard bgColor="bg-card-green" />
+                        <ColorCard bgColor="bg-card-purple" />
+
+                        {/* Row 4 */}
+                        <ColorCard bgColor="bg-card-lightblue" />
+                        <ColorCard bgColor="bg-card-blue" />
                     </div>
                 </div>
             </div>
