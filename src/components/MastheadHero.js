@@ -1,7 +1,7 @@
 import React from 'react';
 
 const MastheadHero = () => (
-    <div className="relative bg-cover bg-center h-[450px] text-black p-8" style={{ backgroundImage: 'url(/images/hero-bg-light.png)', marginTop: '-330px' }}>
+    <div className="relative bg-cover bg-center h-[625px] text-black p-8" style={{ backgroundImage: 'url(/images/hero-bg-light.png)', marginTop: '-330px' }}>
         <div className="absolute inset-0 bg-gradient-to-r from-white to-transparent"></div> {/* Adjusted gradient direction */}
         <div className="relative z-10 flex flex-col justify-center h-full w-full">
             <div className="grid lg:grid-cols-2 grid-cols-1 items-center">
