@@ -17,4 +17,36 @@ html {
     grid-template-columns: repeat(2, 1fr);
     align-items: start;
 }
+/* Tailwind CSS for Card Components */
+.colorCard, .imageCard {
+    @apply w-full sm:w-auto; /* Full width on mobile, auto width on desktop */
+  }
+  
+@media (max-width: 640px) {
+    .galleryGrid {
+        grid-template-columns: 1fr; /* Makes it a single column on small screens */
+        gap: 20px; /* Adjust gap for mobile, if necessary */
+    }
+}
 
+/* Ensure this style applies only from 'sm' breakpoint and above */
+@media (min-width: 640px) {
+    .cardGallery {
+        margin-left: auto;
+        max-width: calc(100% - 76px); /* Ensure it aligns with the rest of the content on desktop */
+    }
+}
+
+/* Ensure cards take full width on smaller screens */
+@media (max-width: 639px) {
+    .cardGallery {
+        margin-left: 0;
+        max-width: 100%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .mt-32 {
+        margin-top: 32px; /* Adjust as necessary for design needs */
+    }
+}

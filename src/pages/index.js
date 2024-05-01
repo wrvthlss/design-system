@@ -14,6 +14,36 @@ import ImageCard from '../components/ImageCard';
 
 
 function Home() {
+
+    function separateAndInterleaveColumns(colorCards, imageCards) {
+        const leftColumnCards = [];
+        const rightColumnCards = [];
+        const interleavedCards = [];
+
+        // Interleave for mobile
+        const maxLength = Math.max(colorCards.length, imageCards.length);
+        for (let i = 0; i < maxLength; i++) {
+            if (colorCards[i]) interleavedCards.push({ ...colorCards[i], type: 'ColorCard' });
+            if (imageCards[i]) interleavedCards.push({ ...imageCards[i], type: 'ImageCard' });
+        }
+
+        // Separate for desktop
+        interleavedCards.forEach((card, index) => {
+            if (index % 2 === 0) {
+                leftColumnCards.push(card);
+            } else {
+                rightColumnCards.push(card);
+            }
+        });
+
+        return { leftColumnCards, rightColumnCards, interleavedCards };
+    }
+
+    const { leftColumnCards, rightColumnCards, interleavedCards } = separateAndInterleaveColumns(cardData.colorCards, cardData.imageCards);
+
+
+
+
     return (
         <div className="container mx-auto px-4">
             <div className="w-full">
@@ -28,19 +58,31 @@ function Home() {
                     <div className="hidden sm:block">
                         <LeftRail />
                     </div>
-                    <div style={{ marginLeft: 'auto', maxWidth: 'calc(100% - 76px)' }}>
-
-                        <div className="galleryGrid grid-cols-2 gap-48 flex-1 my-30 align-items-start">
-                            {/* Dynamically render cards based on data */}
-                            {cardData.colorCards.map((card) => (
-                                <ColorCard bgColor="bg-card-blue" key={card.id} {...card} />
-                            ))}
-                            <div className='my-60'>
-                                {cardData.imageCards.map((card) => (
-                                    <ImageCard key={card.id} {...card} />
-                                ))}
+                    <div className='hidden sm:block flex-grow' style={{ marginLeft: 'auto', maxWidth: 'calc(80% - 132px)' }}>
+                        <div className="flex">
+                            {/* Left Column */}
+                            <div className="flex-1">
+                                {leftColumnCards.map((card) => {
+                                    const Component = card.type === 'ColorCard' ? ColorCard : ImageCard;
+                                    return <Component key={card.id} {...card} />;
+                                })}
                             </div>
-
+                            {/* Right Column with top offset */}
+                            <div className="flex-1 mt-32">
+                                {rightColumnCards.map((card) => {
+                                    const Component = card.type === 'ColorCard' ? ColorCard : ImageCard;
+                                    return <Component key={card.id} {...card} />;
+                                })}
+                            </div>
+                        </div>
+                    </div>
+                    {/* Mobile gallery */}
+                    <div className="sm:hidden flex-grow bg-white border-b-1 p-4">
+                        <div className="flex flex-col gap-4 my-4">
+                            {interleavedCards.map((card, index) => {
+                                const CardComponent = card.type === 'ColorCard' ? ColorCard : ImageCard;
+                                return <CardComponent key={index} {...card} mobile={true} />;
+                            })}
                         </div>
                     </div>
                 </div>
@@ -52,3 +94,4 @@ function Home() {
 }
 
 export default Home;
+
