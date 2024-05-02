@@ -3,7 +3,7 @@ import AccordionComp from './AccordionComp';
 
 const CatalogNav = () => {
     return (
-        <div className="bg-gray-200 p-4 mobile-hidden">
+        <div className="p-4 mobile-hidden" style={{ backgroundColor: "#fafafa", borderRight: "1px solid #ebebeb"}}>
             <AccordionComp />
         </div>
     );

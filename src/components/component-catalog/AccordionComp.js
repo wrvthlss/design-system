@@ -34,7 +34,7 @@ const AccordionComp = () => {
     }, [activeIndex]);
 
     return (
-        <div className="bg-gray-200 p-4 relative">
+        <div className="p-4 relative">
             <div className="flex items-center justify-between cursor-pointer" onClick={toggleAccordion}>
                 <h2 className="text-lg font-semibold">Components</h2>
                 <div className={`transform transition-transform ${isOpen ? 'rotate-180' : ''}`}>

@@ -2,7 +2,7 @@ import React from 'react';
 
 function Footer() {
     return (
-        <div className="bg-white w-full border-b border-gray-300 md:py-32 px-20">
+        <div className="bg-white w-full border-b border-gray-300 md:py-32 px-20" style={{ borderTop: "1px solid #ebebeb"}}>
             {/* Desktop layout with 5 columns */}
             <div className="hidden md:grid grid-cols-5 gap-4 text-left">
                 {/* EDS Column */}
