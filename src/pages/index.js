@@ -1,15 +1,15 @@
 import React from 'react';
-import MastheadContainer from '../components/MastheadContainer';
-import MastheadHero from '../components/MastheadHero';
-import LeftRail from '../components/LeftRail';
-import MobileHeroCarousel from '../components/MobileHeroCarousel';
-import Footer from '../components/Footer';
-import SubFooter from '../components/SubFooter';
+import MastheadContainer from '../components/home/MastheadContainer';
+import MastheadHero from '../components/home/MastheadHero';
+import LeftRail from '../components/home/LeftRail';
+import MobileHeroCarousel from '../components/home/MobileHeroCarousel';
+import Footer from '../components/shared/Footer';
+import SubFooter from '../components/shared/SubFooter';
 
-import cardData from '../components/CardData';
+import cardData from '../components/home/CardData';
 
-import ColorCard from '../components/ColorCard';
-import ImageCard from '../components/ImageCard';
+import ColorCard from '../components/home/ColorCard';
+import ImageCard from '../components/home/ImageCard';
 
 
 
