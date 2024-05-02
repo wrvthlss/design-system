@@ -50,3 +50,19 @@ html {
         margin-top: 32px; /* Adjust as necessary for design needs */
     }
 }
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0;
+    }
+    .CatalogNav {
+        width: 100%;
+        order: -1; /* Moves navigation to the top on mobile */
+    }
+}
+@media (max-width: 768px) {
+    .mobile-hidden {
+        display: none !important;
+        font-size: x-large;
+    }
+}
