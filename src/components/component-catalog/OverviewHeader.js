@@ -10,6 +10,7 @@ const OverviewHeader = () => {
                 paddingLeft: '96px', // 96px left padding on desktop
                 color: '#000', // Black color for the title
                 backgroundColor: '#fff', // White background
+                borderBottom: '1px solid #ebebeb',
             }}>
                 <h1 className="text-4xl font-bold mb-2">Overview</h1>
                 <p className="text-gray-600 text-sm leading-5">
@@ -24,6 +25,7 @@ const OverviewHeader = () => {
                 paddingLeft: '20px', // 96px left padding on desktop
                 color: '#000', // Black color for the title
                 backgroundColor: '#fff', // White background
+                borderBottom: '1px solid #ebebeb',
             }}>
                 <h1 className="text-4xl font-bold mb-2">Overview</h1>
                 <p className="text-gray-600 text-sm leading-5">
