@@ -1,10 +1,18 @@
 import React from 'react';
 
-const CompCard = ({ label }) => {
+const CompCard = ({ image, title, copy }) => {
     return (
-        <div className="bg-white p-4 shadow rounded">
-            <h3 className="font-bold">{label}</h3>
-            <p>Details about the {label} component.</p>
+        <div className="p-4" style={{
+            paddingTop: '24px',
+            paddingLeft: '16px',
+            paddingRight: '16px',
+            paddingBottom: '24px',
+        }}>
+            <div style={{ backgroundColor: "#fafafa", borderRadius: "10px", border: "1px solid #ebebeb"}}>
+            <img src={image} alt={title} style={{ width: '200px', height: '124px' }} />
+            </div>
+            <h2 className="mt-4 mb-2 text-xl font-bold" style={{ lineHeight: '24px' }}>{title}</h2>
+            <p className="text-sm text-gray-600" style={{ lineHeight: '20px' }}>{copy}</p>
         </div>
     );
 }
