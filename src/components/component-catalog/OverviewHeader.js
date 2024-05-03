@@ -13,7 +13,7 @@ const OverviewHeader = () => {
                 borderBottom: '1px solid #ebebeb',
             }}>
                 <h1 className="text-4xl font-bold mb-2">Overview</h1>
-                <p className="text-gray-600 text-sm leading-5">
+                <p className="text-gray-600 leading-6">
                     An A-Z component guide, featuring everything from basic elements to advanced UI, equipped with
                     practical usage guidelines and best practices.
                 </p>
@@ -28,7 +28,7 @@ const OverviewHeader = () => {
                 borderBottom: '1px solid #ebebeb',
             }}>
                 <h1 className="text-4xl font-bold mb-2">Overview</h1>
-                <p className="text-gray-600 text-sm leading-5">
+                <p className="text-gray-600 leading-6">
                     An A-Z component guide, featuring everything from basic elements to advanced UI, equipped with
                     practical usage guidelines and best practices.
                 </p>

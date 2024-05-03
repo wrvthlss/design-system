@@ -24,6 +24,7 @@ module.exports = {
 				'white': '#FFFFFF',
 				'black': '#000000',
 				'htmlbg': '#F5F5F5',
+				'text-body': '#3D3D3D',
 			},
 			borderRadius: {
 				'full': '100px',

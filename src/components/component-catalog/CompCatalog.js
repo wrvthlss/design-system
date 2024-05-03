@@ -41,7 +41,7 @@ const CompCatalog = () => {
                 paddingBottom: '32px' // Consistent bottom padding
             }}>
                 <h1 className="text-2xl font-bold mb-4" style={{ lineHeight: '34px' }}>Components</h1>
-                <p className="text-sm text-gray-600 mb-6" style={{ lineHeight: '20px' }}>
+                <p className="text-gray-600 mb-6 " style={{ lineHeight: '24px' }}>
                     Below, find our curated collection of components, each designed for scalability and user engagement.
                     Click on any component to view detailed documentation, including design specifications, code snippets,
                     and implementation tips.
@@ -59,7 +59,7 @@ const CompCatalog = () => {
                 paddingBottom: '32px' // Consistent bottom padding
             }}>
                 <h1 className="text-2xl font-bold mb-4" style={{ lineHeight: '34px' }}>Components</h1>
-                <p className="text-sm text-gray-600 mb-6" style={{ lineHeight: '20px' }}>
+                <p className="text-gray-600 mb-6" style={{ lineHeight: '24px' }}>
                     Below, find our curated collection of components, each designed for scalability and user engagement.
                     Click on any component to view detailed documentation, including design specifications, code snippets,
                     and implementation tips.
