@@ -25,6 +25,7 @@ module.exports = {
 				'black': '#000000',
 				'htmlbg': '#F5F5F5',
 				'text-body': '#3D3D3D',
+				'green-500': '#00853C',
 			},
 			borderRadius: {
 				'full': '100px',
@@ -38,9 +39,20 @@ module.exports = {
 				'114': '7.125rem', // Custom width for PrimaryButtonSmall
 				'19': '76px',
 				'30': '7rem',
+				'32': '8rem',
 			},
 			opacity: {
 				'75': '0.75',
+			},
+			transitionTimingFunction: {
+				'ease-in-out': 'ease-in-out',
+			},
+			transitionDuration: {
+				'300':'300ms'
+			},
+			transitionProperty: {
+				'left':'left',
+				'weidth':'width',
 			},
 			fontSize: {
 				// Add custom font sizes if needed
