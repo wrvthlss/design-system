@@ -6,6 +6,7 @@ import ComponentDetails from '../../components/component-catalog/ComponentDetail
 import ButtonHeader from '../../components/button-detail/ButtonHeader';
 import Footer from '../../components/shared/Footer';
 import SubFooter from '../../components/shared/SubFooter';
+import ButtonOverviewContent from '../../components/component-catalog/ButtonOverviewContent';
 
 // Placeholder content components
 const PlaceholderContent = ({ title }) => (
@@ -45,7 +46,7 @@ const ComponentCatalog = () => {
                     <>
                         <ButtonHeader onTabChange={handleButtonTabChange} />
                         {/* Use activeButtonTab to render relevant content */}
-                        {activeButtonTab === "Overview" && <PlaceholderContent title="Overview" />}
+                        {activeButtonTab === "Overview" && <ButtonOverviewContent/>}
                         {activeButtonTab === "Examples" && <PlaceholderContent title="Examples" />}
                         {activeButtonTab === "Accessibility" && <PlaceholderContent title="Accessibility" />}
                         <ComponentDetails/>
