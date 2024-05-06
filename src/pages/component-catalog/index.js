@@ -48,6 +48,7 @@ const ComponentCatalog = () => {
                         {activeButtonTab === "Overview" && <PlaceholderContent title="Overview" />}
                         {activeButtonTab === "Examples" && <PlaceholderContent title="Examples" />}
                         {activeButtonTab === "Accessibility" && <PlaceholderContent title="Accessibility" />}
+                        <ComponentDetails/>
                     </>
                 );
             // Add other cases for different pages as needed...
