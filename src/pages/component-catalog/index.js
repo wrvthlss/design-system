@@ -1,19 +1,32 @@
-// index.js
 import React, { useState } from 'react';
 import OverviewHeader from '../../components/component-catalog/OverviewHeader';
 import CatalogNav from '../../components/component-catalog/CatalogNav';
 import CompCatalog from '../../components/component-catalog/CompCatalog';
 import ComponentDetails from '../../components/component-catalog/ComponentDetails';
-import ButtonHeader from '../../components/button-detail/ButtonHeader'; // Import the new header
+import ButtonHeader from '../../components/button-detail/ButtonHeader';
 import Footer from '../../components/shared/Footer';
 import SubFooter from '../../components/shared/SubFooter';
 
+// Placeholder content components
+const PlaceholderContent = ({ title }) => (
+    <div className="p-6 bg-gray-100 mt-6 rounded shadow">
+        <h2 className="text-2xl font-bold">{title} Content</h2>
+        <p>This is placeholder content for the {title} section.</p>
+    </div>
+);
+
 const ComponentCatalog = () => {
     const [currentPage, setCurrentPage] = useState("Overview");
+    const [activeButtonTab, setActiveButtonTab] = useState("Overview");
 
     // Function to switch pages
     const handleChangePage = (pageName) => {
         setCurrentPage(pageName);
+    };
+
+    // Function to switch tabs in the Button view
+    const handleButtonTabChange = (tabName) => {
+        setActiveButtonTab(tabName);
     };
 
     // Function to render content based on the current page selection
@@ -30,11 +43,14 @@ const ComponentCatalog = () => {
             case "Buttons":
                 return (
                     <>
-                        <ButtonHeader />
-                        {/* You can add more sections related to buttons here */}
+                        <ButtonHeader onTabChange={handleButtonTabChange} />
+                        {/* Use activeButtonTab to render relevant content */}
+                        {activeButtonTab === "Overview" && <PlaceholderContent title="Overview" />}
+                        {activeButtonTab === "Examples" && <PlaceholderContent title="Examples" />}
+                        {activeButtonTab === "Accessibility" && <PlaceholderContent title="Accessibility" />}
                     </>
                 );
-            // Add other cases for different pages...
+            // Add other cases for different pages as needed...
             default:
                 return <div>No Page Found</div>;
         }
