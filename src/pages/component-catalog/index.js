@@ -8,6 +8,7 @@ import Footer from '../../components/shared/Footer';
 import SubFooter from '../../components/shared/SubFooter';
 import ButtonOverviewContent from '../../components/component-catalog/ButtonOverviewContent';
 
+
 // Placeholder content components
 const PlaceholderContent = ({ title }) => (
     <div className="p-6 bg-gray-100 mt-6 rounded shadow">
