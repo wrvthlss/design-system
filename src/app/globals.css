@@ -17,6 +17,11 @@ html {
     grid-template-columns: repeat(2, 1fr);
     align-items: start;
 }
+.rb-c {
+    border-radius: 0.5rem;
+    border: 1px solid #ebebeb;
+}
+
 /* Tailwind CSS for Card Components */
 .colorCard, .imageCard {
     @apply w-full sm:w-auto; /* Full width on mobile, auto width on desktop */

@@ -1,8 +1,32 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 function Footer() {
+    const [showBackToTop, setShowBackToTop] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const footerElement = document.querySelector('.footer');
+            // Ensure the footer element exists before accessing its offset
+            if (footerElement) {
+                const footerTop = footerElement.offsetTop;
+                const scrolledToFooter = window.pageYOffset + window.innerHeight >= footerTop;
+                setShowBackToTop(scrolledToFooter);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
+    // Function to scroll to the top smoothly
+    const scrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
     return (
-        <div className="bg-white w-full border-b border-gray-300 md:py-32 px-20" style={{ borderTop: "1px solid #ebebeb"}}>
+        <div className="footer bg-white w-full border-b border-gray-300 md:py-32 px-20" style={{ borderTop: "1px solid #ebebeb" }}>
             {/* Desktop layout with 5 columns */}
             <div className="hidden md:grid grid-cols-5 gap-4 text-left">
                 {/* EDS Column */}
@@ -93,6 +117,21 @@ function Footer() {
                     </div>
                 </div>
             </div>
+
+            {/* Back to Top Button */}
+            {showBackToTop && (
+                <button
+                    onClick={scrollToTop}
+                    className="fixed z-50 transition-opacity duration-500 ease-in-out"
+                    style={{
+                        bottom: '150px', // 50px from the bottom
+                        right: '150px', // 50px from the right
+                        opacity: 1 // Makes the button visible when displayed
+                    }}
+                >
+                    <img src="/images/returnToTop.svg" alt="Back to Top" />
+                </button>
+            )}
         </div>
     );
 }
