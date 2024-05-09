@@ -10,7 +10,7 @@ import cardData from '../components/home/CardData';
 
 import ColorCard from '../components/home/ColorCard';
 import ImageCard from '../components/home/ImageCard';
-
+import GlobalNav from '../components/shared/GlobalNav';
 
 
 function Home() {
@@ -45,51 +45,54 @@ function Home() {
 
 
     return (
-        <div className="container mx-auto px-4">
-            <div className="w-full">
-                <MastheadContainer /> {/* Full width component */}
-            </div>
-            <div className="lg:px-19"> {/* Adds 76px padding inside the component for all other components */}
-                <MastheadHero />
-                <div className='sm:hidden'>
-                    <MobileHeroCarousel />
+        <>
+            <GlobalNav />
+            <div className="container mx-auto px-4">
+                <div className="w-full">
+                    <MastheadContainer /> {/* Full width component */}
                 </div>
-                <div className="flex">
-                    <div className="hidden sm:block">
-                        <LeftRail />
+                <div className="lg:px-19"> {/* Adds 76px padding inside the component for all other components */}
+                    <MastheadHero />
+                    <div className='sm:hidden'>
+                        <MobileHeroCarousel />
                     </div>
-                    <div className='hidden sm:block flex-grow' style={{ marginLeft: 'auto', maxWidth: 'calc(80% - 132px)' }}>
-                        <div className="flex">
-                            {/* Left Column */}
-                            <div className="flex-1">
-                                {leftColumnCards.map((card) => {
-                                    const Component = card.type === 'ColorCard' ? ColorCard : ImageCard;
-                                    return <Component key={card.id} {...card} />;
-                                })}
+                    <div className="flex">
+                        <div className="hidden sm:block">
+                            <LeftRail />
+                        </div>
+                        <div className='hidden sm:block flex-grow' style={{ marginLeft: 'auto', maxWidth: 'calc(80% - 132px)' }}>
+                            <div className="flex">
+                                {/* Left Column */}
+                                <div className="flex-1">
+                                    {leftColumnCards.map((card) => {
+                                        const Component = card.type === 'ColorCard' ? ColorCard : ImageCard;
+                                        return <Component key={card.id} {...card} />;
+                                    })}
+                                </div>
+                                {/* Right Column with top offset */}
+                                <div className="flex-1 mt-32">
+                                    {rightColumnCards.map((card) => {
+                                        const Component = card.type === 'ColorCard' ? ColorCard : ImageCard;
+                                        return <Component key={card.id} {...card} />;
+                                    })}
+                                </div>
                             </div>
-                            {/* Right Column with top offset */}
-                            <div className="flex-1 mt-32">
-                                {rightColumnCards.map((card) => {
-                                    const Component = card.type === 'ColorCard' ? ColorCard : ImageCard;
-                                    return <Component key={card.id} {...card} />;
+                        </div>
+                        {/* Mobile gallery */}
+                        <div className="sm:hidden flex-grow bg-white border-b-1 p-4">
+                            <div className="flex flex-col gap-4 my-4">
+                                {interleavedCards.map((card, index) => {
+                                    const CardComponent = card.type === 'ColorCard' ? ColorCard : ImageCard;
+                                    return <CardComponent key={index} {...card} mobile={true} />;
                                 })}
                             </div>
                         </div>
                     </div>
-                    {/* Mobile gallery */}
-                    <div className="sm:hidden flex-grow bg-white border-b-1 p-4">
-                        <div className="flex flex-col gap-4 my-4">
-                            {interleavedCards.map((card, index) => {
-                                const CardComponent = card.type === 'ColorCard' ? ColorCard : ImageCard;
-                                return <CardComponent key={index} {...card} mobile={true} />;
-                            })}
-                        </div>
-                    </div>
                 </div>
+                <Footer />
+                <SubFooter />
             </div>
-            <Footer />
-            <SubFooter />
-        </div>
+        </>
     );
 }
 
