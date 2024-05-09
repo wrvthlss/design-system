@@ -9,6 +9,8 @@ import Footer from '../../components/shared/Footer';
 import SubFooter from '../../components/shared/SubFooter';
 import ButtonOverviewContent from '../../components/component-catalog/ButtonOverviewContent';
 import CheckboxOverviewContent from '../../components/component-catalog/CheckboxOverviewContent';
+import DropdownHeader from '../../components/dropdown-detail/DropdownHeader'
+import DropdownOverviewContent from '../../components/component-catalog/DropdownOverviewContent'
 
 // Placeholder content components
 const PlaceholderContent = ({ title }) => (
@@ -64,6 +66,16 @@ const ComponentCatalog = () => {
                     <>
                         <CheckboxHeader onTabChange={handleCheckboxTabChange} />
                         {activeCheckboxTab === "Overview" && <CheckboxOverviewContent />}
+                        {activeCheckboxTab === "Examples" && <PlaceholderContent title="Examples" />}
+                        {activeCheckboxTab === "Accessibility" && <PlaceholderContent title="Accessibility" />}
+                        <ComponentDetails />
+                    </>
+                );
+            case "Dropdown":
+                return (
+                    <>
+                        <DropdownHeader onTabChange={handleCheckboxTabChange} />
+                        {activeCheckboxTab === "Overview" && <DropdownOverviewContent />}
                         {activeCheckboxTab === "Examples" && <PlaceholderContent title="Examples" />}
                         {activeCheckboxTab === "Accessibility" && <PlaceholderContent title="Accessibility" />}
                         <ComponentDetails />
