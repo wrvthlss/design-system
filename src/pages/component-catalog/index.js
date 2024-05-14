@@ -11,6 +11,7 @@ import ButtonOverviewContent from '../../components/component-catalog/ButtonOver
 import CheckboxOverviewContent from '../../components/component-catalog/CheckboxOverviewContent';
 import DropdownHeader from '../../components/dropdown-detail/DropdownHeader'
 import DropdownOverviewContent from '../../components/component-catalog/DropdownOverviewContent'
+import GNav from '../../components/shared/GNav'
 
 // Placeholder content components
 const PlaceholderContent = ({ title }) => (
@@ -54,6 +55,7 @@ const ComponentCatalog = () => {
             case "Buttons":
                 return (
                     <>
+                        
                         <ButtonHeader onTabChange={handleButtonTabChange} />
                         {activeButtonTab === "Overview" && <ButtonOverviewContent />}
                         {activeButtonTab === "Examples" && <PlaceholderContent title="Examples" />}
@@ -87,8 +89,10 @@ const ComponentCatalog = () => {
     };
 
     return (
-        <div className="container mx-auto px-4">
-            <div className="flex flex-col md:flex-row">
+        <div className="container mx-auto">
+            <GNav/>
+
+            <div className="flex flex-col md:flex-row border-t-1">
                 <CatalogNav onChangePage={handleChangePage} className="test-color md:w-1/4 bg-gray-200 p-4" />
                 <div className="flex-1 main-content">
                     {renderPage()}

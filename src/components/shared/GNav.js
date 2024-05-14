@@ -331,7 +331,7 @@ export default function Example() {
                                     <div className="flex h-16 items-center justify-between">
                                         {/* Logo (lg+) */}
                                         <div className="hidden lg:flex lg:flex-1 lg:items-center">
-                                            <a href="#">
+                                            <a href="/">
                                                 <span className="text-black text-2xl">EDS</span>
                                             </a>
                                         </div>

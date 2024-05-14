@@ -35,16 +35,19 @@ const AccordionComp = ({ onChangePage }) => {
         }
     }, [activeIndex]);
 
+
     return (
         <div className="hidden lg:block p-4 relative">
             <div className="flex items-center justify-between cursor-pointer" onClick={toggleAccordion}>
-                <h2 className="text-lg font-semibold">Components</h2>
+                <h2 className="text-lg font-semibold mr-1">Components</h2>
                 <div className={`transform transition-transform ${isOpen ? 'rotate-180' : ''}`}>
-                    <svg className="w-4 h-4 fill-current" viewBox="0 0 20 20">
-                        <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 111.414 1.414l-4 4a1 1 01-1.414 0l-4-4a1 1 010-1.414z" />
+                    <svg xmlns="http://www.w3.org/2000/svg" width="10" height="8" viewBox="0 0 10 8" fill="none" className="w-3 h-3 fill-current transform origin-center">
+                        <path d="M5 7.14961L0 1.84961L1 0.849609L5 5.34961L9 0.849609L10 1.84961L5 7.14961Z" />
                     </svg>
                 </div>
             </div>
+
+
             {isOpen && (
                 <ul className="mt-4 relative">
                     <div className="absolute left-0 bg-green-500 w-1 h-full transition-transform duration-300" style={{ transform: `translateY(${barPosition}px)`, height: `${barHeight}px` }}></div>

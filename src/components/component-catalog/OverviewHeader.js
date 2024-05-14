@@ -18,7 +18,7 @@ const OverviewHeader = () => {
                     practical usage guidelines and best practices.
                 </p>
             </div>
-            <div className="bg-white p-4 md:p-12 sm:block lg:hidden md:hidden" style={{
+            <div className="bg-white p-4 md:p-12 sm:block lg:hidden" style={{
                 paddingTop: '48px', // 126px top padding on desktop
                 paddingRight: '20px', // 268px right padding on desktop
                 paddingBottom: '32px', // 32px bottom padding consistently

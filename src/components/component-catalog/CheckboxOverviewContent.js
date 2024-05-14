@@ -517,7 +517,7 @@ const CheckboxOverviewContent = () => {
                             </div>
                             <div>
                                 <div className="p-6 bg-gray-100 rb-c rounded-lg mb-6">
-                                    <img src="/images/checkbox/bp081.svg" alt="Avoid Overusing the Indeterminate State" className="mx-auto" />
+                                    <img src="/images/checkbox/bp008.svg" alt="Avoid Overusing the Indeterminate State" className="mx-auto" />
                                 </div>
                                 <img src="/images/dont.svg" alt="Avoid Overusing the Indeterminate State Icon" className="inline mr-4" />
                                 <h3 className="inline text-lg font-bold text-red-600 mb-2">Avoid Overusing the Indeterminate State</h3>

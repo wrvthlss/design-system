@@ -52,7 +52,7 @@ const CompCatalog = () => {
                 ))}
             </div>
             </div>
-            <div className="bg-white p-4 md:p-12 sm:block lg:hidden md:hidden" style={{
+            <div className="bg-white p-4 md:p-12 sm:block lg:hidden" style={{
                 paddingTop: '48px', // 48px top padding
                 paddingLeft: '20px', // 96px left padding on desktop
                 paddingRight: '20px', // 268px right padding on desktop
