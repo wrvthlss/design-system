@@ -2,7 +2,7 @@ import React from 'react'
 
 function LeftRail() {
   return (
-    <div className='py-12 text-4xl font-bold'>
+    <div className='left-rail-updates py-12 text-3xl font-bold'>
         <h2 className='pb-5'>Latest Updates</h2>
         <ul className='text-base font-normal leading-9 opacity-75'>
             <li className='font-bold'><a href='#'>Editors Pick</a></li>

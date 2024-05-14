@@ -1,13 +1,13 @@
 import React from 'react';
 
 const MastheadHero = () => (
-    <div className="relative bg-cover bg-center h-[625px] text-black p-8" style={{ backgroundImage: 'url(/images/hero-bg-light.png)', marginTop: '-330px' }}>
-        <div className="absolute inset-0 bg-gradient-to-r from-white to-transparent"></div> {/* Adjusted gradient direction */}
-        <div className="relative z-10 flex flex-col justify-center h-full w-full">
+    <div className="hero-container relative bg-cover bg-center h-[625px] text-black p-8 lg:rounded-3xl" style={{ backgroundImage: 'url(/images/hero-bg-light.png)', marginTop: '-330px'}}>
+        <div className="absolute inset-0 bg-gradient-to-r from-white to-transparent lg:rounded-3xl"></div> {/* Adjusted gradient direction */}
+        <div className="hero-lockup relative z-10 flex flex-col justify-center w-full" style={{height:'135%'}}>
             <div className="grid">
                 <div className="col-span-1 max-w-[480px] px-8">
                     <div className="flex items-start space-x-2 mb-6"> {/* Flex container for headline and SVG */}
-                        <h2 className="text-4xl font-semibold" style={{ fontSize: '4rem', fontWeight: 600 }}>
+                        <h2 className="hero-headline text-4xl font-semibold" style={{ fontSize: '4rem', fontWeight: 600 }}>
                             EDS 1.9.2
                         </h2>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -20,7 +20,7 @@ const MastheadHero = () => (
                         <a href="#" className="underline text-black"> Figma</a>,
                         <a href="#" className="underline text-black"> Variables</a>
                     </p>
-                    <p className="text-xl font-semibold mb-4" style={{ fontSize: '2rem', fontWeight: 600 }}>
+                    <p className="hero-sub-headline text-xl font-semibold mb-4 leading-8" style={{ fontSize: '2rem', fontWeight: 600 }}>
                         NEW: Variable-driven brand & theme modes
                     </p>
                     <p className="mb-4 opacity-75" style={{ fontSize: '0.875rem', lineHeight: '1.375' }}>

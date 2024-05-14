@@ -13,7 +13,7 @@ const Button = ({ children, variant = "primary", className = "" }) => {
 const MastheadLockup = () => (
     <div className="text-center space-y-4">
         <h1 className="text-white text-4xl font-bold">EDS Design System</h1>
-        <p className="text-white text-opacity-75 max-w-md mx-auto">
+        <p className="lockup-body-text text-white text-opacity-75 max-w-md mx-auto">
             EDS is Elevance Health's enterprise product design system, aiding in upholding user experience integrity and maximizing design and development resources.
         </p>
         <div className="flex justify-center space-x-4">

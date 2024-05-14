@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import MastheadContainer from '../components/home/MastheadContainer';
 import MastheadHero from '../components/home/MastheadHero';
 import LeftRail from '../components/home/LeftRail';
@@ -11,9 +11,11 @@ import cardData from '../components/home/CardData';
 import ColorCard from '../components/home/ColorCard';
 import ImageCard from '../components/home/ImageCard';
 import GlobalNav from '../components/shared/GlobalNav';
+import GNav from '../components/shared/GNav'
 
 
 function Home() {
+    const [navState, setNavState] = useState({ getStarted: false, getInvolved: false, resources: false });
 
     function separateAndInterleaveColumns(colorCards, imageCards) {
         const leftColumnCards = [];
@@ -41,13 +43,27 @@ function Home() {
 
     const { leftColumnCards, rightColumnCards, interleavedCards } = separateAndInterleaveColumns(cardData.colorCards, cardData.imageCards);
 
+    useEffect(() => {
+        function handleDocumentClick(event) {
+            const clickedElement = event.target;
+            // Check if it's outside the GlobalNav
+            if (!clickedElement.closest('#globalNav')) {
+                setNavState({ getStarted: false, getInvolved: false, resources: false });
+            }
+        }
+        document.addEventListener('mousedown', handleDocumentClick);
+        return () => {
+            document.removeEventListener('mousedown', handleDocumentClick);
+        };
+    }, []);
+
 
 
 
     return (
         <>
-            <GlobalNav />
-            <div className="container mx-auto px-4">
+            <GNav />
+            <div className="container mx-auto">
                 <div className="w-full">
                     <MastheadContainer /> {/* Full width component */}
                 </div>
@@ -56,14 +72,14 @@ function Home() {
                     <div className='sm:hidden'>
                         <MobileHeroCarousel />
                     </div>
-                    <div className="flex">
+                    <div className="card-gallery md:p-7 flex">
                         <div className="hidden sm:block">
                             <LeftRail />
                         </div>
-                        <div className='hidden sm:block flex-grow' style={{ marginLeft: 'auto', maxWidth: 'calc(80% - 132px)' }}>
+                        <div className='hidden sm:block flex-grow' style={{ marginLeft: 'auto', maxWidth: 'calc(80% - 46px)' }}>
                             <div className="flex">
                                 {/* Left Column */}
-                                <div className="flex-1">
+                                <div className="flex-1 left-card-column md:mr-0 lg:mr-24">
                                     {leftColumnCards.map((card) => {
                                         const Component = card.type === 'ColorCard' ? ColorCard : ImageCard;
                                         return <Component key={card.id} {...card} />;
