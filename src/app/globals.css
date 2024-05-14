@@ -28,7 +28,10 @@ button:focus, a:focus, input:focus {
     outline: none;
     outline-offset: 2px;
 }
-
+.logo-eds {
+    font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-weight: 500;
+}
 
 
 /* Tailwind CSS for Card Components */
@@ -103,6 +106,9 @@ button:focus, a:focus, input:focus {
     .card-gallery {
         padding: 0!important;
     }
+    .nav-con {
+        padding: 0 60px 0 70px!important;
+    }
 }
 
 @media (max-width: 425px) {
@@ -125,5 +131,8 @@ button:focus, a:focus, input:focus {
     }
     .hero-lockup {
         height: 103%!important;
+    }
+    .nav-con {
+        padding: 0 30px 0 40px!important;
     }
 }

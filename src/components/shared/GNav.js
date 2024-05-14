@@ -1,18 +1,3 @@
-/*
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-      require('@tailwindcss/aspect-ratio'),
-    ],
-  }
-  ```
-*/
 import { Fragment, useState } from 'react'
 import { Dialog, Popover, Tab, Transition } from '@headlessui/react'
 import {
@@ -30,28 +15,28 @@ const navigation = {
             name: 'Getting Started',
             featured: [
                 {
-                    name: 'New Arrivals',
+                    name: 'Design',
                     href: '#',
-                    imageSrc: 'https://tailwindui.com/img/ecommerce-images/mega-menu-category-01.jpg',
-                    imageAlt: 'Models sitting back to back, wearing Basic Tee in black and bone.',
+                    description: 'Create beautiful, usable, and Consistent products.',
+                    ico: 'images/globalnav/get-started-001.svg'
                 },
                 {
-                    name: 'Basic Tees',
+                    name: 'Develop',
                     href: '#',
-                    imageSrc: 'https://tailwindui.com/img/ecommerce-images/mega-menu-category-02.jpg',
-                    imageAlt: 'Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees.',
+                    description: 'Access comprehensive code Snippets & robust frameworks.',
+                    ico: 'images/globalnav/get-started-002.svg'
                 },
                 {
-                    name: 'Accessories',
+                    name: 'Research',
                     href: '#',
-                    imageSrc: 'https://tailwindui.com/img/ecommerce-images/mega-menu-category-03.jpg',
-                    imageAlt: 'Model wearing minimalist watch with black wristband and white watch face.',
+                    description: 'Learn proven user testing methodsand insights.',
+                    ico: 'images/globalnav/get-started-003.svg'
                 },
                 {
-                    name: 'Carry',
+                    name: 'Content',
                     href: '#',
-                    imageSrc: 'https://tailwindui.com/img/ecommerce-images/mega-menu-category-04.jpg',
-                    imageAlt: 'Model opening tan leather long wallet with credit card pockets and cash pouch.',
+                    description: 'Guidelines for clear, effective writing strategies.',
+                    ico: 'images/globalnav/get-started-004.svg'
                 },
             ],
         },
@@ -59,29 +44,22 @@ const navigation = {
             name: 'Get Involved',
             featured: [
                 {
-                    name: 'New Arrivals',
+                    name: 'Contribute',
                     href: '#',
-                    imageSrc: 'https://tailwindui.com/img/ecommerce-images/mega-menu-01-men-category-01.jpg',
-                    imageAlt: 'Hats and sweaters on wood shelves next to various colors of t-shirts on hangers.',
+                    description: 'View our schema to contribute your ideas.',
+                    ico: 'images/globalnav/get-involved-001.svg'
                 },
                 {
-                    name: 'Basic Tees',
+                    name: 'Report an Issue/Bug',
                     href: '#',
-                    imageSrc: 'https://tailwindui.com/img/ecommerce-images/mega-menu-01-men-category-02.jpg',
-                    imageAlt: 'Model wearing light heather gray t-shirt.',
+                    description: 'Propose new components or request edits to existing ones.',
+                    ico: 'images/globalnav/get-involved-002.svg'
                 },
                 {
-                    name: 'Accessories',
+                    name: 'What we are working on.',
                     href: '#',
-                    imageSrc: 'https://tailwindui.com/img/ecommerce-images/mega-menu-01-men-category-03.jpg',
-                    imageAlt:
-                        'Grey 6-panel baseball hat with black brim, black mountain graphic on front, and light heather gray body.',
-                },
-                {
-                    name: 'Carry',
-                    href: '#',
-                    imageSrc: 'https://tailwindui.com/img/ecommerce-images/mega-menu-01-men-category-04.jpg',
-                    imageAlt: 'Model putting folded cash into slim card holder olive leather wallet with hand stitching.',
+                    description: 'Current and upcoming components and patterns.',
+                    ico: 'images/globalnav/get-involved-003.svg'
                 },
             ],
         },
@@ -89,112 +67,62 @@ const navigation = {
             name: 'Resources',
             featured: [
                 {
-                    name: 'New Arrivals',
+                    name: 'BrandHub',
                     href: '#',
-                    imageSrc: 'https://tailwindui.com/img/ecommerce-images/mega-menu-01-men-category-01.jpg',
-                    imageAlt: 'Hats and sweaters on wood shelves next to various colors of t-shirts on hangers.',
+                    description: 'Your go-to for brand guidelines and on-brand communications.',
+                    ico: 'images/globalnav/resources-001.svg'
                 },
                 {
-                    name: 'Basic Tees',
+                    name: 'Tools & Plugins',
                     href: '#',
-                    imageSrc: 'https://tailwindui.com/img/ecommerce-images/mega-menu-01-men-category-02.jpg',
-                    imageAlt: 'Model wearing light heather gray t-shirt.',
+                    description: 'Tools for design, development, research, and content.',
+                    ico: 'images/globalnav/resources-002.svg'
                 },
                 {
-                    name: 'Accessories',
+                    name: 'Learning Material',
                     href: '#',
-                    imageSrc: 'https://tailwindui.com/img/ecommerce-images/mega-menu-01-men-category-03.jpg',
-                    imageAlt:
-                        'Grey 6-panel baseball hat with black brim, black mountain graphic on front, and light heather gray body.',
+                    description: 'Guides for brand consistency and skill growth.',
+                    ico: 'images/globalnav/resources-003.svg'
                 },
                 {
-                    name: 'Carry',
+                    name: 'Support',
                     href: '#',
-                    imageSrc: 'https://tailwindui.com/img/ecommerce-images/mega-menu-01-men-category-04.jpg',
-                    imageAlt: 'Model putting folded cash into slim card holder olive leather wallet with hand stitching.',
+                    description: 'Support, FAQs, team chats, and AI-powered chatbot help.',
+                    ico: 'images/globalnav/resources-004.svg'
                 },
             ],
         },
 
     ],
     pages: [
-        { name: 'Company', href: '#' },
-        { name: 'Stores', href: '#' },
+        { name: 'Components', href: '/component-catalog' },
     ],
-}
-const categories = [
-    {
-        name: 'New Arrivals',
-        href: '#',
-        imageSrc: 'https://tailwindui.com/img/ecommerce-images/home-page-01-category-01.jpg',
-    },
-    {
-        name: 'Productivity',
-        href: '#',
-        imageSrc: 'https://tailwindui.com/img/ecommerce-images/home-page-01-category-02.jpg',
-    },
-    {
-        name: 'Workspace',
-        href: '#',
-        imageSrc: 'https://tailwindui.com/img/ecommerce-images/home-page-01-category-04.jpg',
-    },
-    {
-        name: 'Accessories',
-        href: '#',
-        imageSrc: 'https://tailwindui.com/img/ecommerce-images/home-page-01-category-05.jpg',
-    },
-    { name: 'Sale', href: '#', imageSrc: 'https://tailwindui.com/img/ecommerce-images/home-page-01-category-03.jpg' },
-]
-const collections = [
-    {
-        name: 'Handcrafted Collection',
-        href: '#',
-        imageSrc: 'https://tailwindui.com/img/ecommerce-images/home-page-01-collection-01.jpg',
-        imageAlt: 'Brown leather key ring with brass metal loops and rivets on wood table.',
-        description: 'Keep your phone, keys, and wallet together, so you can lose everything at once.',
-    },
-    {
-        name: 'Organized Desk Collection',
-        href: '#',
-        imageSrc: 'https://tailwindui.com/img/ecommerce-images/home-page-01-collection-02.jpg',
-        imageAlt: 'Natural leather mouse pad on white desk next to porcelain mug and keyboard.',
-        description: 'The rest of the house will still be a mess, but your desk will look great.',
-    },
-    {
-        name: 'Focus Collection',
-        href: '#',
-        imageSrc: 'https://tailwindui.com/img/ecommerce-images/home-page-01-collection-03.jpg',
-        imageAlt: 'Person placing task list card into walnut card holder next to felt carrying case on leather desk pad.',
-        description: 'Be more productive than enterprise project managers with a single piece of paper.',
-    },
-]
-const footerNavigation = {
-    shop: [
-        { name: 'Bags', href: '#' },
-        { name: 'Tees', href: '#' },
-        { name: 'Objects', href: '#' },
-        { name: 'Home Goods', href: '#' },
-        { name: 'Accessories', href: '#' },
+    features: [
+        {
+            image: 'https://images.unsplash.com/photo-1523726491678-bf852e717f6a?q=80&w=136&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+            title: 'Get Started',
+            description: 'Information on how to being using the EDS.',
+            ico: 'images/globalnav/get-started-001.svg'
+        },
+        {
+            image: 'https://images.unsplash.com/photo-1622231300439-9f4b1099afb3?q=80&w=136&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+            title: 'Get Involved',
+            description: 'Contribute, report an issue, and see what we\'re working on.',
+            ico: 'images/globalnav/get-involved-001.svg'
+        },
+        {
+            image: 'https://images.unsplash.com/photo-1620287341056-49a2f1ab2fdc?q=80&w=136&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+            title: 'Resources',
+            description: 'Various resources for working with our apps and components.',
+            ico: 'images/globalnav/resources-002.svg'
+        }
     ],
-    company: [
-        { name: 'Who we are', href: '#' },
-        { name: 'Sustainability', href: '#' },
-        { name: 'Press', href: '#' },
-        { name: 'Careers', href: '#' },
-        { name: 'Terms & Conditions', href: '#' },
-        { name: 'Privacy', href: '#' },
-    ],
-    account: [
-        { name: 'Manage Account', href: '#' },
-        { name: 'Returns & Exchanges', href: '#' },
-        { name: 'Redeem a Gift Card', href: '#' },
-    ],
-    connect: [
-        { name: 'Contact Us', href: '#' },
-        { name: 'Facebook', href: '#' },
-        { name: 'Instagram', href: '#' },
-        { name: 'Pinterest', href: '#' },
-    ],
+    comps: [
+        { name: 'Buttons', href: '/component-catalog' },
+        { name: 'Dropdowns', href: '/component-catalog' },
+        { name: 'Checkboxes', href: '/component-catalog' }
+    ]
+
 }
 
 function classNames(...classes) {
@@ -254,27 +182,28 @@ export default function Example() {
                                     </button>
                                 </div>
 
-                                {/* Links */}
+                                {/* Mobile Nav*/}
                                 <Tab.Group as="div" className="mt-2">
                                     <Tab.Panels as={Fragment}>
                                         {navigation.categories.map((category) => (
                                             <Tab.Panel key={category.name} className="space-y-12 px-4 py-6">
                                                 <div className="grid grid-cols-2 gap-x-4 gap-y-10">
-                                                    {category.featured.map((item) => (
-                                                        <div key={item.name} className="group relative">
-                                                            <div className="aspect-h-1 aspect-w-1 overflow-hidden rounded-md bg-gray-100 group-hover:opacity-75">
-                                                                <img src={item.imageSrc} alt={item.imageAlt} className="object-cover object-center" />
+                                                    {navigation.features.map((feature) => (
+                                                        <div key={feature.name} className="group relative">
+                                                            <img src={feature.image} style={{ border: '1px solid gray', borderRadius: '12px' }} />
+                                                            <div className="mt-6 flex items-center space-x-2 text-sm font-medium text-gray-900">
+                                                                <img src={feature.ico} className="w-4 h-4" alt={`${feature.name} icon`} />
+                                                                <span className="font-medium text-gray-900">
+                                                                    {feature.title}
+                                                                </span>
                                                             </div>
-                                                            <a href={item.href} className="mt-6 block text-sm font-medium text-gray-900">
-                                                                <span className="absolute inset-0 z-10" aria-hidden="true" />
-                                                                {item.name}
-                                                            </a>
-                                                            <p aria-hidden="true" className="mt-1 text-sm text-gray-500">
-                                                                Shop now
-                                                            </p>
+                                                            <div className="aspect-h-1 aspect-w-1 overflow-hidden rounded-md group-hover:opacity-75">
+                                                                <p className='nav-int-copy'>{feature.description}</p>
+                                                            </div>
                                                         </div>
                                                     ))}
                                                 </div>
+
                                             </Tab.Panel>
                                         ))}
                                     </Tab.Panels>
@@ -286,6 +215,11 @@ export default function Example() {
                                             <a href={page.href} className="-m-2 block p-2 font-medium text-gray-900">
                                                 {page.name}
                                             </a>
+                                        </div>
+                                    ))}
+                                    {navigation.comps.map((comp) => (
+                                        <div key={comp.name}>
+                                            <a href={comp.href} className='font-sm text-gray-700'>{comp.name}</a>
                                         </div>
                                     ))}
                                 </div>
@@ -326,13 +260,13 @@ export default function Example() {
 
                         {/* Secondary navigation */}
                         <div className="bg-white">
-                            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:pl-16 lg:pr-12">
+                            <div className="nav-con mx-auto max-w-7xl px-4 sm:px-6">
                                 <div>
                                     <div className="flex h-16 items-center justify-between">
                                         {/* Logo (lg+) */}
                                         <div className="hidden lg:flex lg:flex-1 lg:items-center">
                                             <a href="/">
-                                                <span className="text-black text-2xl">EDS</span>
+                                                <span className="logo-eds text-black text-2xl">EDS</span>
                                             </a>
                                         </div>
 
@@ -370,28 +304,26 @@ export default function Example() {
                                                                             {/* Presentational element used to render the bottom shadow, if we put the shadow on the actual panel it pokes out the top, so we use this shorter element to hide the top of the shadow */}
                                                                             <div className="absolute inset-0 top-1/2 bg-white shadow" aria-hidden="true" />
 
+                                                                            {/* Desktop Nav */}
                                                                             <div className="relative bg-white">
                                                                                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                                                                                     <div className="grid grid-cols-4 gap-x-8 gap-y-10 py-16">
                                                                                         {category.featured.map((item) => (
                                                                                             <div key={item.name} className="group relative">
-                                                                                                <div className="aspect-h-1 aspect-w-1 overflow-hidden rounded-md bg-gray-100 group-hover:opacity-75">
-                                                                                                    <img
-                                                                                                        src={item.imageSrc}
-                                                                                                        alt={item.imageAlt}
-                                                                                                        className="object-cover object-center"
-                                                                                                    />
+                                                                                                <div className="flex items-center space-x-1">
+                                                                                                    <img src={item.ico} className="w-4 h-4" alt={`${item.name} icon`} />
+                                                                                                    <div className="block font-medium text-gray-900">
+                                                                                                        <span className="absolute inset-0 z-10" aria-hidden="true" />
+                                                                                                        {item.name}
+                                                                                                    </div>
                                                                                                 </div>
-                                                                                                <a href={item.href} className="mt-4 block font-medium text-gray-900">
-                                                                                                    <span className="absolute inset-0 z-10" aria-hidden="true" />
-                                                                                                    {item.name}
-                                                                                                </a>
-                                                                                                <p aria-hidden="true" className="mt-1">
-                                                                                                    Shop now
-                                                                                                </p>
+                                                                                                <div className="aspect-h-1 aspect-w-1 overflow-hidden mt-1">
+                                                                                                    <p>{item.description}</p>
+                                                                                                </div>
                                                                                             </div>
                                                                                         ))}
                                                                                     </div>
+
                                                                                 </div>
                                                                             </div>
                                                                         </Popover.Panel>
@@ -405,8 +337,8 @@ export default function Example() {
                                         </div>
 
                                         {/* Logo (lg-) */}
-                                        <a href="#" className="lg:hidden">
-                                            <span className='text-black text-2xl'>EDS</span>
+                                        <a href="/" className="lg:hidden">
+                                            <span className='logo-eds text-black text-2xl'>EDS</span>
                                         </a>
 
 

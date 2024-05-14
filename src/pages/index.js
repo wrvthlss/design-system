@@ -63,7 +63,7 @@ function Home() {
     return (
         <>
             <GNav />
-            <div className="container mx-auto">
+            <div>
                 <div className="w-full">
                     <MastheadContainer /> {/* Full width component */}
                 </div>
@@ -72,7 +72,7 @@ function Home() {
                     <div className='sm:hidden'>
                         <MobileHeroCarousel />
                     </div>
-                    <div className="card-gallery md:p-7 flex">
+                    <div className="card-gallery flex">
                         <div className="hidden sm:block">
                             <LeftRail />
                         </div>

@@ -2,7 +2,7 @@ import React from 'react';
 
 function ColorCard({ bgColor, version, details, linkText, signature, date, mobile }) {
     return (
-        <div className={`${bgColor} text-white p-8 rounded-lg`} style={{ maxWidth: mobile ? "none" : "360px", marginTop: mobile ? "0px" : '126px', marginBottom: mobile ? "0px" :  "50px"}}>
+        <div className={`${bgColor} text-white p-8 rounded-lg`} style={{ maxWidth: mobile ? "none" : "420px", marginTop: mobile ? "0px" : '126px', marginBottom: mobile ? "0px" :  "50px"}}>
             <h2 className="text-2xl font-bold">{version}</h2>
             {mobile ? (
                 <>

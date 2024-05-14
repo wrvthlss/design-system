@@ -18,7 +18,7 @@ const MastheadLockup = () => (
         </p>
         <div className="flex justify-center space-x-4">
             <Button variant="primary">Get Started</Button>
-            <Button variant="ghost">Components</Button>
+            <Button variant="ghost"><a href='/component-catalog'>Components</a></Button>
         </div>
     </div>
 );
