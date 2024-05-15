@@ -4,7 +4,7 @@ const OverviewHeader = () => {
     return (
         <>
             <div className="bg-white p-4 md:p-12 mobile-hidden" style={{
-                paddingTop: '72px', // 126px top padding on desktop
+                paddingTop: '78px', // 126px top padding on desktop
                 paddingRight: '268px', // 268px right padding on desktop
                 paddingBottom: '32px', // 32px bottom padding consistently
                 paddingLeft: '22px', // 96px left padding on desktop

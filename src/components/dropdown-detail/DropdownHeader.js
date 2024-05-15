@@ -30,7 +30,7 @@ const CheckboxHeader = ({ onTabChange }) => {
 
     return (
         <div className="bg-white p-4 md:p-12" style={{
-            paddingTop: '72px',
+            paddingTop: '78px',
             paddingRight: '24px',
             paddingBottom: '0px',
             paddingLeft: '24px',
