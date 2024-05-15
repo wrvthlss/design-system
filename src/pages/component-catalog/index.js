@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import OverviewHeader from '../../components/component-catalog/OverviewHeader';
 import CatalogNav from '../../components/component-catalog/CatalogNav';
 import CompCatalog from '../../components/component-catalog/CompCatalog';
@@ -22,6 +22,29 @@ const PlaceholderContent = ({ title }) => (
 );
 
 const ComponentCatalog = () => {
+    const [showBackToTop, setShowBackToTop] = useState(false);
+    useEffect(() => {
+        const handleScroll = () => {
+            const footerElement = document.querySelector('.container');
+            if (footerElement) {
+                const footerTop = footerElement.offsetTop;
+                const scrolledToFooter = window.pageYOffset + window.innerHeight >= footerTop;
+                setShowBackToTop(scrolledToFooter);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
+
+    // Function to scroll to the top smoothly
+    const scrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
     const [currentPage, setCurrentPage] = useState("Overview");
     const [activeButtonTab, setActiveButtonTab] = useState("Overview");
     const [activeCheckboxTab, setActiveCheckboxTab] = useState("Overview");
@@ -43,6 +66,13 @@ const ComponentCatalog = () => {
 
     // Function to render content based on the current page selection
     const renderPage = () => {
+
+
+        // Function to scroll to the top smoothly
+        const scrollToTop = () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+
         switch (currentPage) {
             case "Overview":
                 return (
@@ -55,7 +85,7 @@ const ComponentCatalog = () => {
             case "Buttons":
                 return (
                     <>
-                        
+
                         <ButtonHeader onTabChange={handleButtonTabChange} />
                         {activeButtonTab === "Overview" && <ButtonOverviewContent />}
                         {activeButtonTab === "Examples" && <PlaceholderContent title="Examples" />}
@@ -90,7 +120,9 @@ const ComponentCatalog = () => {
 
     return (
         <div className="container mx-auto">
-            <GNav/>
+            <span className='cat-g-nav'>
+                <GNav />
+            </span>
 
             <div className="flex flex-col md:flex-row border-t-1">
                 <CatalogNav onChangePage={handleChangePage} className="test-color md:w-1/4 bg-gray-200 p-4" />
@@ -98,6 +130,20 @@ const ComponentCatalog = () => {
                     {renderPage()}
                 </div>
             </div>
+            {/* Back to Top Button */}
+            {showBackToTop && (
+                <button
+                    onClick={scrollToTop}
+                    className="stp-ico fixed z-50 transition-opacity duration-500 ease-in-out"
+                    style={{
+                        bottom: '5%', // 50px from the bottom
+                        right: '8%', // 50px from the right
+                        opacity: 1 // Makes the button visible when displayed
+                    }}
+                >
+                    <img src="/images/returnToTop.svg" alt="Back to Top" />
+                </button>
+            )}
             <Footer />
             <SubFooter />
         </div>

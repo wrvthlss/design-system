@@ -2,8 +2,15 @@ import React from 'react';
 import MastheadLockup from './MastheadLockup';
 
 const MastheadContainer = () => (
-    <div className="w-full h-[832px] mx-auto bg-diagonal-gradient from-masthead-start via-masthead-highlight to-masthead-end">
-        <div className="lockup-container pt-[162px]">
+    <div className="mh-bg w-full h-[832px] mx-auto relative">
+        <div className="gradient-container absolute inset-0 z-0">
+            <span className='gradient-color'></span>
+            <span className='gradient-color'></span>
+            <span className='gradient-color'></span>
+            <span className='gradient-color'></span>
+            <span className='gradient-backdrop'></span>
+        </div>
+        <div className="lockup-container absolute inset-0 z-10 flex justify-center items-center">
             <MastheadLockup />
         </div>
     </div>
