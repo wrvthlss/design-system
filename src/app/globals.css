@@ -79,7 +79,7 @@ button:focus, a:focus, input:focus {
   }
   
   .gradient-color:nth-child(1) {
-    background-color: #2b1c49;
+    background-color: #1a3673;
     animation-direction: backwards;
   }
   
@@ -88,12 +88,12 @@ button:focus, a:focus, input:focus {
   }
   
   .gradient-color:nth-child(3) {
-    background-color: #1a3673;
+    background-color: #a85cbf;
     animation-direction: backwards;
   }
   
   .gradient-color:nth-child(4) {
-    background-color: #794cfe;
+    background-color: #1a3673;
   }
   
   .gradient-backdrop {
