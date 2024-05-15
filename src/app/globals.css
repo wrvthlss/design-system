@@ -186,7 +186,7 @@ button:focus, a:focus, input:focus {
         font-size: 1.75rem!important;
     }
     .lockup-container {
-        margin-top: -400px!important;
+        height: 414px!important;
     }
     .hero-container {
         height: 344px!important;

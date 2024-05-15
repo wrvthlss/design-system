@@ -36,7 +36,7 @@ const CompCatalog = () => {
         <>
             <div className="bg-white p-4 md:p-12 mobile-hidden" style={{
                 paddingTop: '48px', // 48px top padding
-                paddingLeft: '96px', // 96px left padding on desktop
+                paddingLeft: '22px', // 96px left padding on desktop
                 paddingRight: '100px', // 268px right padding on desktop
                 paddingBottom: '32px' // Consistent bottom padding
             }}>

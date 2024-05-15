@@ -7,7 +7,7 @@ const OverviewHeader = () => {
                 paddingTop: '72px', // 126px top padding on desktop
                 paddingRight: '268px', // 268px right padding on desktop
                 paddingBottom: '32px', // 32px bottom padding consistently
-                paddingLeft: '96px', // 96px left padding on desktop
+                paddingLeft: '22px', // 96px left padding on desktop
                 color: '#000', // Black color for the title
                 backgroundColor: '#fff', // White background
                 borderBottom: '1px solid #ebebeb',
