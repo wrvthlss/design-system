@@ -63,7 +63,7 @@ function Home() {
     return (
         <>
             <GNav />
-            <div>
+            <div className='inter-font'>
                 <div className="w-full">
                     <MastheadContainer /> {/* Full width component */}
                 </div>

@@ -144,7 +144,7 @@ export default function Example() {
 
     return (
 
-        <div className="bg-white">
+        <div className="bg-white inter-font">
             {/* Mobile menu */}
             <Transition.Root show={mobileMenuOpen} as={Fragment}>
                 <Dialog className="relative z-40 lg:hidden" onClose={setMobileMenuOpen}>
@@ -264,9 +264,9 @@ export default function Example() {
                                 <div>
                                     <div className="flex h-16 items-center justify-between">
                                         {/* Logo (lg+) */}
-                                        <div className="hidden lg:flex lg:flex-1 lg:items-center">
+                                        <div className="hidden lg:flex lg:items-center mr-40">
                                             <a href="/">
-                                                <span className="logo-eds text-black text-2xl">EDS</span>
+                                                <span className="inter-font text-black text-2xl">EDS</span>
                                             </a>
                                         </div>
 
