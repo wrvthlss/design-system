@@ -2,7 +2,7 @@ import React from 'react';
 
 function ImageCard({ image, headline, details, signature, date, mobile }) {
     return (
-        <div className={mobile ? "p-0 my-5" : "mt-40"} style={{ maxWidth: mobile ? "none" : "420px"}}>
+        <div className={mobile ? "p-0 my-5" : "mt-24"} style={{ maxWidth: mobile ? "none" : "642px"}}>
             <div className={mobile ? "flex" : "block"}>
                 <img src={image} alt="Card image" className={`${mobile ? 'w-20 h-20' : 'w-full h-auto'}  image-card-image rounded-lg bg-white`} style={{ minWidth: mobile ? "80px" : "420px", minHeight: mobile ? "80px" : "240px" }} />
                 <div className={mobile ? "ml-4 flex-grow" : "mt-5"}>
@@ -14,7 +14,7 @@ function ImageCard({ image, headline, details, signature, date, mobile }) {
                         </div>
                     ) : (
                         <>
-                            <p className="text-sm mt-2 mb-2 leading-6">{details}</p>
+                            <p className="mt-2 mb-2 leading-6">{details}</p>
                             <div className="mt-2">
                                 <p className="font-bold">{signature}</p>
                                 <p>{date}</p>

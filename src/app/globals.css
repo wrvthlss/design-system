@@ -4,64 +4,85 @@
 
 
 .inter-font {
-  font-family: "Inter", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 500;
-  font-style: normal;
-  font-variation-settings:
-    "slnt" 0;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-variation-settings:
+        "slnt" 0;
 }
+
 .inter-font-bold {
-  font-family: "Inter", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 700;
-  font-style: normal;
-  font-variation-settings:
-    "slnt" 0;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-variation-settings:
+        "slnt" 0;
 }
 
 html {
     background-color: #f5f5f5;
 
 }
+
+.footer {
+    margin-top: 125px;
+}
+
 .swiper-link {
-    white-space: nowrap; /* Prevents text from wrapping */
+    white-space: nowrap;
+    /* Prevents text from wrapping */
 }
 
 .swiper-slide {
     width: 120px !important;
     margin-right: 0 !important;
 }
+
 .galleryGrid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     align-items: start;
 }
+
 .rb-c {
     border-radius: 0.5rem;
     border: 1px solid #ebebeb;
 }
+
 .clickable-icon {
     cursor: pointer;
 }
-button:focus, a:focus, input:focus {
+
+button:focus,
+a:focus,
+input:focus {
     outline: none;
     outline-offset: 2px;
 }
 
 .lockup-container {
-    height: 570px;
+    height: 870px;
 }
 
+.card-gallery {
+    padding: 0 72px;
+}
+
+.footer {
+    margin-top: 120px;
+    padding-right: 0px!important;
+}
 
 .mh-bg {
     display: grid;
     place-items: center;
     margin: 0;
     padding: 0;
-  }
-  
-  .gradient-container {
+}
+
+.gradient-container {
     width: 100%;
     height: 100%;
     display: flex;
@@ -69,9 +90,9 @@ button:focus, a:focus, input:focus {
     flex-wrap: wrap;
     overflow: hidden;
     position: relative;
-  }
-  
-  .gradient-color {
+}
+
+.gradient-color {
     width: 50%;
     height: 50%;
     display: flex;
@@ -81,38 +102,39 @@ button:focus, a:focus, input:focus {
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
     animation-direction: alternate;
-  }
-  
-  @keyframes animate {
+}
+
+@keyframes animate {
     0% {
-      border-radius: 30% 70% 70% 30% / 30% 30% 70% 60%;
-      transform: scale(2) rotate(0deg) translate(10%, 10%);
+        border-radius: 30% 70% 70% 30% / 30% 30% 70% 60%;
+        transform: scale(2) rotate(0deg) translate(10%, 10%);
     }
+
     100% {
-      border-radius: 88% 10% 22% 58% / 73% 56% 34% 77%;
-      transform: scale(2) rotate(180deg) translate(10%, -10%);
+        border-radius: 88% 10% 22% 58% / 73% 56% 34% 77%;
+        transform: scale(2) rotate(180deg) translate(10%, -10%);
     }
-  }
-  
-  .gradient-color:nth-child(1) {
+}
+
+.gradient-color:nth-child(1) {
     background-color: #1a3673;
     animation-direction: backwards;
-  }
-  
-  .gradient-color:nth-child(2) {
+}
+
+.gradient-color:nth-child(2) {
     background-color: #794cfe;
-  }
-  
-  .gradient-color:nth-child(3) {
+}
+
+.gradient-color:nth-child(3) {
     background-color: #a85cbf;
     animation-direction: backwards;
-  }
-  
-  .gradient-color:nth-child(4) {
+}
+
+.gradient-color:nth-child(4) {
     background-color: #1a3673;
-  }
-  
-  .gradient-backdrop {
+}
+
+.gradient-backdrop {
     width: 100%;
     height: 100%;
     display: block;
@@ -121,17 +143,30 @@ button:focus, a:focus, input:focus {
     top: 0;
     background: transparent;
     backdrop-filter: blur(120px)
-  }
+}
+
+.crd-col {
+    padding-top: 0px!important;
+}
+
+.container-catalog {
+    max-width: 100%!important;
+}
+
 
 /* Tailwind CSS for Card Components */
-.colorCard, .imageCard {
-    @apply w-full sm:w-auto; /* Full width on mobile, auto width on desktop */
-  }
-  
+.colorCard,
+.imageCard {
+    @apply w-full sm:w-auto;
+    /* Full width on mobile, auto width on desktop */
+}
+
 @media (max-width: 640px) {
     .galleryGrid {
-        grid-template-columns: 1fr; /* Makes it a single column on small screens */
-        gap: 20px; /* Adjust gap for mobile, if necessary */
+        grid-template-columns: 1fr;
+        /* Makes it a single column on small screens */
+        gap: 20px;
+        /* Adjust gap for mobile, if necessary */
     }
 }
 
@@ -139,7 +174,8 @@ button:focus, a:focus, input:focus {
 @media (min-width: 640px) {
     .cardGallery {
         margin-left: auto;
-        max-width: calc(100% - 76px); /* Ensure it aligns with the rest of the content on desktop */
+        max-width: calc(100% - 76px);
+        /* Ensure it aligns with the rest of the content on desktop */
     }
 }
 
@@ -155,90 +191,231 @@ button:focus, a:focus, input:focus {
 
 
 @media (max-width: 1024px) {
-    .left-card-column {
-        margin-right: 64px!important;
-    }
     .image-card-image {
-        min-width: 0!important;
-        min-height: 0!important;
-        max-width: 280px;
-        max-height: 200px;
+        min-width: 0 !important;
+        min-height: 0 !important;
     }
+
+    .bg-card-blue {
+        margin-top: 58px !important;
+    }
+
     .logo-container {
-        padding-left: 1.5rem!important;
+        padding-left: 1.5rem !important;
     }
-    .nav-pipe{
+
+    .nav-pipe {
         display: none;
     }
+
     .search-ico-container {
-        margin-right: 2rem!important;
+        margin-right: 2rem !important;
     }
+
     .left-rail-updates {
         font-size: 1.75rem;
     }
+
     .card-gallery {
-        padding: 0!important;
+        padding: 0 64px !important;
     }
+
     .nav-con {
-        padding: 0 60px 0 70px!important;
+        padding: 0 60px 0 70px !important;
     }
+
     .stp-ico {
-        bottom: 5%!important;
-        right: 3%!important;
+        bottom: 5% !important;
+        right: 3% !important;
     }
+
     .cat-g-nav .nav-con {
-        padding-left: 33px!important;
+        padding-left: 33px !important;
     }
+
+    .lgo {
+        padding-right: 0px !important;
+        margin-right: 64px !important;
+    }
+
+    .hero-container {
+        background-position: 532px !important;
+    }
+
+    .left-card-column {
+        margin-right: 3rem !important;
+    }
+    .crd-col {
+        padding-top: 61px!important;
+    }
+    .footer {
+        padding-left: 3rem!important;
+        padding-right: 1rem!important;
+    }
+}
+
+
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0;
+    }
+
+    .CatalogNav {
+        width: 100%;
+        order: -1;
+        /* Moves navigation to the top on mobile */
+    }
+
+    .mobile-hidden {
+        display: none !important;
+        font-size: x-large;
+    }
+
+    .cat-g-nav .nav-con {
+        padding-left: 28px !important;
+    }
+
+    .hero-container {
+        background-position: 500px !important;
+    }
+
+    .crd-col {
+        display: flow !important;
+    }
+
+    .left-card-column {
+        margin-right: 0!important;
+    }
+
+    .clr-crd {
+        max-width: 460px!important;
+        margin-top: 101px!important;
+    }
+
+    .bg-card-blue {
+        max-width: 460px !important;
+
+    }
+
+    .bg-card-purple {
+        max-width: 460px !important;
+
+    }
+
+    .bg-card-lightblue {
+        max-width: 460px !important;
+
+    }
+
+    .bg-card-green {
+        max-width: 460px !important;
+
+    }
+
+    .left-rail-updates h2 {
+        font-size: 1.35rem!important;
+        padding-bottom: 0.25rem!important;
+    }
+
+    .rc-offset {
+        margin-top: 5rem!important;
+    }
+
+    .crd-col {
+        padding-top: 0px!important;
+    }
+    .dm-tog {
+        display: none!important;
+    }
+
+    .mn-con {
+        padding-left: 529px!important;
+    }
+
 }
 
 @media (max-width: 425px) {
     .lockup-body-text {
         padding: 0 25px 0 25px;
     }
+
     .hero-headline {
-        font-size: 3.5rem!important;
+        font-size: 3.15rem !important;
     }
+
     .hero-sub-headline {
-        font-size: 1.75rem!important;
+        font-size: 1.75rem !important;
     }
+
     .lockup-container {
-        height: 414px!important;
+        height: 750px !important;
     }
+
     .hero-container {
-        height: 344px!important;
-        margin-top: -414px!important;
-        padding: 28px 0 28px 0;
+        height: 436px !important;
+        margin-top: -396px !important;
+        padding: 72px 0 36px 0;
     }
+
     .hero-lockup {
-        height: 103%!important;
+        height: 103% !important;
     }
+
     .nav-con {
-        padding: 0 30px 0 40px!important;
+        padding: 0 30px 0 40px !important;
     }
+
     .stp-ico {
-        right: 6%!important;
-        bottom: 3%!important;
+        right: 6% !important;
+        bottom: 3% !important;
     }
+
     .gradient-container {
-        height:83%!important;
-        margin-top:-150px!important;
+        height: 83% !important;
+        margin-top: -188px !important;
+    }
+
+    .mhl h1 {
+        font-size: 36px !important;
+        padding: 0 24px 0 24px;
+    }
+
+    .mhl .btn-l {
+        padding-left: 24px !important;
+        padding-right: 24px !important;
+    }
+
+    .mhl .btn-r {
+        padding-left: 24px !important;
+        padding-right: 24px !important;
+    }
+
+    .mhl .btn-con {
+        padding-left: 24px !important;
+    }
+
+    .lkup {
+        padding-top: 0 !important;
+    }
+    .card-gallery {
+        padding: 0px!important;
+    }
+    .clr-crd {
+        margin-top: 10px!important;
+    }
+    .footer {
+        margin-top: 0px!important;
+        padding-left: 3rem!important;
+        padding-right: 2rem!important;
+    }
+    .footer h3 {
+        font-size: 1.025rem;
+    }
+    .dm-tog {
+        display: none!important;
+    }
+    .mn-con {
+        padding-left: 230px!important;
     }
 }
-
-@media (max-width: 768px) {
-    .container {
-        padding: 0;
-    }
-    .CatalogNav {
-        width: 100%;
-        order: -1; /* Moves navigation to the top on mobile */
-    }
-    .mobile-hidden {
-        display: none !important;
-        font-size: x-large;
-    }
-    .cat-g-nav .nav-con {
-        padding-left: 28px!important;
-    }
-}
-

@@ -119,7 +119,7 @@ const ComponentCatalog = () => {
     };
 
     return (
-        <div className="container mx-auto">
+        <div className="container-catalog mx-auto">
             <span className='cat-g-nav'>
                 <GNav />
             </span>

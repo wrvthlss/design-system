@@ -66,8 +66,6 @@ function Home() {
             <div className='inter-font'>
                 <div className="w-full">
                     <MastheadContainer /> {/* Full width component */}
-                </div>
-                <div className="lg:px-19"> {/* Adds 76px padding inside the component for all other components */}
                     <MastheadHero />
                     <div className='sm:hidden'>
                         <MobileHeroCarousel />
@@ -77,7 +75,7 @@ function Home() {
                             <LeftRail />
                         </div>
                         <div className='hidden sm:block flex-grow' style={{ marginLeft: 'auto', maxWidth: 'calc(80% - 46px)' }}>
-                            <div className="flex">
+                            <div className="crd-col flex">
                                 {/* Left Column */}
                                 <div className="flex-1 left-card-column md:mr-0 lg:mr-24">
                                     {leftColumnCards.map((card) => {
@@ -86,7 +84,7 @@ function Home() {
                                     })}
                                 </div>
                                 {/* Right Column with top offset */}
-                                <div className="flex-1 mt-32">
+                                <div className="flex-1 mt-32 rc-offset">
                                     {rightColumnCards.map((card) => {
                                         const Component = card.type === 'ColorCard' ? ColorCard : ImageCard;
                                         return <Component key={card.id} {...card} />;

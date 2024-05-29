@@ -150,9 +150,6 @@ export default function Example() {
         };
 
         document.addEventListener('mousedown', handleClickOutside);
-        return () => {
-            document.removeEventListener('mousedown', handleClickOutside);
-        };
     }, []);
 
     return (
@@ -186,11 +183,11 @@ export default function Example() {
                                 <div className="flex px-4 pb-2 pt-5">
                                     <button
                                         type="button"
-                                        className="-m-2 pl-48 inline-flex items-center justify-center rounded-md p-2 text-gray-400"
+                                        className="mnav-trigger -m-2 pl-48 inline-flex items-center justify-center rounded-md p-2 text-gray-400"
                                         onClick={() => setMobileMenuOpen(false)}
                                     >
                                         <span className="sr-only">Close menu</span>
-                                        <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                                        <XMarkIcon className="h-6 w-40" aria-hidden="true" />
                                     </button>
                                 </div>
 
@@ -243,6 +240,9 @@ export default function Example() {
                                         <a href="#" className="p-2 text-black">
                                             <img src={figmaIcon} alt="Figma" width={15} />
                                         </a>
+                                        <a href="#" className="p-2 ml-48">
+                                            <img src={modeIcon} alt="Mode Toggle" width={20} onClick={toggleMode} />
+                                        </a>
                                     </div>
 
                                 </div>
@@ -276,7 +276,7 @@ export default function Example() {
                                 <div>
                                     <div className="flex h-16 items-center justify-between">
                                         {/* Logo (lg+) */}
-                                        <div className="hidden lg:flex lg:items-center mr-40">
+                                        <div className="hidden lg:flex lg:items-center mr-40 lgo">
                                             <a href="/">
                                                 <span className="inter-font text-black text-2xl">EDS</span>
                                             </a>
@@ -291,12 +291,11 @@ export default function Example() {
                                                                     <div className="relative flex nav-label">
                                                                         <Popover.Button
                                                                             className={classNames(
-                                                                                'relative z-10 flex items-center justify-center font-medium transition-colors duration-200 ease-out',
-                                                                                activeIndex === index && 'font-bold text-black'
+                                                                                'relative z-10 flex items-center justify-center',
                                                                             )}
                                                                             onClick={(e) => {
                                                                                 e.stopPropagation();
-                                                                                setActiveIndex(activeIndex === index ? null : index);
+                                                                                setActiveIndex(activeIndex !== index ? null : index);
                                                                             }}
                                                                         >
                                                                             {category.name}
@@ -344,14 +343,14 @@ export default function Example() {
                                         </a>
 
 
-                                        <div className="flex flex-1 items-center justify-end">
+                                        <div className="mn-con flex flex-1 items-center justify-end">
                                             <div className="flex items-center lg:ml-8">
 
                                                 {/* Mobile menu(lg-) */}
-                                                <div className="flex flex-1 items-center lg:hidden">
-                                                    <button type="button" className="-ml-2 p-2 text-black" onClick={() => setMobileMenuOpen(true)}>
+                                                <div className="flex flex-1 lg:hidden">
+                                                    <button type="button" className=" text-black" onClick={() => setMobileMenuOpen(true)}>
                                                         <span className="sr-only">Open menu</span>
-                                                        <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+                                                        <Bars3Icon className="h-6 w-24" aria-hidden="true" />
                                                     </button>
                                                 </div>
 
@@ -369,7 +368,7 @@ export default function Example() {
                                                 </a>
 
                                                 {/* Cart */}
-                                                <div className="ml-4 flow-root lg:ml-8">
+                                                <div className="ml-4 dm-tog flow-root lg:ml-8">
                                                     <a href="#" className="group -m-2 flex items-center p-2">
                                                         <img src={modeIcon} alt="Mode Toggle" width={20} onClick={toggleMode} />
                                                     </a>

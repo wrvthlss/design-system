@@ -2,7 +2,7 @@ import React from 'react';
 import MastheadLockup from './MastheadLockup';
 
 const MastheadContainer = () => (
-    <div className="mh-bg w-full h-[832px] mx-auto relative">
+    <div className="mh-bg w-full h-screen mx-auto relative">
         <div className="gradient-container absolute inset-0 z-0">
             <span className='gradient-color'></span>
             <span className='gradient-color'></span>
