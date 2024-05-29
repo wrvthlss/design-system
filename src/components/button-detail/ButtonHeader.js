@@ -43,7 +43,7 @@ const ButtonHeader = ({ onTabChange }) => {
                 Buttons initiate actions, with their labels clearly indicating what will happen when interacted
                 with by users, ensuring an intuitive user experience.
             </p>
-            <div className="sticky mt-8 flex gap-6">
+            <div className="relative mt-8 flex gap-6">
                 {tabs.map((tab, index) => (
                     <span
                         key={index}
