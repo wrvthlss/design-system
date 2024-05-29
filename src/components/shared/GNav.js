@@ -1,4 +1,4 @@
-import { Fragment, useState } from 'react'
+import { Fragment, useState, useEffect, useRef } from 'react'
 import { Dialog, Popover, Tab, Transition } from '@headlessui/react'
 import {
     Bars3Icon,
@@ -134,17 +134,29 @@ export default function Example() {
     const [isLightMode, setLightMode] = useState(true);
     const toggleMode = () => setLightMode(!isLightMode);
 
-
     const searchIcon = '/images/globalnav/search.svg';
     const githubIcon = '/images/globalnav/github.svg';
     const figmaIcon = '/images/globalnav/figma.svg';
     const modeIcon = (isLightMode ? '/images/globalnav/light.svg' : '/images/globalnav/dark.svg');
 
+    const [activeIndex, setActiveIndex] = useState(null);
+    const navRef = useRef(null);
 
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (navRef.current && !navRef.current.contains(event.target)) {
+                setActiveIndex(null);
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
 
     return (
-
-        <div className="bg-white inter-font">
+        <div className="bg-white inter-font sticky top-0 z-50">
             {/* Mobile menu */}
             <Transition.Root show={mobileMenuOpen} as={Fragment}>
                 <Dialog className="relative z-40 lg:hidden" onClose={setMobileMenuOpen}>
@@ -191,7 +203,7 @@ export default function Example() {
                                                     {navigation.features.map((feature) => (
                                                         <div key={feature.name} className="group relative">
                                                             <img src={feature.image} style={{ border: '1px solid gray', borderRadius: '12px' }} />
-                                                            <div className="mt-6 flex items-center space-x-2 text-sm font-medium text-gray-900">
+                                                            <div className="mt-6 flex items-center space-x-2 font-medium text-gray-900">
                                                                 <img src={feature.ico} className="w-4 h-4" alt={`${feature.name} icon`} />
                                                                 <span className="font-medium text-gray-900">
                                                                     {feature.title}
@@ -219,7 +231,7 @@ export default function Example() {
                                     ))}
                                     {navigation.comps.map((comp) => (
                                         <div key={comp.name}>
-                                            <a href={comp.href} className='font-sm text-gray-700'>{comp.name}</a>
+                                            <a href={comp.href} className='text-gray-700'>{comp.name}</a>
                                         </div>
                                     ))}
                                 </div>
@@ -269,70 +281,60 @@ export default function Example() {
                                                 <span className="inter-font text-black text-2xl">EDS</span>
                                             </a>
                                         </div>
-
-                                        <div className="hidden h-full lg:flex">
-                                            {/* Flyout menus */}
+                                        <div ref={navRef} className="hidden h-full lg:flex">
                                             <Popover.Group className="inset-x-0 bottom-0 px-4">
-                                                <div className="flex h-full justify-center space-x-8">
-                                                    {navigation.categories.map((category) => (
+                                                <div className="flex h-full justify-center space-x-16">
+                                                    {navigation.categories.map((category, index) => (
                                                         <Popover key={category.name} className="flex">
                                                             {({ open }) => (
                                                                 <>
-                                                                    <div className="relative flex">
-                                                                        <Popover.Button className="relative z-10 flex items-center justify-center text-sm font-medium text-black transition-colors duration-200 ease-out">
+                                                                    <div className="relative flex nav-label">
+                                                                        <Popover.Button
+                                                                            className={classNames(
+                                                                                'relative z-10 flex items-center justify-center font-medium transition-colors duration-200 ease-out',
+                                                                                activeIndex === index && 'font-bold text-black'
+                                                                            )}
+                                                                            onClick={(e) => {
+                                                                                e.stopPropagation();
+                                                                                setActiveIndex(activeIndex === index ? null : index);
+                                                                            }}
+                                                                        >
                                                                             {category.name}
-                                                                            <span
-                                                                                className={classNames(
-                                                                                    open ? 'bg-black' : '',
-                                                                                    'absolute inset-x-0 -bottom-px h-0.5 transition duration-200 ease-out'
-                                                                                )}
-                                                                                aria-hidden="true"
+                                                                            <ChevronDownIcon
+                                                                                className={classNames('ml-1 h-6 w-6 pb-1')}
                                                                             />
                                                                         </Popover.Button>
                                                                     </div>
 
-                                                                    <Transition
-                                                                        as={Fragment}
-                                                                        enter="transition ease-out duration-200"
-                                                                        enterFrom="opacity-0"
-                                                                        enterTo="opacity-100"
-                                                                        leave="transition ease-in duration-150"
-                                                                        leaveFrom="opacity-100"
-                                                                        leaveTo="opacity-0"
-                                                                    >
-                                                                        <Popover.Panel className="absolute inset-x-0 top-full text-sm text-gray-500">
-                                                                            {/* Presentational element used to render the bottom shadow, if we put the shadow on the actual panel it pokes out the top, so we use this shorter element to hide the top of the shadow */}
-                                                                            <div className="absolute inset-0 top-1/2 bg-white shadow" aria-hidden="true" />
-
-                                                                            {/* Desktop Nav */}
-                                                                            <div className="relative bg-white">
-                                                                                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                                                                                    <div className="grid grid-cols-4 gap-x-8 gap-y-10 py-16">
-                                                                                        {category.featured.map((item) => (
-                                                                                            <div key={item.name} className="group relative">
-                                                                                                <div className="flex items-center space-x-1">
-                                                                                                    <img src={item.ico} className="w-4 h-4" alt={`${item.name} icon`} />
-                                                                                                    <div className="block font-medium text-gray-900">
-                                                                                                        <span className="absolute inset-0 z-10" aria-hidden="true" />
-                                                                                                        {item.name}
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <div className="aspect-h-1 aspect-w-1 overflow-hidden mt-1">
-                                                                                                    <p>{item.description}</p>
+                                                                    <Popover.Panel className="absolute inset-x-0 top-fulltext-gray-500 popover-panel mt-12">
+                                                                        <div className="absolute inset-0 top-1/2 bg-white shadow" aria-hidden="true" />
+                                                                        <div className="relative bg-white">
+                                                                            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                                                                                <div className="grid grid-cols-4 gap-x-8 gap-y-10 py-16">
+                                                                                    {category.featured.map((item) => (
+                                                                                        <div key={item.name} className="group relative">
+                                                                                            <div className="flex items-center space-x-1">
+                                                                                                <img src={item.ico} className="w-6 h-6" alt={`${item.name} icon`} />
+                                                                                                <div className="block text-gray-900 mt-0 text-lg">
+                                                                                                    <span className="absolute inset-0 z-10" aria-hidden="true" />
+                                                                                                    {item.name}
                                                                                                 </div>
                                                                                             </div>
-                                                                                        ))}
-                                                                                    </div>
-
+                                                                                            <div className="aspect-h-1 aspect-w-1 overflow-hidden mt-1">
+                                                                                                <p>{item.description}</p>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    ))}
                                                                                 </div>
                                                                             </div>
-                                                                        </Popover.Panel>
-                                                                    </Transition>
+                                                                        </div>
+                                                                    </Popover.Panel>
                                                                 </>
                                                             )}
                                                         </Popover>
                                                     ))}
                                                 </div>
+
                                             </Popover.Group>
                                         </div>
 
@@ -380,9 +382,7 @@ export default function Example() {
                         </div>
                     </nav>
                 </header>
-
             </div>
-
-        </div >
+        </div>
     )
 }
