@@ -21,14 +21,15 @@
         "slnt" 0;
 }
 
+.acccon {
+    padding-left: 56px!important;
+}
+
 html {
     background-color: #f5f5f5;
 
 }
 
-.footer {
-    margin-top: 125px;
-}
 
 .swiper-link {
     white-space: nowrap;
@@ -71,8 +72,21 @@ input:focus {
 }
 
 .footer {
-    margin-top: 120px;
     padding-right: 0px!important;
+}
+
+.left-card-column {
+    margin-top: -42px;
+}
+
+.nav-con {
+    max-width: 100%;
+    padding: 0 70px!important;
+}
+
+.lkup {
+    padding-top: 22rem!important;
+    padding-left: 45px!important;
 }
 
 .mh-bg {
@@ -102,6 +116,10 @@ input:focus {
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
     animation-direction: alternate;
+}
+
+.mhl {
+    
 }
 
 @keyframes animate {
@@ -196,6 +214,9 @@ input:focus {
         min-height: 0 !important;
     }
 
+.acccon {
+    padding-left: 22px!important;
+}
     .bg-card-blue {
         margin-top: 58px !important;
     }
@@ -220,10 +241,6 @@ input:focus {
         padding: 0 64px !important;
     }
 
-    .nav-con {
-        padding: 0 60px 0 70px !important;
-    }
-
     .stp-ico {
         bottom: 5% !important;
         right: 3% !important;
@@ -243,7 +260,8 @@ input:focus {
     }
 
     .left-card-column {
-        margin-right: 3rem !important;
+        margin-right: 3rem!important;
+        margin-top: -25px!important
     }
     .crd-col {
         padding-top: 61px!important;
@@ -251,6 +269,9 @@ input:focus {
     .footer {
         padding-left: 3rem!important;
         padding-right: 1rem!important;
+    }
+    .mhl {
+        margin-top: -32%!important;
     }
 }
 
@@ -332,7 +353,12 @@ input:focus {
     .mn-con {
         padding-left: 529px!important;
     }
-
+    .mhl {
+        margin-top: -43%!important;
+    }
+    .mobi-bars {
+        margin-right: -60px!important;
+    }
 }
 
 @media (max-width: 425px) {
@@ -396,8 +422,9 @@ input:focus {
     }
 
     .lkup {
-        padding-top: 0 !important;
+        padding-top: 40px!important;
     }
+
     .card-gallery {
         padding: 0px!important;
     }
@@ -417,5 +444,16 @@ input:focus {
     }
     .mn-con {
         padding-left: 230px!important;
+    }
+    .mhl {
+        margin-top: -83%!important;
+    }
+    .info-footer {
+        padding-left: 36px!important;
+        padding-right: 50px!important;
+        line-height: 18px!important;
+    }
+    .mobi-bars {
+        margin-right: -22px!important;
     }
 }

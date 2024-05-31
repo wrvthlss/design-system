@@ -37,7 +37,7 @@ const AccordionComp = ({ onChangePage }) => {
 
 
     return (
-        <div className="hidden lg:block p-4 relative">
+        <div className="hidden lg:block p-4 relative pl-14">
             <div className="flex items-center justify-between cursor-pointer" onClick={toggleAccordion}>
                 <h2 className="text-lg font-semibold mr-3">Components</h2>
                 <div className={`transform transition-transform ${isOpen ? 'rotate-180' : ''}`}>

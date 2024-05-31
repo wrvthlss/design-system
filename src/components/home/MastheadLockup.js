@@ -11,19 +11,22 @@ const Button = ({ children, variant = "primary", className = "" }) => {
 };
 
 const MastheadLockup = () => (
-    <div className="space-y-7 mhl">
-        <h1 className="text-white text-6xl font-bold inter-font-bold">
-            Unify Your Vision,<br/> Elevate Your Design.
-        </h1>
-        <p className="lockup-body-text text-white max-w-xl inter-font">
-            EDS is Elevance Health's enterprise product design system, aiding in upholding user experience
-            integrity and maximizing design and development resources.
-        </p>
-        <div className="btn-con flex space-x-4">
-            <Button variant="primary" className='btn-l'>Get Started</Button>
-            <Button variant="ghost" className='btn-r'><a href='/component-catalog'>Components</a></Button>
+    <div className='flex items-center justify-center h-screen'>
+        <div className="space-y-7">
+            <h1 className="text-white text-6xl font-bold inter-font-bold">
+                Unify Your Vision,<br /> Elevate Your Design.
+            </h1>
+            <p className="lockup-body-text text-white max-w-xl inter-font">
+                EDS is Elevance Health's enterprise product design system, aiding in upholding user experience
+                integrity and maximizing design and development resources.
+            </p>
+            <div className="btn-conflex space-x-4">
+                <Button variant="primary" className='btn-l'>Get Started</Button>
+                <Button variant="ghost" className='btn-r'><a href='/component-catalog'>Components</a></Button>
+            </div>
         </div>
     </div>
+
 );
 
 export default MastheadLockup;

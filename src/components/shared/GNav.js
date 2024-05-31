@@ -179,7 +179,7 @@ export default function Example() {
                             leaveFrom="translate-x-0"
                             leaveTo="translate-x-full"
                         >
-                            <Dialog.Panel className="relative flex w-full max-w-xs flex-col overflow-y-auto bg-white pb-12 shadow-xl">
+                            <Dialog.Panel className="relative flex w-full max-w-xs flex-col overflow-y-auto bg-white pb-12 shadow-xl" style={{overflowX: 'hidden'}}>
                                 <div className="flex px-4 pb-2 pt-5">
                                     <button
                                         type="button"
@@ -272,7 +272,7 @@ export default function Example() {
 
                         {/* Secondary navigation */}
                         <div className="bg-white">
-                            <div className="nav-con mx-auto max-w-7xl px-4 sm:px-6">
+                            <div className="nav-con sm:px-6">
                                 <div>
                                     <div className="flex h-16 items-center justify-between">
                                         {/* Logo (lg+) */}
@@ -350,7 +350,7 @@ export default function Example() {
                                                 <div className="flex flex-1 lg:hidden">
                                                     <button type="button" className=" text-black" onClick={() => setMobileMenuOpen(true)}>
                                                         <span className="sr-only">Open menu</span>
-                                                        <Bars3Icon className="h-6 w-24" aria-hidden="true" />
+                                                        <Bars3Icon className="h-6 w-24 mobi-bars" aria-hidden="true" />
                                                     </button>
                                                 </div>
 
