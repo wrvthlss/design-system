@@ -1,6 +1,5 @@
 import type { Preview } from "@storybook/react";
-import { fn } from '@storybook/test'
-import '../src/demo/tokens.css'
+import '../src/demo/tokens.css';
 
 const preview: Preview = {
   parameters: {
@@ -16,9 +15,8 @@ const preview: Preview = {
       showSearch: true,
       editable: true,
     },
-    actions: {
-      handles: ['mouseover', 'click .btn'],
-    },
+    actions: { disable: true }, // Disable the Actions tab
+    interactions: { disable: true }, // Disable the Interactions tab
     backgrounds: {
       default: 'light',
       values: [
@@ -31,6 +29,7 @@ const preview: Preview = {
         type: 'code',
       },
     },
+    layout: 'bottom', // Set the addon panel orientation to the bottom
   },
 };
 

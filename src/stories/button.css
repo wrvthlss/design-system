@@ -6,9 +6,13 @@
   border: 0;
   border-radius: 3em;
   cursor: pointer;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   line-height: 1;
+  padding: 0.5em 1em;
+  transition: background-color 0.3s ease-in-out; /* Add this line for transition */
 }
+
 .storybook-button--primary {
   color: white;
   background-color: var(--brand);
@@ -29,4 +33,12 @@
 .storybook-button--large {
   font-size: 16px;
   padding: 12px 24px;
+}
+.icon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-color: var(--w100); /* Example color */
+  margin-right: 8px;
+  flex-shrink: 0; /* Prevent icon from shrinking */
 }

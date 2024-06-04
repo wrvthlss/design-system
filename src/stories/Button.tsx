@@ -8,6 +8,7 @@ interface ButtonProps {
   activeBackgroundColor?: string;
   size?: "small" | "medium" | "large";
   label: string;
+  showIcon?: boolean;
   onClick?: () => void;
 }
 
@@ -18,6 +19,7 @@ export const Button = ({
   hoverBackgroundColor,
   activeBackgroundColor,
   label,
+  showIcon = false,
   ...props
 }: ButtonProps) => {
   const mode = primary ? "storybook-button--primary" : "storybook-button--secondary";
@@ -53,6 +55,7 @@ export const Button = ({
         }
       }}
     >
+      {showIcon && <span className="icon"></span>}
       {label}
     </button>
   );

@@ -23,7 +23,6 @@
     "swiper": "^11.1.1"
   },
   "devDependencies": {
-    "@chromatic-com/storybook": "^1.5.0",
     "@storybook/addon-essentials": "^8.1.5",
     "@storybook/addon-interactions": "^8.1.5",
     "@storybook/addon-links": "^8.1.5",
