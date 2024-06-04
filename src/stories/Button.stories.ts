@@ -58,8 +58,7 @@ export const Primary: Story = {
     initialBackgroundColor: '--p100',
     hoverBackgroundColor: '--p200',
     activeBackgroundColor: '--p300',
-    showIcon: true,
-    size: "large"
+    showIcon: false,
   },
 };
 
