@@ -1,4 +1,5 @@
 import type { Preview } from "@storybook/react";
+import { fn } from '@storybook/test'
 import '../src/demo/tokens.css'
 
 const preview: Preview = {
@@ -15,7 +16,9 @@ const preview: Preview = {
       showSearch: true,
       editable: true,
     },
-    actions: { argTypesRegex: "^on[A-Z].*" },
+    actions: {
+      handles: ['mouseover', 'click .btn'],
+    },
     backgrounds: {
       default: 'light',
       values: [
