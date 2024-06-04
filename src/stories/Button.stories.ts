@@ -10,6 +10,19 @@ const meta: Meta<typeof Button> = {
       description: 'Background color (accepts CSS color or CSS variable, e.g., --b100)',
     },
   },
+  parameters: {
+    storySource: {
+      source: `
+        export const Primary: Story = {
+          args: {
+            primary: true,
+            label: "Button",
+            backgroundColor: '--b100',
+          },
+        };
+      `,
+    },
+  },
 };
 
 export default meta;

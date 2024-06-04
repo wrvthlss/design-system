@@ -14,7 +14,20 @@ const preview: Preview = {
       defaultTab: "Colors",
       showSearch: true,
       editable: true,
-    }
+    },
+    actions: { argTypesRegex: "^on[A-Z].*" },
+    backgrounds: {
+      default: 'light',
+      values: [
+        { name: 'light', value: '#ffffff' },
+        { name: 'dark', value: '#000000' },
+      ],
+    },
+    docs: {
+      source: {
+        type: 'code',
+      },
+    },
   },
 };
 
