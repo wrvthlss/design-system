@@ -1,15 +1,21 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Button } from "./Button";
-import { fn } from '@storybook/test';
 
 const meta: Meta<typeof Button> = {
   title: "Example/Button",
   component: Button,
   argTypes: {
-    onClick: { action: 'clicked' }, // Explicitly define actions here
-    backgroundColor: {
+    initialBackgroundColor: {
       control: 'text',
-      description: 'Background color (accepts CSS color or CSS variable, e.g., --b100)',
+      description: 'Initial background color (accepts CSS color or CSS variable, e.g., --b100)',
+    },
+    hoverBackgroundColor: {
+      control: 'text',
+      description: 'Hover background color (accepts CSS color or CSS variable, e.g., --b500)',
+    },
+    activeBackgroundColor: {
+      control: 'text',
+      description: 'Active background color (accepts CSS color or CSS variable, e.g., --b900)',
     },
   },
   parameters: {
@@ -19,7 +25,9 @@ const meta: Meta<typeof Button> = {
           args: {
             primary: true,
             label: "Button",
-            backgroundColor: '--b100',
+            initialBackgroundColor: '--b100',
+            hoverBackgroundColor: '--b500',
+            activeBackgroundColor: '--b900',
           },
         };
       `,
@@ -34,19 +42,8 @@ export const Primary: Story = {
   args: {
     primary: true,
     label: "Button",
-    backgroundColor: '--b100',
-  },
-  // Add explicit actions using fn
-  parameters: {
-    actions: { handles: [fn(() => console.log('Button clicked'))] },
-  },
-};
-
-export const ColorsOnly: Story = {
-  args: { ...Primary.args },
-  parameters: {
-    designToken: {
-      tabs: ['Colors'],
-    },
+    initialBackgroundColor: '--b100',
+    hoverBackgroundColor: '--b500',
+    activeBackgroundColor: '--b900',
   },
 };

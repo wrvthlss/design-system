@@ -3,7 +3,9 @@ import "./button.css";
 
 interface ButtonProps {
   primary?: boolean;
-  backgroundColor?: string;
+  initialBackgroundColor?: string;
+  hoverBackgroundColor?: string;
+  activeBackgroundColor?: string;
   size?: "small" | "medium" | "large";
   label: string;
   onClick?: () => void;
@@ -12,23 +14,44 @@ interface ButtonProps {
 export const Button = ({
   primary = false,
   size = "medium",
-  backgroundColor,
+  initialBackgroundColor,
+  hoverBackgroundColor,
+  activeBackgroundColor,
   label,
   ...props
 }: ButtonProps) => {
   const mode = primary ? "storybook-button--primary" : "storybook-button--secondary";
 
-  // Apply CSS variable if it starts with --
-  const bgColor = backgroundColor && backgroundColor.startsWith('--')
-    ? `var(${backgroundColor})`
-    : backgroundColor;
-
   return (
     <button
       type="button"
       className={["storybook-button", `storybook-button--${size}`, mode].join(" ")}
-      style={{ backgroundColor: bgColor }}
+      style={{ 
+        backgroundColor: initialBackgroundColor && initialBackgroundColor.startsWith('--')
+          ? `var(${initialBackgroundColor})`
+          : initialBackgroundColor,
+      }}
       {...props}
+      onMouseOver={(e) => {
+        if (hoverBackgroundColor && hoverBackgroundColor.startsWith('--')) {
+          e.currentTarget.style.backgroundColor = `var(${hoverBackgroundColor})`;
+        }
+      }}
+      onMouseOut={(e) => {
+        if (initialBackgroundColor && initialBackgroundColor.startsWith('--')) {
+          e.currentTarget.style.backgroundColor = `var(${initialBackgroundColor})`;
+        }
+      }}
+      onMouseDown={(e) => {
+        if (activeBackgroundColor && activeBackgroundColor.startsWith('--')) {
+          e.currentTarget.style.backgroundColor = `var(${activeBackgroundColor})`;
+        }
+      }}
+      onMouseUp={(e) => {
+        if (hoverBackgroundColor && hoverBackgroundColor.startsWith('--')) {
+          e.currentTarget.style.backgroundColor = `var(${hoverBackgroundColor})`;
+        }
+      }}
     >
       {label}
     </button>
