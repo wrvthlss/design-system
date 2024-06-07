@@ -38,7 +38,7 @@ const ButtonOverviewContent = () => {
                         </h2>
 
                         {/* Main Description */}
-                        <p className="text text-gray-700 mt-4 mb-6" style={{ lineHeight: '24px' }}>
+                        <p className="text-gray-700 mt-4 mb-6" style={{ lineHeight: '24px' }}>
                             Primary buttons are designed to capture users' attention and guide them towards the most important actions within the interface. These buttons are used for primary call-to-action (CTA) tasks such as "Submit", "Save", "Continue", or "Join Now". Due to their significant role, primary buttons should be used sparingly to highlight key actions and avoid overwhelming users with too many focal points.
                         </p>
 
@@ -64,7 +64,7 @@ const ButtonOverviewContent = () => {
                         </p>
 
                         <h3 className='text-base font-bold text-black leading-8'>Live Demo</h3>
-                        <p className='text text-gray-700 mt-2 leading-6'>Dive into the full capabilities of our button components with our advanced live demo. This interactive tool lets you explore different button variants, states, sizes, themes, and more, providing a hands-on way to tailor buttons to your exact needs. Customize colors, add icons, and edit text—all with instant visual feedback and corresponding code generation for seamless integration into your projects.</p>
+                        <p className='text-gray-700 mt-2 leading-6'>Dive into the full capabilities of our button components with our advanced live demo. This interactive tool lets you explore different button variants, states, sizes, themes, and more, providing a hands-on way to tailor buttons to your exact needs. Customize colors, add icons, and edit text—all with instant visual feedback and corresponding code generation for seamless integration into your projects.</p>
                         {/* LIVE CODE EMBED */}
                         <div className="mt-6 mb-6">
                             <iframe
@@ -86,7 +86,7 @@ const ButtonOverviewContent = () => {
                         <h2 className="text-2xl font-bold text-black" style={{ lineHeight: '34px' }}>
                             Anatomy
                         </h2>
-                        <p className="text text-gray-700 mt-4 mb-6" style={{ lineHeight: '20px' }}>
+                        <p className="text-gray-700 mt-4 mb-6" style={{ lineHeight: '20px' }}>
                             Understanding the anatomy of a button is crucial to leveraging its full potential in user interfaces. Each component of a button is meticulously designed to optimize user interaction and visual appeal. From the icons that provide immediate context, to the text label offering clear instruction, and the carefully chosen background color enhancing visibility and aesthetic—every aspect plays a pivotal role. This section dissects these key elements, providing insights into their significance and best practices for design and implementation.
                         </p>
 
@@ -100,7 +100,7 @@ const ButtonOverviewContent = () => {
                             <img src="/images/k1.svg" alt="Icon Illustration" />
                             <div>
                                 <h3 className="text-base font-bold text-black" style={{ lineHeight: '34px' }}>Icons</h3>
-                                <p className="text text-gray-700 mt-2" style={{ lineHeight: '24px' }}>
+                                <p className="text-gray-700 mt-2" style={{ lineHeight: '24px' }}>
                                     Icons serve as visual cues that support the text label, offering a quicker recognition of the action the button performs. They can be placed either before (leading) or after (trailing) the text to enhance the button's message. When using icons:
                                 </p>
                                 <ul className="list-disc pl-6 text text-gray-700 mt-2" style={{ lineHeight: '24px' }}>
@@ -116,7 +116,7 @@ const ButtonOverviewContent = () => {
                             <img src="/images/k2.svg" alt="Text Label Illustration" />
                             <div>
                                 <h3 className="text-base font-bold text-black" style={{ lineHeight: '34px' }}>Text Label</h3>
-                                <p className="text text-gray-700 mt-2" style={{ lineHeight: '24px' }}>
+                                <p className="text-gray-700 mt-2" style={{ lineHeight: '24px' }}>
                                     The text label provides a direct indication of what action will be performed when the button is clicked. Effective text labels are key to usability:
                                 </p>
                                 <ul className="list-disc pl-6 text text-gray-700 mt-2" style={{ lineHeight: '24px' }}>
@@ -133,7 +133,7 @@ const ButtonOverviewContent = () => {
                             <img src="/images/k3.svg" alt="Container Illustration" />
                             <div>
                                 <h3 className="text-base font-bold text-black" style={{ lineHeight: '34px' }}>Container</h3>
-                                <p className="text text-gray-700 mt-2" style={{ lineHeight: '24px' }}>
+                                <p className="text-gray-700 mt-2" style={{ lineHeight: '24px' }}>
                                     The button's container and corner radius are essential in distinguishing it from other interface elements and influencing user perception. Design considerations include:
                                 </p>
                                 <ul className="list-disc pl-6 text text-gray-700 mt-2" style={{ lineHeight: '24px' }}>

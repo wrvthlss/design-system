@@ -12,6 +12,7 @@ import CheckboxOverviewContent from '../../components/component-catalog/Checkbox
 import DropdownHeader from '../../components/dropdown-detail/DropdownHeader'
 import DropdownOverviewContent from '../../components/component-catalog/DropdownOverviewContent'
 import GNav from '../../components/shared/GNav'
+import BrandSwitcher from '../../components/shared/BrandSwitcher';
 
 // Placeholder content components
 const PlaceholderContent = ({ title }) => (
@@ -146,6 +147,7 @@ const ComponentCatalog = () => {
             )}
             <Footer />
             <SubFooter />
+            <BrandSwitcher/>
         </div>
     );
 };
