@@ -3,8 +3,77 @@ import React from 'react';
 import JumpLinkNav from '../shared/JumpLinkNav';
 import JumpLinkNavMobi from '../shared/JumpLinkNavMobi';
 
-const ButtonOverviewContent = () => {
+const imagePaths = {
+    anthem: {
+        overview: [
+            "/images/buttons/anthem/anthem-img-button-overview-001.svg",
+            "/images/buttons/anthem/anthem-img-button-overview-002.svg",
+            "/images/buttons/anthem/anthem-img-button-overview-003.svg",
+            "/images/buttons/anthem/anthem-img-button-overview-004.svg",
+        ],
+        overviewMobile: [
+            "/images/buttons/anthem/anthem-img-button-overview-m-001.svg",
+            "/images/buttons/anthem/anthem-img-button-overview-m-002.svg",
+            "/images/buttons/anthem/anthem-img-button-overview-m-003.svg",
+            "/images/buttons/anthem/anthem-img-button-overview-m-004.svg",
+        ],
+        anatomy: "/images/buttons/anthem/anthem-img-button-anatomy.svg",
+        options: [
+            "/images/buttons/anthem/anthem-img-button-opt-001a.svg",
+            "/images/buttons/anthem/anthem-img-button-opt-001b.svg",
+            "/images/buttons/anthem/anthem-img-button-opt-001c.svg",
+        ],
+        states: [
+            "/images/buttons/anthem/anthem-img-button-st-001.svg",
+            "/images/buttons/anthem/anthem-img-button-st-002.svg",
+            "/images/buttons/anthem/anthem-img-button-st-003.svg",
+            "/images/buttons/anthem/anthem-img-button-st-004.svg",
+            "/images/buttons/anthem/anthem-img-button-st-005.svg",
+            "/images/buttons/anthem/anthem-img-button-st-006.svg",
+            "/images/buttons/anthem/anthem-img-button-st-007.svg",
+            "/images/buttons/anthem/anthem-img-button-st-009.svg",
+            "/images/buttons/anthem/anthem-img-button-st-010.svg",
+            "/images/buttons/anthem/anthem-img-button-st-011.svg",
+            "/images/buttons/anthem/anthem-img-button-st-012.svg",
+            "/images/buttons/anthem/anthem-img-button-st-013.svg",
+        ],
+        intents: [
+            "/images/buttons/anthem/anthem-img-button-int-001.svg",
+            "/images/buttons/anthem/anthem-img-button-int-002.svg",
+        ],
+        sizes: [
+            "/images/buttons/anthem/anthem-img-button-lg.svg",
+            "/images/buttons/anthem/anthem-img-button-med.svg",
+            "/images/buttons/anthem/anthem-img-button-sm.svg",
+            "/images/buttons/anthem/anthem-img-button-es.svg",
+        ],
+        metrics: [
+            "/images/buttons/anthem/anthem-img-button-metrics-001.svg",
+            "/images/buttons/anthem/anthem-img-button-metrics-002.svg",
+            "/images/buttons/anthem/anthem-img-button-metrics-003.svg",
+            "/images/buttons/anthem/anthem-img-button-metrics-004.svg",
+        ],
+        bestPractices: [
+            "/images/buttons/anthem/anthem-img-button-bp-001.svg",
+            "/images/buttons/anthem/anthem-img-button-bp-002.svg",
+            "/images/buttons/anthem/anthem-img-button-bp-003a.svg",
+            "/images/buttons/anthem/anthem-img-button-bp-003b.svg",
+            "/images/buttons/anthem/anthem-img-button-bp-004a.svg",
+            "/images/buttons/anthem/anthem-img-button-bp-004b.svg",
+            "/images/buttons/anthem/anthem-img-button-bp-005.svg",
+            "/images/buttons/anthem/anthem-img-button-bp-006.svg",
+            "/images/buttons/anthem/anthem-img-button-bp-007a.svg",
+            "/images/buttons/anthem/anthem-img-button-bp-007b.svg",
+            "/images/buttons/anthem/anthem-img-button-bp-008.svg",
+            "/images/buttons/anthem/anthem-img-button-bp-009a.svg",
+            "/images/buttons/anthem/anthem-img-button-bp-009b.svg",
+            "/images/buttons/anthem/anthem-img-button-bp-010.svg",
+        ],
+    },
+    // Add other brands here
+};
 
+const ButtonOverviewContent = ({ activeBrand = "anthem" }) => {
     const sections = [
         { id: 'overview', label: 'Overview' },
         { id: 'anatomy', label: 'Anatomy' },
@@ -12,6 +81,7 @@ const ButtonOverviewContent = () => {
         { id: 'metrics', label: 'Metrics' },
         { id: 'best-practices', label: 'Best Practices' }
     ];
+    
     const navigateToSection = (id) => {
         const sectionElement = document.getElementById(id);
         if (sectionElement) {
@@ -19,6 +89,7 @@ const ButtonOverviewContent = () => {
         }
     };
 
+    const paths = imagePaths[activeBrand];
 
     return (
         <div className='flex bg-white'>
@@ -29,9 +100,8 @@ const ButtonOverviewContent = () => {
                     <JumpLinkNavMobi sections={sections} onNavigate={navigateToSection} />
                 </div>
 
-
                 {/* Overview Title */}
-                <div className="flex-1 pl-6 pr-6 pt-12 bg-white">
+                <section className="flex-1 pl-6 pr-6 pt-12 bg-white">
                     <section id="overview">
                         <h2 className="text-2xl font-bold text-black" style={{ lineHeight: '34px' }}>
                             Overview
@@ -44,18 +114,16 @@ const ButtonOverviewContent = () => {
 
                         {/* Images Container for Large Screens */}
                         <div className="p-6 bg-gray-100 flex justify-center gap-6 rb-c hidden lg:flex" style={{ backgroundColor: '#FAFAFA' }}>
-                            <img src="/images/overview-001.svg" alt="State 1" />
-                            <img src="/images/overview-002.svg" alt="State 2" />
-                            <img src="/images/overview-003.svg" alt="State 3" />
-                            <img src="/images/overview-004.svg" alt="State 4" />
+                            {paths.overview.map((path, index) => (
+                                <img key={index} src={path} alt={`State ${index + 1}`} />
+                            ))}
                         </div>
 
                         {/* Images Container for Mobile and Medium Screens */}
                         <div className="p-6 bg-gray-100 block lg:hidden flex flex-col rb-c items-center" style={{ backgroundColor: '#FAFAFA' }}>
-                            <img className="pb-4" src="/images/overview-m-001.svg" alt="State 1" />
-                            <img className="pb-4" src="/images/overview-m-002.svg" alt="State 2" />
-                            <img className="pb-4" src="/images/overview-m-003.svg" alt="State 3" />
-                            <img className="pb-4" src="/images/overview-m-004.svg" alt="State 4" />
+                            {paths.overviewMobile.map((path, index) => (
+                                <img key={index} className="pb-4" src={path} alt={`State ${index + 1}`} />
+                            ))}
                         </div>
 
                         {/* Note Description */}
@@ -76,7 +144,6 @@ const ButtonOverviewContent = () => {
                             ></iframe>
                         </div>
 
-
                         {/* Separator Line */}
                         <hr className="border-gray-300 mb-16" style={{ marginTop: '64px', marginBottom: '64px' }} />
                     </section>
@@ -86,13 +153,13 @@ const ButtonOverviewContent = () => {
                         <h2 className="text-2xl font-bold text-black" style={{ lineHeight: '34px' }}>
                             Anatomy
                         </h2>
-                        <p className="text-gray-700 mt-4 mb-6" style={{ lineHeight: '20px' }}>
+                        <p className="text text-gray-700 mt-4 mb-6" style={{ lineHeight: '20px' }}>
                             Understanding the anatomy of a button is crucial to leveraging its full potential in user interfaces. Each component of a button is meticulously designed to optimize user interaction and visual appeal. From the icons that provide immediate context, to the text label offering clear instruction, and the carefully chosen background color enhancing visibility and aesthetic—every aspect plays a pivotal role. This section dissects these key elements, providing insights into their significance and best practices for design and implementation.
                         </p>
 
                         {/* Anatomy Image Container */}
                         <div className="p-6 bg-gray-100 rb-c flex justify-center" style={{ backgroundColor: '#FAFAFA' }}>
-                            <img src="/images/anatomy-001.svg" alt="Button Anatomy" />
+                            <img src={paths.anatomy} alt="Button Anatomy" />
                         </div>
 
                         {/* Icons Section */}
@@ -167,178 +234,98 @@ const ButtonOverviewContent = () => {
 
                         {/* 3-Column Layout */}
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
-                            {/* Primary Button */}
-                            <div>
-                                <div className="p-6 bg-gray-100 rb-c" style={{ backgroundColor: '#FAFAFA' }}>
-                                    <img src="/images/opt-001a.svg" alt="Primary Button" className="mx-auto" />
+                            {paths.options.map((path, index) => (
+                                <div key={index}>
+                                    <div className="p-6 bg-gray-100 rb-c" style={{ backgroundColor: '#FAFAFA' }}>
+                                        <img src={path} alt={`Option ${index + 1}`} className="mx-auto" />
+                                    </div>
+                                    <h4 className="mt-6 text-lg font-bold text-black">{index === 0 ? 'Primary' : index === 1 ? 'Secondary' : 'Tertiary'}</h4>
+                                    <p className="text-base text-gray-700 mt-2" style={{ lineHeight: '24px' }}>
+                                        {index === 0 ? 'For the principal call to action on the page. Primary buttons should only appear once per screen.' :
+                                            index === 1 ? 'Utilize the secondary button to offer alternatives to the main action, or in situations where all actions hold equal importance.' :
+                                                'Employ the tertiary button for actions of lesser importance that offer convenience.'}
+                                    </p>
                                 </div>
-                                <h4 className="mt-6 text-lg font-bold text-black">Primary</h4>
-                                <p className="text-base text-gray-700 mt-2" style={{ lineHeight: '24px' }}>
-                                    For the principal call to action on the page. Primary buttons should only appear once per screen.
-                                </p>
-                            </div>
-
-                            {/* Secondary Button */}
-                            <div>
-                                <div className="p-6 bg-gray-100 rb-c" style={{ backgroundColor: '#FAFAFA' }}>
-                                    <img src="/images/opt-001b.svg" alt="Secondary Button" className="mx-auto" />
-                                </div>
-                                <h4 className="mt-6 text-lg font-bold text-black">Secondary</h4>
-                                <p className="text-base text-gray-700 mt-2" style={{ lineHeight: '24px' }}>
-                                    Utilize the secondary button to offer alternatives to the main action, or in situations where all actions hold equal importance.
-                                </p>
-                            </div>
-
-                            {/* Tertiary Button */}
-                            <div>
-                                <div className="p-6 bg-gray-100 rb-c" style={{ backgroundColor: '#FAFAFA' }}>
-                                    <img src="/images/opt-001c.svg" alt="Tertiary Button" className="mx-auto" />
-                                </div>
-                                <h4 className="mt-6 text-lg font-bold text-black">Tertiary</h4>
-                                <p className="text-base text-gray-700 mt-2" style={{ lineHeight: '24px' }}>
-                                    Employ the tertiary button for actions of lesser importance that offer convenience.
-                                </p>
-                            </div>
+                            ))}
                         </div>
 
                         {/* Separator Line */}
                         <hr className="border-gray-300 mb-16" style={{ marginTop: '64px', marginBottom: '64px' }} />
+                    </section>
 
-                        {/* Button States Section */}
-                        <h3 className="text-lg font-bold text-black" style={{ lineHeight: '24px' }}>
+                    {/* Button States Section */}
+                    <section id="states">
+                        <h2 className="text-2xl font-bold text-black" style={{ lineHeight: '34px' }}>
                             Button States
-                        </h3>
+                        </h2>
                         <p className="text-base text-gray-700 mt-4 mb-16" style={{ lineHeight: '22px' }}>
                             Defining the visual and interactive variations of buttons, encompassing default, hover, focus, press, and disabled states to ensure consistent and intuitive user experiences.
                         </p>
 
                         {/* 2-Column Layout for Button States */}
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
-                            {/* Row 1: Default */}
-                            <div>
-                                <div className="p-6 bg-gray-100 rb-c" style={{ backgroundColor: '#FAFAFA' }}>
-                                    <div className="flex flex-col gap-6 items-center">
-                                        <img src="/images/st-001.svg" alt="Default State 1" />
-                                        <img src="/images/st-002.svg" alt="Default State 2" />
-                                        <img src="/images/st-003.svg" alt="Default State 3" />
+                            {paths.states.map((path, index) => (
+                                <div key={index}>
+                                    <div className="p-6 bg-gray-100 rb-c" style={{ backgroundColor: '#FAFAFA' }}>
+                                        <div className="flex flex-col gap-6 items-center">
+                                            <img src={path} alt={`State ${index + 1}`} />
+                                        </div>
                                     </div>
+                                    <h4 className="mt-6 text-lg font-bold text-black">{index === 0 ? 'Default' : index === 1 ? 'Hover' : index === 2 ? 'Focus' : index === 3 ? 'Press' : 'Disabled'}</h4>
+                                    <p className="text-base text-gray-700 mt-2" style={{ lineHeight: '24px' }}>
+                                        {index === 0 ? 'The default state is the button\'s initial appearance before any user interaction...' :
+                                            index === 1 ? 'When the user\'s cursor moves over the button, it transitions to the hover state...' :
+                                                index === 2 ? 'The focus state is triggered when the button receives focus, either through tab navigation or clicking...' :
+                                                    index === 3 ? 'Activated upon clicking or tapping the button, the press state provides tactile feedback to users...' :
+                                                        'The disabled state is used when an action is not currently available to the user...'}
+                                    </p>
                                 </div>
-                                <h4 className="mt-6 text-lg font-bold text-black">Default</h4>
-                                <p className="text-base text-gray-700 mt-2" style={{ lineHeight: '24px' }}>
-                                    The default state is the button's initial appearance before any user interaction...
-                                </p>
-                            </div>
-
-                            {/* Row 2: Hover */}
-                            <div>
-                                <div className="p-6 bg-gray-100 rb-c" style={{ backgroundColor: '#FAFAFA' }}>
-                                    <div className="flex flex-col gap-6 items-center">
-                                        <img src="/images/st-004.svg" alt="Hover State 1" />
-                                        <img src="/images/st-005.svg" alt="Hover State 2" />
-                                        <img src="/images/st-006.svg" alt="Hover State 3" />
-                                    </div>
-                                </div>
-                                <h4 className="mt-6 text-lg font-bold text-black">Hover</h4>
-                                <p className="text-base text-gray-700 mt-2" style={{ lineHeight: '24px' }}>
-                                    When the user's cursor moves over the button, it transitions to the hover state...
-                                </p>
-                            </div>
-
-                            {/* Row 3: Focus */}
-                            <div>
-                                <div className="p-6 bg-gray-100 rb-c" style={{ backgroundColor: '#FAFAFA' }}>
-                                    <div className="flex flex-col gap-6 items-center">
-                                        <img src="/images/st-005.svg" alt="Focus State 1" />
-                                        <img src="/images/st-006.svg" alt="Focus State 2" />
-                                        <img src="/images/st-007.svg" alt="Focus State 3" />
-                                    </div>
-                                </div>
-                                <h4 className="mt-6 text-lg font-bold text-black">Focus</h4>
-                                <p className="text-base text-gray-700 mt-2" style={{ lineHeight: '24px' }}>
-                                    The focus state is triggered when the button receives focus, either through tab navigation or clicking...
-                                </p>
-                            </div>
-
-                            {/* Row 4: Press */}
-                            <div>
-                                <div className="p-6 bg-gray-100 rb-c" style={{ backgroundColor: '#FAFAFA' }}>
-                                    <div className="flex flex-col gap-6 items-center">
-                                        <img src="/images/st-009.svg" alt="Press State 1" />
-                                        <img src="/images/st-009.svg" alt="Press State 2" />
-                                        <img src="/images/st-010.svg" alt="Press State 3" />
-                                    </div>
-                                </div>
-                                <h4 className="mt-6 text-lg font-bold text-black">Press</h4>
-                                <p className="text-base text-gray-700 mt-2" style={{ lineHeight: '24px' }}>
-                                    Activated upon clicking or tapping the button, the press state provides tactile feedback to users...
-                                </p>
-                            </div>
-
-                            {/* Row 5: Disabled */}
-                            <div>
-                                <div className="p-6 bg-gray-100 rb-c" style={{ backgroundColor: '#FAFAFA' }}>
-                                    <div className="flex flex-col gap-6 items-center">
-                                        <img src="/images/st-011.svg" alt="Disabled State 1" />
-                                        <img src="/images/st-012.svg" alt="Disabled State 2" />
-                                        <img src="/images/st-013.svg" alt="Disabled State 3" />
-                                    </div>
-                                </div>
-                                <h4 className="mt-6 text-lg font-bold text-black">Disabled</h4>
-                                <p className="text-base text-gray-700 mt-2" style={{ lineHeight: '24px' }}>
-                                    The disabled state is used when an action is not currently available to the user...
-                                </p>
-                            </div>
+                            ))}
                         </div>
 
                         {/* Separator Line */}
                         <hr className="border-gray-300 mb-16" style={{ marginTop: '64px', marginBottom: '64px' }} />
+                    </section>
 
-                        {/* Intent Section */}
-                        <h3 className="text-lg font-bold text-black" style={{ lineHeight: '24px' }}>
+                    {/* Intent Section */}
+                    <section id="intents">
+                        <h2 className="text-2xl font-bold text-black" style={{ lineHeight: '34px' }}>
                             Intent
-                        </h3>
+                        </h2>
                         <p className="text-base text-gray-700 mt-4 mb-16" style={{ lineHeight: '24px' }}>
                             Intent reflects the purpose or goal behind an action or decision, grounding it in the user's or system's objectives...
                         </p>
 
                         {/* 2-Column Layout for Intent */}
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
-                            {/* Default Intent */}
-                            <div>
-                                <div className="p-6 bg-gray-100 rb-c" style={{ backgroundColor: '#FAFAFA' }}>
-                                    <img src="/images/int-001.svg" alt="Default Intent" className="mx-auto" />
+                            {paths.intents.map((path, index) => (
+                                <div key={index}>
+                                    <div className="p-6 bg-gray-100 rb-c" style={{ backgroundColor: '#FAFAFA' }}>
+                                        <img src={path} alt={`Intent ${index + 1}`} className="mx-auto" />
+                                    </div>
+                                    <h4 className="mt-6 text-lg font-bold text-black">{index === 0 ? 'Default' : 'Negative'}</h4>
+                                    <p className="text-base text-gray-700 mt-2" style={{ lineHeight: '24px' }}>
+                                        {index === 0 ? 'The default button type represents the standard option for conveying general actions.' :
+                                            'For destructive actions - i.e. when something cannot be undone.'}
+                                    </p>
                                 </div>
-                                <h4 className="mt-6 text-lg font-bold text-black">Default</h4>
-                                <p className="text-base text-gray-700 mt-2" style={{ lineHeight: '24px' }}>
-                                    The default button type represents the standard option for conveying general actions.
-                                </p>
-                            </div>
-
-                            {/* Negative Intent */}
-                            <div>
-                                <div className="p-6 bg-gray-100 rb-c" style={{ backgroundColor: '#FAFAFA' }}>
-                                    <img src="/images/int-002.svg" alt="Negative Intent" className="mx-auto" />
-                                </div>
-                                <h4 className="mt-6 text-lg font-bold text-black">Negative</h4>
-                                <p className="text-base text-gray-700 mt-2" style={{ lineHeight: '24px' }}>
-                                    For destructive actions - i.e. when something cannot be undone.
-                                </p>
-                            </div>
+                            ))}
                         </div>
 
                         {/* Separator Line */}
                         <hr className="border-gray-300 mb-16" style={{ marginTop: '64px', marginBottom: '64px' }} />
+                    </section>
 
-                        {/* Size Section */}
-                        <h3 className="text-lg font-bold text-black mb-4">Size</h3>
+                    {/* Size Section */}
+                    <section id="sizes">
+                        <h2 className="text-2xl font-bold text-black mb-4" style={{ lineHeight: '34px' }}>Size</h2>
                         <p className="text-base text-gray-700 mb-8" style={{ lineHeight: '20px' }}>
                             Understanding the appropriate usage of button sizes within an interface is crucial for maintaining hierarchy, ensuring accessibility, and enhancing user experience. Our design system provides four distinct sizes for buttons: Large, Medium, Small, and Extra Small.
                         </p>
                         <div className="p-6 bg-gray-100 rb-c flex justify-center gap-6 mb-8" style={{ backgroundColor: '#FAFAFA' }}>
-                            <img src="/images/lg.svg" alt="Large Button" />
-                            <img src="/images/med.svg" alt="Medium Button" />
-                            <img src="/images/sm.svg" alt="Small Button" />
-                            <img src="/images/es.svg" alt="Extra Small Button" />
+                            {paths.sizes.map((path, index) => (
+                                <img key={index} src={path} alt={`Size ${index + 1}`} />
+                            ))}
                         </div>
                         <p className="text-base text-gray-700 mb-8" style={{ lineHeight: '20px' }}>
                             Each size is designed to accommodate different screen sizes, contexts, and user needs, ensuring a versatile and adaptable component library.
@@ -408,276 +395,56 @@ const ButtonOverviewContent = () => {
                                 </tr>
                             </tbody>
                         </table>
-                        {/* Icons Section */}
-                        <h3 className="text-lg font-bold text-black mb-4">Icon</h3>
-                        <p className="text-base text-gray-700 mb-8" style={{ lineHeight: '24px' }}>
-                            Incorporating icons into buttons can significantly enhance their intuitiveness and visual appeal...
-                        </p>
-
-                        {/* Icons 2-Column Layout */}
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
-                            {/* Row 1 */}
-                            <div>
-                                <div className="p-6 bg-gray-100 rb-c" style={{ backgroundColor: '#FAFAFA' }}>
-                                    <img src="/images/ico-001.svg" alt="Leading Icon" className="mx-auto" />
-                                </div>
-                                <h4 className="mt-6 text-lg font-bold text-black">Leading Icons</h4>
-                                <p className="text-base text-gray-700 mt-2" style={{ lineHeight: '24px' }}>
-                                    Leading icons are placed before the text label within a button...
-                                </p>
-                            </div>
-                            <div>
-                                <div className="p-6 bg-gray-100 rb-c" style={{ backgroundColor: '#FAFAFA' }}>
-                                    <img src="/images/ico-002.svg" alt="Trailing Icon" className="mx-auto" />
-                                </div>
-                                <h4 className="mt-6 text-lg font-bold text-black">Trailing Icon</h4>
-                                <p className="text-base text-gray-700 mt-2" style={{ lineHeight: '24px' }}>
-                                    Trailing icons appear after the text label...
-                                </p>
-                            </div>
-
-                            {/* Row 2 */}
-                            <div>
-                                <div className="p-6 bg-gray-100 rb-c" style={{ backgroundColor: '#FAFAFA' }}>
-                                    <img src="/images/ico-003.svg" alt="Combining Leading and Trailing Icons" className="mx-auto" />
-                                </div>
-                                <h4 className="mt-6 text-lg font-bold text-black">Combining Leading and Trailing Icons</h4>
-                                <p className="text-base text-gray-700 mt-2" style={{ lineHeight: '24px' }}>
-                                    Combining leading and trailing icons...
-                                </p>
-                            </div>
-                            <div>
-                                <div className="p-6 bg-gray-100 rb-c" style={{ backgroundColor: '#FAFAFA' }}>
-                                    <img src="/images/ico-004.svg" alt="Standalone Icon" className="mx-auto" />
-                                </div>
-                                <h4 class="mt-6 text-lg font-bold text-black">Standalone</h4>
-                                <p className="text-base text-gray-700 mt-2" style={{ lineHeight: '24px' }}>
-                                    Standalone interactive icons...
-                                </p>
-                            </div>
-
-                            {/* Row 3 */}
-                            <div>
-                                <div className="p-6 bg-gray-100 rb-c" style={{ backgroundColor: '#FAFAFA' }}>
-                                    <img src="/images/ico-005.svg" alt="Encapsulated Icon" className="mx-auto" />
-                                </div>
-                                <h4 className="mt-6 text-lg font-bold text-black">Encapsulated (Within a Button Container)</h4>
-                                <p className="text-base text-gray-700 mt-2" style={{ lineHeight: '24px' }}>
-                                    Encapsulated Icons are housed within a button container...
-                                </p>
-                            </div>
-                        </div>
-
-                        {/* Implementation Considerations */}
-                        <h3 className="text-lg font-bold text-black mb-4">Implementation Considerations</h3>
-                        <ul className="list-disc pl-5 text-base text-gray-700 mb-16">
-                            <li>
-                                <strong>Consistency:</strong> Use icons consistently across similar buttons to establish a recognizable pattern...
-                            </li>
-                            <li>
-                                <strong>Accessibility:</strong> Provide alternative text descriptions for icons...
-                            </li>
-                            <li>
-                                <strong>Visual Balance:</strong> Whether using leading, trailing, or combined icons...
-                            </li>
-                        </ul>
-
-                        {/* Separator Line */}
-                        <hr className="border-gray-300 mb-16" style={{ marginTop: '64px', marginBottom: '64px' }} />
                     </section>
 
+                    {/* Implementation Considerations */}
+                    <h3 className="text-lg font-bold text-black mb-4">Implementation Considerations</h3>
+                    <ul className="list-disc pl-5 text-base text-gray-700 mb-16">
+                        <li>
+                            <strong>Consistency:</strong> Use icons consistently across similar buttons to establish a recognizable pattern...
+                        </li>
+                        <li>
+                            <strong>Accessibility:</strong> Provide alternative text descriptions for icons...
+                        </li>
+                        <li>
+                            <strong>Visual Balance:</strong> Whether using leading, trailing, or combined icons...
+                        </li>
+                    </ul>
 
-                    {/* Metrics Section */}
-                    <section id="metrics">
-                        <div>
-                            <h2 className="text-2xl font-bold text-black mb-6" style={{ lineHeight: '34px' }}>Metrics</h2>
-                            <p className="text-base text-gray-600 mb-6" style={{ lineHeight: '24px' }}>
-                                Metrics play a foundational role in ensuring consistency, usability, and visual harmony across a user interface. In the context of our design system, "Metrics" refers to the specific dimensions and spacing guidelines that govern the appearance and interaction of buttons.
-                            </p>
-                            <p className="text-base text-gray-600 mb-6" style={{ lineHeight: '24px' }}>
-                                These measurements include height, width, padding, and margin, along with font size and icon dimensions. Adhering to these metrics ensures that buttons are not only aesthetically pleasing but also accessible and functional across various devices and user interfaces. By establishing clear standards for each button size, we create a cohesive and intuitive experience for all users.
-                            </p>
+                    {/* Separator Line */}
+                    <hr className="border-gray-300 mb-16" style={{ marginTop: '64px', marginBottom: '64px' }} />
+                </section>
 
-                            <div className="grid grid-cols-2 gap-16">
-                                <div>
-                                    <div className="p-6 bg-gray-100 rb-c rounded-lg mb-6">
-                                        <img src="/images/metrics-001.svg" alt="Large Button" className="mx-auto" />
-                                    </div>
-                                    <h3 className="text-lg font-bold text-black mb-4">Large Button</h3>
-                                    <p className="text-base text-gray-600 mb-4">Large buttons are designed for primary actions requiring prominence and ease of interaction, especially on larger touch targets.</p>
-                                    <ul className="list-none text-base text-gray-600 mb-4">
-                                        <li><strong>Height:</strong> 44pt</li>
-                                        <li><strong>Width:</strong> Minimum 120pt</li>
-                                        <li><strong>Padding:</strong> 24pt ↔; 10pt ↕</li>
-                                        <li><strong>Font Size:</strong> 16pt</li>
-                                        <li><strong>Icon Size:</strong> 24x24pt, 8pt spacing from text</li>
-                                    </ul>
-                                    <p className="text-base text-gray-600 mb-4">Large buttons are best used for key actions such as primary call-to-actions on landing pages, forms, and modal dialogs.</p>
-                                </div>
+                {/* Best Practices */}
+                <section id="best-practices">
+                    <h2 className="text-2xl font-bold text-black mb-6" style={{ lineHeight: '34px' }}>Best Practices</h2>
+                    <p className="text-base text-gray-600 mb-6" style={{ lineHeight: '24px' }}>
+                        Ensuring that buttons are effective in guiding user actions requires attention to detail in both design and implementation. Below are paired "Do" and "Don't" best practices, each addressing a specific aspect of button usage to help illustrate optimal and suboptimal practices.
+                    </p>
 
-                                <div>
-                                    <div className="p-6 bg-gray-100 rb-c rounded-lg mb-6">
-                                        <img src="/images/metrics-002.svg" alt="Medium Button" className="mx-auto" />
-                                    </div>
-                                    <h3 className="text-lg font-bold text-black mb-4">Medium Button</h3>
-                                    <p className="text-base text-gray-600 mb-4">Medium buttons serve as the standard choice for most actions, offering a balanced option for both desktop and mobile interfaces.</p>
-                                    <ul className="list-none text-base text-gray-600 mb-4">
-                                        <li><strong>Height:</strong> 40pt</li>
-                                        <li><strong>Width:</strong> Minimum 100pt</li>
-                                        <li><strong>Padding:</strong> 20pt ↔; 8pt ↕</li>
-                                        <li><strong>Font Size:</strong> 14pt</li>
-                                        <li><strong>Icon Size:</strong> 24x24pt, 8pt spacing from text</li>
-                                    </ul>
-                                    <p className="text-base text-gray-600 mb-4">Medium buttons are versatile, suitable for form submissions, navigation actions, and secondary actions.</p>
-                                </div>
-
-                                <div>
-                                    <h3 className="text-lg font-bold text-black mb-4">Small Button</h3>
-                                    <div className="p-6 bg-gray-100 rb-c rounded-lg mb-6">
-                                        <img src="/images/metrics-003.svg" alt="Small Button" className="mx-auto" />
-                                    </div>
-                                    <p className="text-base text-gray-600 mb-4">Small buttons are utilized for actions that are secondary or when space is limited, fitting neatly into compact areas.</p>
-                                    <ul className="list-none text-base text-gray-600 mb-4">
-                                        <li><strong>Height:</strong> 32pt</li>
-                                        <li><strong>Width:</strong> Minimum 80pt</li>
-                                        <li><strong>Padding:</strong> 16pt ↔; 8pt ↕</li>
-                                        <li><strong>Font Size:</strong> 12pt</li>
-                                        <li><strong>Icon Size:</strong> 16x16pt, 4pt spacing from text</li>
-                                    </ul>
-                                    <p className="text-base text-gray-600 mb-4">Use small buttons for actions within lists, toolbars, or as secondary actions.</p>
-                                </div>
-
-                                <div>
-                                    <h3 className="text-lg font-bold text-black mb-4">Extra Small Button</h3>
-                                    <div className="p-6 bg-gray-100 rb-c rounded-lg mb-6">
-                                        <img src="/images/metrics-004.svg" alt="Extra Small Button" className="mx-auto" />
-                                    </div>
-                                    <p className="text-base text-gray-600 mb-4">Extra small buttons are tailored for very specific use cases where minimal space is available, such as in dense interfaces.</p>
-                                    <ul className="list-none text-base text-gray-600 mb-4">
-                                        <li><strong>Height:</strong> 24pt</li>
-                                        <li><strong>Width:</strong> Minimum 64pt</li>
-                                        <li><strong>Padding:</strong> 12pt ↔; 4pt ↕</li>
-                                        <li><strong>Font Size:</strong> 12pt</li>
-                                        <li><strong>Icon Size:</strong> 12x12pt, 4pt spacing from text</li>
-                                    </ul>
-                                    <p className="text-base text-gray-600 mb-4">Extra small buttons are ideal for icons or minimal-text actions in highly compact spaces.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <hr className="border-t border-gray-300 mb-16" style={{ marginTop: '64px', marginBottom: '64px' }} />
-                    </section>
-
-                    {/* Best Practices */}
-                    <section id="best-practices">
-                        <h2 className="text-2xl font-bold text-black mb-6" style={{ lineHeight: '34px' }}>Best Practices</h2>
-                        <p className="text-base text-gray-600 mb-6" style={{ lineHeight: '24px' }}>
-                            Ensuring that buttons are effective in guiding user actions requires attention to detail in both design and implementation. Below are paired "Do" and "Don't" best practices, each addressing a specific aspect of button usage to help illustrate optimal and suboptimal practices.
-                        </p>
-
-                        <div className="grid grid-cols-2 gap-16 pb-16">
-                            <div>
+                    <div className="grid grid-cols-2 gap-16 pb-16">
+                        {paths.bestPractices.map((path, index) => (
+                            <div key={index}>
                                 <div className="p-6 bg-gray-100 rb-c rounded-lg mb-6">
-                                    <img src="/images/bp-001.svg" alt="Use Clear and Concise Labeling" className="mx-auto" />
+                                    <img src={path} alt={`Best Practice ${index + 1}`} className="mx-auto" />
                                 </div>
-                                <img src="/images/do.svg" alt="Use Clear and Concise Labeling Icon" className="inline mr-4" />
-                                <h3 className="inline text-lg font-bold text-green-600 mb-2">Use Clear and Concise Labeling</h3>
-                                <p className="text-base text-gray-600 mb-6">Do use actionable, precise language that clearly describes the button’s function.</p>
+                                <img src="/images/do.svg" alt="Do Icon" className="inline mr-4" />
+                                <h3 className={`inline text-lg font-bold ${index % 2 === 0 ? 'text-green-600' : 'text-red-600'} mb-2`}>{index % 2 === 0 ? 'Do' : 'Don\'t'}</h3>
+                                <p className="text-base text-gray-600 mb-6">
+                                    {index % 2 === 0 ? 'Do use actionable, precise language that clearly describes the button’s function.' :
+                                        'Don\'t use ambiguous terms or lengthy descriptions that confuse users.'}
+                                </p>
                             </div>
-
-                            <div>
-                                <div className="p-6 bg-gray-100 rb-c rounded-lg mb-6">
-                                    <img src="/images/bp-002.svg" alt="Avoid Using Vague or Long Labeling" className="mx-auto" />
-                                </div>
-                                <img src="/images/dont.svg" alt="Avoid Using Vague or Long Labeling Icon" className="inline mr-4" />
-                                <h3 className="inline text-lg font-bold text-red-600 mb-2">Avoid Using Vague or Long Labeling</h3>
-                                <p className="text-base text-gray-600 mb-6">Don't use ambiguous terms or lengthy descriptions that confuse users.</p>
-                            </div>
-
-                            <div>
-                                <div className="p-6 bg-gray-100 rb-c rounded-lg mb-6">
-                                    <img src="/images/bp-003a.svg" alt="Maintain Hierarchical Consistency Part 1" className="mx-auto mb-6" />
-                                    <img src="/images/bp-003b.svg" alt="Maintain Hierarchical Consistency Part 2" className="mx-auto" />
-                                </div>
-                                <img src="/images/do.svg" alt="Maintain Hierarchical Consistency Icon" className="inline mr-4" />
-                                <h3 className="inline text-lg font-bold text-green-600 mb-2">Maintain Hierarchical Consistency</h3>
-                                <p className="text-base text-gray-600 mb-6">Do use button variants to establish visual hierarchies, reserving primary buttons for main actions.</p>
-                            </div>
-
-                            <div>
-                                <div className="p-6 bg-gray-100 rb-c rounded-lg mb-6">
-                                    <img src="/images/bp-004a.svg" alt="Avoid Multiple Primary Buttons Part 1" className="mx-auto mb-6" />
-                                    <img src="/images/bp-004b.svg" alt="Avoid Multiple Primary Buttons Part 2" className="mx-auto" />
-                                </div>
-                                <img src="/images/dont.svg" alt="Avoid Multiple Primary Buttons Icon" className="inline mr-4" />
-                                <h3 className="inline text-lg font-bold text-red-600 mb-2">Avoid Multiple Primary Buttons</h3>
-                                <p className="text-base text-gray-600 mb-6">Don't clutter your interface with multiple primary buttons that dilute focus.</p>
-                            </div>
-
-                            <div>
-                                <div className="p-6 bg-gray-100 rb-c rounded-lg mb-6">
-                                    <img src="/images/bp-005.svg" alt="Ensure Accessibility" className="mx-auto" />
-                                </div>
-                                <img src="/images/do.svg" alt="Ensure Accessibility Icon" className="inline mr-4" />
-                                <h3 className="inline text-lg font-bold text-green-600 mb-2">Ensure Accessibility</h3>
-                                <p className="text-base text-gray-600 mb-6">Do design with adequate contrast and accessible labels, employing ARIA attributes where needed.</p>
-                            </div>
-
-                            <div>
-                                <div className="p-6 bg-gray-100 rb-c rounded-lg mb-6">
-                                    <img src="/images/bp-006.svg" alt="Avoid Unexplained Disabled Buttons" className="mx-auto" />
-                                </div>
-                                <img src="/images/dont.svg" alt="Avoid Unexplained Disabled Buttons Icon" className="inline mr-4" />
-                                <h3 className="inline text-lg font-bold text-red-600 mb-2">Avoid Unexplained Disabled Buttons</h3>
-                                <p className="text-base text-gray-600 mb-6">Don't use disabled buttons without explanation, which leads to user confusion.</p>
-                            </div>
-
-                            <div>
-                                <div className="p-6 bg-gray-100 rb-c rounded-lg mb-6">
-                                    <img src="/images/bp-007a.svg" alt="Provide Visual Feedback Part 1" className="mx-auto mb-6" />
-                                    <img src="/images/bp-007b.svg" alt="Provide Visual Feedback Part 2" className="mx-auto" />
-                                </div>
-                                <img src="/images/do.svg" alt="Provide Visual Feedback Icon" className="inline mr-4" />
-                                <h3 className="inline text-lg font-bold text-green-600 mb-2">Provide Visual Feedback</h3>
-                                <p className="text-base text-gray-600 mb-6">Do utilize interactive states to give feedback on user actions.</p>
-                            </div>
-
-                            <div>
-                                <div className="p-6 bg-gray-100 rb-c rounded-lg mb-6">
-                                    <img src="/images/bp-008.svg" alt="Avoid Small Clickable Areas" className="mx-auto" />
-                                </div>
-                                <img src="/images/dont.svg" alt="Avoid Small Clickable Areas Icon" className="inline mr-4" />
-                                <h3 className="inline text-lg font-bold text-red-600 mb-2">Avoid Small Clickable Areas</h3>
-                                <p className="text-base text-gray-600 mb-6">Don't hinder easy interaction with a small clickable area.</p>
-                            </div>
-
-                            <div>
-                                <div className="p-6 bg-gray-100 rb-c rounded-lg mb-6">
-                                    <img src="/images/bp-009a.svg" alt="Test for Responsiveness Part 1" className="mx-auto mb-6" />
-                                    <img src="/images/bp-009b.svg" alt="Test for Responsiveness Part 2" className="mx-auto" />
-                                </div>
-                                <img src="/images/do.svg" alt="Test for Responsiveness Icon" className="inline mr-4" />
-                                <h3 className="inline text-lg font-bold text-green-600 mb-2">Test for Responsiveness</h3>
-                                <p className="text-base text-gray-600 mb-6">Do ensure buttons are easily clickable across all devices and screen sizes.</p>
-                            </div>
-
-                            <div>
-                                <div className="p-6 bg-gray-100 rb-c rounded-lg mb-6">
-                                    <img src="/images/bp-010.svg" alt="Avoid Skipping User Testing / Feedback" className="mx-auto" />
-                                </div>
-                                <img src="/images/dont.svg" alt="Avoid Skipping User Testing / Feedback Icon" className="inline mr-4" />
-                                <h3 className="inline text-lg font-bold text-red-600 mb-2">Avoid Skipping User Testing / Feedback</h3>
-                                <p className="text-base text-gray-600 mb-6">Don't overlook the importance of user testing and feedback for uncovering usability issues.</p>
-                            </div>
-                        </div>
-                    </section>
-                </div>
+                        ))}
+                    </div>
+                </section>
             </div>
 
-            {/* Desktop JumpLinkNav */}
-            <div className="hidden lg:block ml-16 mt-14 mr-16 mb-16 sticky top-12 bg-white">
-                <JumpLinkNav sections={sections} />
-            </div>
+        {/* Desktop JumpLinkNav */}
+        <div className="hidden lg:block ml-16 mt-14 mr-16 mb-16 sticky top-12 bg-white">
+            <JumpLinkNav sections={sections} />
         </div>
+    </div>
     );
 }
 
