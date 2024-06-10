@@ -9,9 +9,9 @@ import Footer from '../../components/shared/Footer';
 import SubFooter from '../../components/shared/SubFooter';
 import ButtonOverviewContent from '../../components/component-catalog/ButtonOverviewContent';
 import CheckboxOverviewContent from '../../components/component-catalog/CheckboxOverviewContent';
-import DropdownHeader from '../../components/dropdown-detail/DropdownHeader'
-import DropdownOverviewContent from '../../components/component-catalog/DropdownOverviewContent'
-import GNav from '../../components/shared/GNav'
+import DropdownHeader from '../../components/dropdown-detail/DropdownHeader';
+import DropdownOverviewContent from '../../components/component-catalog/DropdownOverviewContent';
+import GNav from '../../components/shared/GNav';
 import BrandSwitcher from '../../components/shared/BrandSwitcher';
 
 // Placeholder content components
@@ -24,6 +24,8 @@ const PlaceholderContent = ({ title }) => (
 
 const ComponentCatalog = () => {
     const [showBackToTop, setShowBackToTop] = useState(false);
+    const [activeBrand, setActiveBrand] = useState('anthem');
+
     useEffect(() => {
         const handleScroll = () => {
             const footerElement = document.querySelector('.container');
@@ -40,8 +42,6 @@ const ComponentCatalog = () => {
         };
     }, []);
 
-
-    // Function to scroll to the top smoothly
     const scrollToTop = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
@@ -50,43 +50,31 @@ const ComponentCatalog = () => {
     const [activeButtonTab, setActiveButtonTab] = useState("Overview");
     const [activeCheckboxTab, setActiveCheckboxTab] = useState("Overview");
 
-    // Function to switch pages
     const handleChangePage = (pageName) => {
         setCurrentPage(pageName);
     };
 
-    // Function to switch tabs in the Button view
     const handleButtonTabChange = (tabName) => {
         setActiveButtonTab(tabName);
     };
 
-    // Function to switch tabs in the Checkbox view
     const handleCheckboxTabChange = (tabName) => {
         setActiveCheckboxTab(tabName);
     };
 
-    // Function to render content based on the current page selection
     const renderPage = () => {
-
-
-        // Function to scroll to the top smoothly
-        const scrollToTop = () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        };
-
         switch (currentPage) {
             case "Overview":
                 return (
                     <>
                         <OverviewHeader />
-                        <CompCatalog />
+                        <CompCatalog activeBrand={activeBrand} />
                         <ComponentDetails />
                     </>
                 );
             case "Buttons":
                 return (
                     <>
-
                         <ButtonHeader onTabChange={handleButtonTabChange} />
                         {activeButtonTab === "Overview" && <ButtonOverviewContent />}
                         {activeButtonTab === "Examples" && <PlaceholderContent title="Examples" />}
@@ -131,15 +119,14 @@ const ComponentCatalog = () => {
                     {renderPage()}
                 </div>
             </div>
-            {/* Back to Top Button */}
             {showBackToTop && (
                 <button
                     onClick={scrollToTop}
                     className="stp-ico fixed z-50 transition-opacity duration-500 ease-in-out"
                     style={{
-                        bottom: '5%', // 50px from the bottom
-                        right: '8%', // 50px from the right
-                        opacity: 1 // Makes the button visible when displayed
+                        bottom: '5%',
+                        right: '8%',
+                        opacity: 1
                     }}
                 >
                     <img src="/images/returnToTop.svg" alt="Back to Top" />
@@ -147,7 +134,7 @@ const ComponentCatalog = () => {
             )}
             <Footer />
             <SubFooter />
-            <BrandSwitcher/>
+            <BrandSwitcher activeBrand={activeBrand} setActiveBrand={setActiveBrand} />
         </div>
     );
 };
