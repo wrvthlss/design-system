@@ -1,9 +1,8 @@
-// CheckboxOverviewContent.js
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import JumpLinkNav from '../shared/JumpLinkNav';
 import JumpLinkNavMobi from '../shared/JumpLinkNavMobi';
 
-const CheckboxOverviewContent = () => {
+const CheckboxOverviewContent = ({ brand }) => {
     const sections = [
         { id: 'overview', label: 'Overview' },
         { id: 'anatomy', label: 'Anatomy' },
@@ -11,14 +10,54 @@ const CheckboxOverviewContent = () => {
         { id: 'metrics', label: 'Metrics' },
         { id: 'best-practices', label: 'Best Practices' }
     ];
+
+    const imagePaths = {
+        overview: [
+            `/images/checkbox/${brand}/${brand}-img-checkbox-overview-001.svg`
+        ],
+        anatomy: `/images/checkbox/${brand}/${brand}-img-checkbox-anatomy.svg`,
+        states: [
+            `/images/checkbox/${brand}/${brand}-img-checkbox-st-001.svg`,
+            `/images/checkbox/${brand}/${brand}-img-checkbox-st-002.svg`,
+            `/images/checkbox/${brand}/${brand}-img-checkbox-st-003.svg`,
+            `/images/checkbox/${brand}/${brand}-img-checkbox-st-004.svg`,
+            `/images/checkbox/${brand}/${brand}-img-checkbox-st-005.svg`,
+            `/images/checkbox/${brand}/${brand}-img-checkbox-st-006.svg`,
+            `/images/checkbox/${brand}/${brand}-img-checkbox-st-007.svg`,
+            `/images/checkbox/${brand}/${brand}-img-checkbox-st-008.svg`,
+            `/images/checkbox/${brand}/${brand}-img-checkbox-st-009.svg`
+        ],
+        intents: [
+            `/images/checkbox/${brand}/${brand}-img-checkbox-int-001.svg`,
+            `/images/checkbox/${brand}/${brand}-img-checkbox-int-002.svg`
+        ],
+        sizes: [
+            `/images/checkbox/${brand}/${brand}-img-checkbox-size-001.svg`
+        ],
+        metrics: [
+            `/images/checkbox/${brand}/${brand}-img-checkbox-metrics-001.svg`,
+            `/images/checkbox/${brand}/${brand}-img-checkbox-metrics-002.svg`,
+            `/images/checkbox/${brand}/${brand}-img-checkbox-metrics-003.svg`,
+            `/images/checkbox/${brand}/${brand}-img-checkbox-metrics-004.svg`
+        ],
+        bestPractices: [
+            `/images/checkbox/${brand}/${brand}-img-checkbox-bp-001.svg`,
+            `/images/checkbox/${brand}/${brand}-img-checkbox-bp-002.svg`,
+            `/images/checkbox/${brand}/${brand}-img-checkbox-bp-003.svg`,
+            `/images/checkbox/${brand}/${brand}-img-checkbox-bp-004.svg`,
+            `/images/checkbox/${brand}/${brand}-img-checkbox-bp-005.svg`,
+            `/images/checkbox/${brand}/${brand}-img-checkbox-bp-006.svg`,
+            `/images/checkbox/${brand}/${brand}-img-checkbox-bp-007.svg`,
+            `/images/checkbox/${brand}/${brand}-img-checkbox-bp-008.svg`
+        ]
+    };
+
     const navigateToSection = (id) => {
         const sectionElement = document.getElementById(id);
         if (sectionElement) {
             sectionElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     };
-
-
 
     return (
         <div className='flex bg-white'>
@@ -42,7 +81,7 @@ const CheckboxOverviewContent = () => {
 
                         {/* Overview Image */}
                         <div className="p-6 bg-gray-100 flex justify-center rb-c" style={{ backgroundColor: '#FAFAFA' }}>
-                            <img src="/images/checkbox/overview.svg" alt="Checkbox Overview States" />
+                            <img src={imagePaths.overview[0]} alt="Checkbox Overview States" />
                         </div>
 
                         <p className="text-sm text-gray-600 mt-4 mb-8" style={{ lineHeight: '20px' }}>
@@ -63,7 +102,7 @@ const CheckboxOverviewContent = () => {
 
                         {/* Anatomy Image */}
                         <div className="p-6 bg-gray-100 rb-c flex justify-center" style={{ backgroundColor: '#FAFAFA' }}>
-                            <img src="/images/checkbox/anatomy.svg" alt="Checkbox Anatomy" />
+                            <img src={imagePaths.anatomy} alt="Checkbox Anatomy" />
                         </div>
 
                         {/* Container Section */}
@@ -114,7 +153,6 @@ const CheckboxOverviewContent = () => {
                             </div>
                         </div>
 
-
                         <hr className="border-gray-300 mb-16" style={{ marginTop: '64px', marginBottom: '64px' }} />
                     </section>
 
@@ -139,7 +177,7 @@ const CheckboxOverviewContent = () => {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
                             <div>
                                 <div className="p-6 bg-gray-100 rb-c" style={{ backgroundColor: '#FAFAFA' }}>
-                                    <img src="/images/checkbox/options001.svg" alt="Standard Checkbox" className="mx-auto" />
+                                    <img src={imagePaths.states[0]} alt="Standard Checkbox" className="mx-auto" />
                                 </div>
                                 <h4 className="mt-6 text-lg font-bold text-black">Standard</h4>
                                 <p className="text-base text-gray-700 mt-2" style={{ lineHeight: '24px' }}>
@@ -148,7 +186,7 @@ const CheckboxOverviewContent = () => {
                             </div>
                             <div>
                                 <div className="p-6 bg-gray-100 rb-c" style={{ backgroundColor: '#FAFAFA' }}>
-                                    <img src="/images/checkbox/options002.svg" alt="Indeterminate Checkbox" className="mx-auto" />
+                                    <img src={imagePaths.states[1]} alt="Indeterminate Checkbox" className="mx-auto" />
                                 </div>
                                 <h4 className="mt-6 text-lg font-bold text-black">Indeterminate</h4>
                                 <p className="text-base text-gray-700 mt-2" style={{ lineHeight: '24px' }}>
@@ -173,7 +211,7 @@ const CheckboxOverviewContent = () => {
                             </ul>
                         </p>
                         <div className="p-6 bg-gray-100 rb-c" style={{ backgroundColor: '#FAFAFA' }}>
-                            <img src="/images/checkbox/options003.svg" alt="Label Placement" className="mx-auto" />
+                            <img src={imagePaths.states[2]} alt="Label Placement" className="mx-auto" />
                         </div>
                         <p className="text-sm text-gray-600 mt-4 mb-8">
                             Choosing the appropriate label placement is key to ensuring that checkboxes are easy to interact with and understand. Consider your audience and the overall design of your UI when deciding on label placement to ensure a seamless and intuitive user experience.
@@ -190,7 +228,7 @@ const CheckboxOverviewContent = () => {
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
                                 {/* Empty / Default / Unchecked */}
                                 <div className="p-6 bg-gray-100 rb-c rounded-lg mb-6">
-                                    <img src="/images/checkbox/states001.svg" alt="Empty / Default / Unchecked State" />
+                                    <img src={imagePaths.states[3]} alt="Empty / Default / Unchecked State" />
                                 </div>
                                 <div>
                                     <h4 className="text-lg font-bold text-black">Empty / Default / Unchecked</h4>
@@ -201,7 +239,7 @@ const CheckboxOverviewContent = () => {
 
                                 {/* Hover */}
                                 <div className="p-6 bg-gray-100 rb-c rounded-lg mb-6">
-                                    <img src="/images/checkbox/states002.svg" alt="Hover State" />
+                                    <img src={imagePaths.states[4]} alt="Hover State" />
                                 </div>
                                 <div>
                                     <h4 className="text-lg font-bold text-black">Hover</h4>
@@ -212,7 +250,7 @@ const CheckboxOverviewContent = () => {
 
                                 {/* Checked */}
                                 <div className="p-6 bg-gray-100 rb-c rounded-lg mb-6">
-                                    <img src="/images/checkbox/states003.svg" alt="Checked State" />
+                                    <img src={imagePaths.states[5]} alt="Checked State" />
                                 </div>
                                 <div>
                                     <h4 className="text-lg font-bold text-black">Checked</h4>
@@ -223,7 +261,7 @@ const CheckboxOverviewContent = () => {
 
                                 {/* Press */}
                                 <div className="p-6 bg-gray-100 rb-c rounded-lg mb-6">
-                                    <img src="/images/checkbox/states004.svg" alt="Press State" />
+                                    <img src={imagePaths.states[6]} alt="Press State" />
                                 </div>
                                 <div>
                                     <h4 className="text-lg font-bold text-black">Press</h4>
@@ -234,7 +272,7 @@ const CheckboxOverviewContent = () => {
 
                                 {/* Disabled */}
                                 <div className="p-6 bg-gray-100 rb-c rounded-lg mb-6">
-                                    <img src="/images/checkbox/states005.svg" alt="Disabled State" />
+                                    <img src={imagePaths.states[7]} alt="Disabled State" />
                                 </div>
                                 <div>
                                     <h4 className="text-lg font-bold text-black">Disabled</h4>
@@ -245,7 +283,7 @@ const CheckboxOverviewContent = () => {
 
                                 {/* Focus */}
                                 <div className="p-6 bg-gray-100 rb-c rounded-lg mb-6">
-                                    <img src="/images/checkbox/states002.svg" alt="Focus State" />
+                                    <img src={imagePaths.states[8]} alt="Focus State" />
                                 </div>
                                 <div>
                                     <h4 className="text-lg font-bold text-black">Focus</h4>
@@ -255,7 +293,6 @@ const CheckboxOverviewContent = () => {
                                 </div>
                             </div>
                         </section>
-
 
                         <hr className="border-gray-300 mb-16" style={{ marginTop: '64px', marginBottom: '64px' }} />
                     </section>
@@ -272,7 +309,7 @@ const CheckboxOverviewContent = () => {
                             {/* Default */}
                             <div>
                                 <div className="p-6 bg-gray-100 rb-c rounded-lg mb-6">
-                                    <img src="/images/checkbox/intent001.svg" alt="Default Intent" className="mx-auto" />
+                                    <img src={imagePaths.intents[0]} alt="Default Intent" className="mx-auto" />
                                 </div>
                                 <h4 className="text-lg font-bold text-black mt-6">Default</h4>
                                 <p className="text-base text-gray-700 mt-2" style={{ lineHeight: '24px' }}>
@@ -283,7 +320,7 @@ const CheckboxOverviewContent = () => {
                             {/* Negative */}
                             <div>
                                 <div className="p-6 bg-gray-100 rb-c rounded-lg mb-6">
-                                    <img src="/images/checkbox/intent002.svg" alt="Negative Intent" className="mx-auto" />
+                                    <img src={imagePaths.intents[1]} alt="Negative Intent" className="mx-auto" />
                                 </div>
                                 <h4 className="text-lg font-bold text-black mt-6">Negative</h4>
                                 <p className="text-base text-gray-700 mt-2" style={{ lineHeight: '24px' }}>
@@ -305,7 +342,7 @@ const CheckboxOverviewContent = () => {
                         </p>
 
                         <div className="p-6 bg-gray-100 rb-c rounded-lg mb-6">
-                            <img src="/images/checkbox/size001.svg" alt="Checkbox Size Chart" className="mx-auto" />
+                            <img src={imagePaths.sizes[0]} alt="Checkbox Size Chart" className="mx-auto" />
                         </div>
                         <p className="text-sm text-gray-600 mt-4 mb-8">
                             Each size is designed to accommodate different screen sizes, contexts, and user needs, ensuring a versatile and adaptable component library.
@@ -369,7 +406,6 @@ const CheckboxOverviewContent = () => {
                         </p>
                     </section>
 
-
                     {/* Metrics Section */}
                     <section id="metrics">
                         <h2 className="text-2xl font-bold text-black mb-6" style={{ lineHeight: '34px' }}>Metrics</h2>
@@ -381,7 +417,7 @@ const CheckboxOverviewContent = () => {
                             {/* Extra-Large Checkbox */}
                             <div>
                                 <div className="p-6 bg-gray-100 rb-c rounded-lg mb-6">
-                                    <img src="/images/checkbox/metrics001.svg" alt="Extra-Large Checkbox" className="mx-auto" />
+                                    <img src={imagePaths.metrics[0]} alt="Extra-Large Checkbox" className="mx-auto" />
                                 </div>
                                 <h4 className="text-lg font-bold text-black mb-4">Extra-Large Checkbox</h4>
                                 <p className="text-base text-gray-600 mb-4">Increases visibility and ease of interaction, perfect for touch screens and primary selection tasks.</p>
@@ -395,7 +431,7 @@ const CheckboxOverviewContent = () => {
                             {/* Large Checkbox */}
                             <div>
                                 <div className="p-6 bg-gray-100 rb-c rounded-lg mb-6">
-                                    <img src="/images/checkbox/metrics002.svg" alt="Large Checkbox" className="mx-auto" />
+                                    <img src={imagePaths.metrics[1]} alt="Large Checkbox" className="mx-auto" />
                                 </div>
                                 <h4 className="text-lg font-bold text-black mb-4">Large Checkbox</h4>
                                 <p className="text-base text-gray-600 mb-4">
@@ -412,7 +448,7 @@ const CheckboxOverviewContent = () => {
                             {/* Medium Checkbox */}
                             <div>
                                 <div className="p-6 bg-gray-100 rb-c rounded-lg mb-6">
-                                    <img src="/images/checkbox/metrics003.svg" alt="Medium Checkbox" className="mx-auto" />
+                                    <img src={imagePaths.metrics[2]} alt="Medium Checkbox" className="mx-auto" />
                                 </div>
                                 <h4 className="text-lg font-bold text-black mb-4">Medium Checkbox</h4>
                                 <p className="text-base text-gray-600 mb-4">
@@ -427,7 +463,7 @@ const CheckboxOverviewContent = () => {
                             {/* Small Checkbox */}
                             <div>
                                 <div className="p-6 bg-gray-100 rb-c rounded-lg mb-6">
-                                    <img src="/images/checkbox/metrics004.svg" alt="Small Checkbox" className="mx-auto" />
+                                    <img src={imagePaths.metrics[3]} alt="Small Checkbox" className="mx-auto" />
                                 </div>
                                 <h4 className="text-lg font-bold text-black mb-4">Small Checkbox</h4>
 
@@ -457,7 +493,7 @@ const CheckboxOverviewContent = () => {
                             {/* Row 1 */}
                             <div>
                                 <div className="p-6 bg-gray-100 rb-c rounded-lg mb-6">
-                                    <img src="/images/checkbox/bp001.svg" alt="Clear and Direct Labeling" className="mx-auto" />
+                                    <img src={imagePaths.bestPractices[0]} alt="Clear and Direct Labeling" className="mx-auto" />
                                 </div>
                                 <img src="/images/do.svg" alt="Use Clear and Direct Labeling Icon" className="inline mr-4" />
                                 <h3 className="inline text-lg font-bold text-green-600 mb-2">Use Clear and Direct Labeling</h3>
@@ -465,7 +501,7 @@ const CheckboxOverviewContent = () => {
                             </div>
                             <div>
                                 <div className="p-6 bg-gray-100 rb-c rounded-lg mb-6">
-                                    <img src="/images/checkbox/bp002.svg" alt="Avoid Vague Labeling" className="mx-auto" />
+                                    <img src={imagePaths.bestPractices[1]} alt="Avoid Vague Labeling" className="mx-auto" />
                                 </div>
                                 <img src="/images/dont.svg" alt="Avoid Vague Labeling Icon" className="inline mr-4" />
                                 <h3 className="inline text-lg font-bold text-red-600 mb-2">Avoid Vague or Overly Complex Labeling</h3>
@@ -475,7 +511,7 @@ const CheckboxOverviewContent = () => {
                             {/* Row 2 */}
                             <div>
                                 <div className="p-6 bg-gray-100 rb-c rounded-lg mb-6">
-                                    <img src="/images/checkbox/bp003.svg" alt="Ensure Easy Clickability" className="mx-auto" />
+                                    <img src={imagePaths.bestPractices[2]} alt="Ensure Easy Clickability" className="mx-auto" />
                                 </div>
                                 <img src="/images/do.svg" alt="Ensure Easy Clickability Icon" className="inline mr-4" />
                                 <h3 className="inline text-lg font-bold text-green-600 mb-2">Ensure Easy Clickability</h3>
@@ -483,7 +519,7 @@ const CheckboxOverviewContent = () => {
                             </div>
                             <div>
                                 <div className="p-6 bg-gray-100 rb-c rounded-lg mb-6">
-                                    <img src="/images/checkbox/bp004.svg" alt="Avoid Neglecting Adequate Spacing" className="mx-auto" />
+                                    <img src={imagePaths.bestPractices[3]} alt="Avoid Neglecting Adequate Spacing" className="mx-auto" />
                                 </div>
                                 <img src="/images/dont.svg" alt="Avoid Neglecting Adequate Spacing Icon" className="inline mr-4" />
                                 <h3 className="inline text-lg font-bold text-red-600 mb-2">Avoid Neglecting Adequate Spacing</h3>
@@ -493,7 +529,7 @@ const CheckboxOverviewContent = () => {
                             {/* Row 3 */}
                             <div>
                                 <div className="p-6 bg-gray-100 rb-c rounded-lg mb-6">
-                                    <img src="/images/checkbox/bp005.svg" alt="Provide Immediate Visual Feedback" className="mx-auto" />
+                                    <img src={imagePaths.bestPractices[4]} alt="Provide Immediate Visual Feedback" className="mx-auto" />
                                 </div>
                                 <img src="/images/do.svg" alt="Provide Immediate Visual Feedback Icon" className="inline mr-4" />
                                 <h3 className="inline text-lg font-bold text-green-600 mb-2">Provide Immediate Visual Feedback</h3>
@@ -501,7 +537,7 @@ const CheckboxOverviewContent = () => {
                             </div>
                             <div>
                                 <div className="p-6 bg-gray-100 rb-c rounded-lg mb-6">
-                                    <img src="/images/checkbox/bp006.svg" alt="Avoid Delayed or Obscure Feedback" className="mx-auto" />
+                                    <img src={imagePaths.bestPractices[5]} alt="Avoid Delayed or Obscure Feedback" className="mx-auto" />
                                 </div>
                                 <img src="/images/dont.svg" alt="Avoid Delayed or Obscure Feedback Icon" className="inline mr-4" />
                                 <h3 className="inline text-lg font-bold text-red-600 mb-2">Avoid Delayed or Obscure Feedback</h3>
@@ -511,7 +547,7 @@ const CheckboxOverviewContent = () => {
                             {/* Row 4 */}
                             <div>
                                 <div className="p-6 bg-gray-100 rb-c rounded-lg mb-6">
-                                    <img src="/images/checkbox/bp007.svg" alt="Utilize the Indeterminate State Wisely" className="mx-auto" />
+                                    <img src={imagePaths.bestPractices[6]} alt="Utilize the Indeterminate State Wisely" className="mx-auto" />
                                 </div>
                                 <img src="/images/do.svg" alt="Utilize the Indeterminate State Wisely Icon" className="inline mr-4" />
                                 <h3 className="inline text-lg font-bold text-green-600 mb-2">Utilize the Indeterminate State Wisely</h3>
@@ -519,7 +555,7 @@ const CheckboxOverviewContent = () => {
                             </div>
                             <div>
                                 <div className="p-6 bg-gray-100 rb-c rounded-lg mb-6">
-                                    <img src="/images/checkbox/bp008.svg" alt="Avoid Overusing the Indeterminate State" className="mx-auto" />
+                                    <img src={imagePaths.bestPractices[7]} alt="Avoid Overusing the Indeterminate State" className="mx-auto" />
                                 </div>
                                 <img src="/images/dont.svg" alt="Avoid Overusing the Indeterminate State Icon" className="inline mr-4" />
                                 <h3 className="inline text-lg font-bold text-red-600 mb-2">Avoid Overusing the Indeterminate State</h3>
@@ -537,7 +573,6 @@ const CheckboxOverviewContent = () => {
             </div>
         </div>
     );
-}
+};
 
 export default CheckboxOverviewContent;
-

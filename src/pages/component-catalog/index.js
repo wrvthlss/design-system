@@ -27,6 +27,11 @@ const ComponentCatalog = () => {
     const [activeBrand, setActiveBrand] = useState('anthem');
 
     useEffect(() => {
+        const storedBrand = localStorage.getItem('selectedBrand');
+        if (storedBrand) {
+            setActiveBrand(storedBrand);
+        }
+
         const handleScroll = () => {
             const footerElement = document.querySelector('.container');
             if (footerElement) {
@@ -64,6 +69,7 @@ const ComponentCatalog = () => {
 
     const handleBrandChange = (brand) => {
         setActiveBrand(brand);
+        localStorage.setItem('selectedBrand', brand);
     };
 
     const renderPage = () => {
@@ -90,7 +96,7 @@ const ComponentCatalog = () => {
                 return (
                     <>
                         <CheckboxHeader onTabChange={handleCheckboxTabChange} />
-                        {activeCheckboxTab === "Overview" && <CheckboxOverviewContent />}
+                        {activeCheckboxTab === "Overview" && <CheckboxOverviewContent brand={activeBrand} />}
                         {activeCheckboxTab === "Examples" && <PlaceholderContent title="Examples" />}
                         {activeCheckboxTab === "Accessibility" && <PlaceholderContent title="Accessibility" />}
                         <ComponentDetails />
@@ -100,7 +106,7 @@ const ComponentCatalog = () => {
                 return (
                     <>
                         <DropdownHeader onTabChange={handleCheckboxTabChange} />
-                        {activeCheckboxTab === "Overview" && <DropdownOverviewContent />}
+                        {activeCheckboxTab === "Overview" && <DropdownOverviewContent brand={activeBrand} />}
                         {activeCheckboxTab === "Examples" && <PlaceholderContent title="Examples" />}
                         {activeCheckboxTab === "Accessibility" && <PlaceholderContent title="Accessibility" />}
                         <ComponentDetails />
