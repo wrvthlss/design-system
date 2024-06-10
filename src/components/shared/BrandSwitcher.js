@@ -1,6 +1,9 @@
-import React from 'react';
+// BrandSwitcher.js
+import React, { useState } from 'react';
 
-const BrandSwitcher = ({ activeBrand, setActiveBrand }) => {
+const BrandSwitcher = ({ onBrandChange }) => {
+    const [activeButton, setActiveButton] = useState('anthem');
+
     const handleMouseEnter = (buttonType) => {
         document.getElementById(`${buttonType}-button`).classList.add('hover');
     };
@@ -10,7 +13,8 @@ const BrandSwitcher = ({ activeBrand, setActiveBrand }) => {
     };
 
     const toggleActiveState = (buttonType) => {
-        setActiveBrand(buttonType);
+        setActiveButton(buttonType);
+        onBrandChange(buttonType); // Notify parent of brand change
     };
 
     return (
@@ -18,7 +22,7 @@ const BrandSwitcher = ({ activeBrand, setActiveBrand }) => {
             {['anthem', 'carelon', 'elevance', 'wellpoint'].map((buttonType) => (
                 <React.Fragment key={buttonType}>
                     <button
-                        className={`icon-button ${activeBrand === buttonType ? 'active' : ''}`}
+                        className={`icon-button ${activeButton === buttonType ? 'active' : ''}`}
                         id={`${buttonType}-button`}
                         onMouseEnter={() => handleMouseEnter(buttonType)}
                         onMouseLeave={() => handleMouseLeave(buttonType)}
@@ -28,7 +32,7 @@ const BrandSwitcher = ({ activeBrand, setActiveBrand }) => {
                         <img src={`https://assets.codepen.io/2154393/icon-brand-${buttonType}-hover_1.svg`} alt={buttonType} className="icon icon-hover" />
                         <img src={`https://assets.codepen.io/2154393/icon-brand-${buttonType}-selected.svg`} alt={buttonType} className="icon icon-selected" />
                     </button>
-                    <span className={`bs-text ${activeBrand === buttonType ? 'active' : ''}`} id={`${buttonType}-text`}>{buttonType.charAt(0).toUpperCase() + buttonType.slice(1)}</span>
+                    <span className={`bs-text ${activeButton === buttonType ? 'active' : ''}`} id={`${buttonType}-text`}>{buttonType.charAt(0).toUpperCase() + buttonType.slice(1)}</span>
                     <div className="vertical-line"></div>
                 </React.Fragment>
             ))}

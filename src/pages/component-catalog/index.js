@@ -62,13 +62,17 @@ const ComponentCatalog = () => {
         setActiveCheckboxTab(tabName);
     };
 
+    const handleBrandChange = (brand) => {
+        setActiveBrand(brand);
+    };
+
     const renderPage = () => {
         switch (currentPage) {
             case "Overview":
                 return (
                     <>
                         <OverviewHeader />
-                        <CompCatalog activeBrand={activeBrand} />
+                        <CompCatalog brand={activeBrand} />
                         <ComponentDetails />
                     </>
                 );
@@ -76,7 +80,7 @@ const ComponentCatalog = () => {
                 return (
                     <>
                         <ButtonHeader onTabChange={handleButtonTabChange} />
-                        {activeButtonTab === "Overview" && <ButtonOverviewContent />}
+                        {activeButtonTab === "Overview" && <ButtonOverviewContent brand={activeBrand} />}
                         {activeButtonTab === "Examples" && <PlaceholderContent title="Examples" />}
                         {activeButtonTab === "Accessibility" && <PlaceholderContent title="Accessibility" />}
                         <ComponentDetails />
@@ -134,7 +138,7 @@ const ComponentCatalog = () => {
             )}
             <Footer />
             <SubFooter />
-            <BrandSwitcher activeBrand={activeBrand} setActiveBrand={setActiveBrand} />
+            <BrandSwitcher onBrandChange={handleBrandChange} />
         </div>
     );
 };
