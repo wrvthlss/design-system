@@ -1,9 +1,9 @@
-// CheckboxOverviewContent.js
+// DropdownOverviewContent.js
 import React from 'react';
 import JumpLinkNav from '../shared/JumpLinkNav';
 import JumpLinkNavMobi from '../shared/JumpLinkNavMobi';
 
-const DropdownOverviewContent = () => {
+const DropdownOverviewContent = ({ brand }) => {
     const sections = [
         { id: 'overview', label: 'Overview' },
         { id: 'anatomy', label: 'Anatomy' },
@@ -16,6 +16,40 @@ const DropdownOverviewContent = () => {
         if (sectionElement) {
             sectionElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
+    };
+
+    const imagePaths = {
+        overview: [
+            `/images/dropdown/${brand}/${brand}-img-dropdown-overview-001.svg`
+        ],
+        anatomy: `/images/dropdown/${brand}/${brand}-img-dropdown-anatomy.svg`,
+        states: [
+            `/images/dropdown/${brand}/${brand}-img-dropdown-st-001.svg`,
+            `/images/dropdown/${brand}/${brand}-img-dropdown-st-002.svg`,
+            `/images/dropdown/${brand}/${brand}-img-dropdown-st-003.svg`,
+            `/images/dropdown/${brand}/${brand}-img-dropdown-st-004.svg`,
+            `/images/dropdown/${brand}/${brand}-img-dropdown-st-005.svg`,
+            `/images/dropdown/${brand}/${brand}-img-dropdown-st-006.svg`
+        ],
+        sizes: [
+            `/images/dropdown/${brand}/${brand}-img-dropdown-size-001.svg`
+        ],
+        metrics: [
+            `/images/dropdown/${brand}/${brand}-img-dropdown-metrics-001.svg`,
+            `/images/dropdown/${brand}/${brand}-img-dropdown-metrics-002.svg`,
+            `/images/dropdown/${brand}/${brand}-img-dropdown-metrics-003.svg`,
+            `/images/dropdown/${brand}/${brand}-img-dropdown-metrics-004.svg`
+        ],
+        bestPractices: [
+            `/images/dropdown/${brand}/${brand}-img-dropdown-bp-001.svg`,
+            `/images/dropdown/${brand}/${brand}-img-dropdown-bp-002.svg`,
+            `/images/dropdown/${brand}/${brand}-img-dropdown-bp-003.svg`,
+            `/images/dropdown/${brand}/${brand}-img-dropdown-bp-004.svg`,
+            `/images/dropdown/${brand}/${brand}-img-dropdown-bp-005.svg`,
+            `/images/dropdown/${brand}/${brand}-img-dropdown-bp-006.svg`,
+            `/images/dropdown/${brand}/${brand}-img-dropdown-bp-007.svg`,
+            `/images/dropdown/${brand}/${brand}-img-dropdown-bp-008.svg`
+        ]
     };
 
     return (
@@ -40,7 +74,7 @@ const DropdownOverviewContent = () => {
 
                         {/* Overview Image */}
                         <div className="p-6 bg-gray-100 flex justify-center rb-c" style={{ backgroundColor: '#FAFAFA' }}>
-                            <img src="/images/dropdown/overview.svg" alt="Dropdown Overview States" />
+                            <img src={imagePaths.overview[0]} alt="Dropdown Overview States" />
                         </div>
 
                         <p className="text-sm text-gray-600 mt-4 mb-8" style={{ lineHeight: '20px' }}>
@@ -56,11 +90,12 @@ const DropdownOverviewContent = () => {
                             Anatomy
                         </h2>
                         <p className="text text-gray-700 mt-4 mb-6" style={{ lineHeight: '20px' }}>
-                            A dropdown component typically comprises a toggle button or indicator and a dropdown menu. When users click or tap the toggle button, it activates the dropdown menu, which displays a vertical list of selectable options or actions. Users can then choose an option by clicking or tapping it. Additional features may include displaying the selected option within the toggle button and a disabled state for inactive dropdowns. Overall, dropdown components streamline user interactions by presenting selectable options in a compact and accessible format.                        </p>
+                            A dropdown component typically comprises a toggle button or indicator and a dropdown menu. When users click or tap the toggle button, it activates the dropdown menu, which displays a vertical list of selectable options or actions. Users can then choose an option by clicking or tapping it. Additional features may include displaying the selected option within the toggle button and a disabled state for inactive dropdowns. Overall, dropdown components streamline user interactions by presenting selectable options in a compact and accessible format.
+                        </p>
 
                         {/* Anatomy Image */}
                         <div className="p-6 bg-gray-100 rb-c flex justify-center" style={{ backgroundColor: '#FAFAFA' }}>
-                            <img src="/images/dropdown/anatomy001.svg" alt="Checkbox Anatomy" />
+                            <img src={imagePaths.anatomy} alt="Dropdown Anatomy" />
                         </div>
 
                         {/* Container Section */}
@@ -143,7 +178,7 @@ const DropdownOverviewContent = () => {
                                     A choice for the user, shown with other choices in a menu.
                                 </p>
                                 <ul className="list-disc pl-6 text-gray-700 mt-2" style={{ lineHeight: '24px' }}>
-                                    <li><strong>Color:</strong> When a user hovers over an item within the dropdown, it will be highlighted, and the text color will update to provide immediate visual feedback. This dynamic response enhances user interaction by signaling that the item is interactive and selectable. The highlighted appearance and adjusted text color serve as visual cues, indicating to the user that the item is under focus and ready for selection. This interactive feedback mechanism not only improves usability but also enhances the overall user experience, fostering a sense of engagement and responsiveness within the interface. By incorporating such color changes on hover, we ensure that users receive clear and intuitive feedback, thereby facilitating seamless navigation and interaction within the dropdown component. </li>
+                                    <li><strong>Color:</strong> When a user hovers over an item within the dropdown, it will be highlighted, and the text color will update to provide immediate visual feedback. This dynamic response enhances user interaction by signaling that the item is interactive and selectable. The highlighted appearance and adjusted text color serve as visual cues, indicating to the user that the item is under focus and ready for selection. This interactive feedback mechanism not only improves usability but also enhances the overall user experience, fostering a sense of engagement and responsiveness within the interface. By incorporating such color changes on hover, we ensure that users receive clear and intuitive feedback, thereby facilitating seamless navigation and interaction within the dropdown component.</li>
                                 </ul>
                             </div>
                         </div>
@@ -160,7 +195,6 @@ const DropdownOverviewContent = () => {
                                 </ul>
                             </div>
                         </div>
-
 
                         <hr className="border-gray-300 mb-16" style={{ marginTop: '64px', marginBottom: '64px' }} />
                     </section>
@@ -191,7 +225,6 @@ const DropdownOverviewContent = () => {
                                 <h4 className="mt-6 text-lg font-bold text-black">Standard</h4>
                                 <p className="text-base text-gray-700 mt-2" style={{ lineHeight: '24px' }}>
                                     The primary dropdown with a label provides users with a clear and intuitive way to make selections within an interface while providing context and guidance through the accompanying label.
-
                                 </p>
                             </div>
                             <div>
@@ -206,8 +239,7 @@ const DropdownOverviewContent = () => {
                         </div>
                     </section>
 
-
-                    {/* Checkbox States Section */}
+                    {/* Dropdown States Section */}
                     <section id="states">
                         <h3 className="text-2xl font-bold text-black" style={{ lineHeight: '34px' }}>
                             Dropdown States
@@ -217,9 +249,9 @@ const DropdownOverviewContent = () => {
                         </p>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
-                            {/* Empty / Default / Unchecked */}
+                            {/* Collapsed */}
                             <div className="p-6 bg-gray-100 rb-c rounded-lg mb-6">
-                                <img src="/images/dropdown/options003.svg" alt="Empty / Default / Unchecked State" />
+                                <img src={imagePaths.states[0]} alt="Collapsed State" />
                             </div>
                             <div>
                                 <h4 className="text-lg font-bold text-black">Collapsed</h4>
@@ -228,36 +260,38 @@ const DropdownOverviewContent = () => {
                                 </p>
                             </div>
 
-                            {/* Hover */}
+                            {/* Expanded */}
                             <div className="p-6 bg-gray-100 rb-c rounded-lg mb-6">
-                                <img src="/images/dropdown/options004.svg" alt="Hover State" />
+                                <img src={imagePaths.states[1]} alt="Expanded State" />
                             </div>
                             <div>
                                 <h4 className="text-lg font-bold text-black">Expanded</h4>
                                 <p className="text-base text-gray-700 mt-2" style={{ lineHeight: '24px' }}>
-                                    In the expanded state, the dropdown menu becomes visible, presenting users with a list of options or actions available for selection. Users can interact with these options or actions directly within the dropdown menu.                                    </p>
+                                    In the expanded state, the dropdown menu becomes visible, presenting users with a list of options or actions available for selection. Users can interact with these options or actions directly within the dropdown menu.
+                                </p>
                             </div>
 
-                            {/* Checked */}
+                            {/* Focused */}
                             <div className="p-6 bg-gray-100 rb-c rounded-lg mb-6">
-                                <img src="/images/dropdown/options005.svg" alt="Checked State" />
+                                <img src={imagePaths.states[2]} alt="Focused State" />
                             </div>
                             <div>
                                 <h4 className="text-lg font-bold text-black">Focused</h4>
                                 <p className="text-base text-gray-700 mt-2" style={{ lineHeight: '24px' }}>
-                                    In the focus state, the dropdown menu displays a visible border, providing clear feedback to users about the active state of the component. This enhances usability and accessibility by ensuring users remain informed and engaged during interaction with the dropdown.                                    </p>
+                                    In the focus state, the dropdown menu displays a visible border, providing clear feedback to users about the active state of the component. This enhances usability and accessibility by ensuring users remain informed and engaged during interaction with the dropdown.
+                                </p>
                             </div>
 
-                            {/* Press */}
+                            {/* Disabled */}
                             <div className="p-6 bg-gray-100 rb-c rounded-lg mb-6">
-                                <img src="/images/dropdown/options006.svg" alt="Press State" />
+                                <img src={imagePaths.states[3]} alt="Disabled State" />
                             </div>
                             <div>
                                 <h4 className="text-lg font-bold text-black">Disabled</h4>
                                 <p className="text-base text-gray-700 mt-2" style={{ lineHeight: '24px' }}>
-                                    The disabled state is applied to the dropdown component when it is inactive or unable to interact. This may occur for various reasons, such as when it retains a previous selection or depends on a specific condition to be met.                                     </p>
+                                    The disabled state is applied to the dropdown component when it is inactive or unable to interact. This may occur for various reasons, such as when it retains a previous selection or depends on a specific condition to be met.
+                                </p>
                             </div>
-
                         </div>
 
                         {/* Size Section */}
@@ -266,13 +300,15 @@ const DropdownOverviewContent = () => {
                                 Size
                             </h3>
                             <p className="text-base text-gray-700 mt-4 mb-16" style={{ lineHeight: '24px' }}>
-                                We offer four default dropdown height sizes: Large, Medium, Small, and Extra Small. This variety provides flexibility in structuring layouts to accommodate different design needs. However, it's important to maintain consistency by using the same dropdown size for all form components on the same page. This ensures visual coherence and enhances the overall user experience.</p>
+                                We offer four default dropdown height sizes: Large, Medium, Small, and Extra Small. This variety provides flexibility in structuring layouts to accommodate different design needs. However, it's important to maintain consistency by using the same dropdown size for all form components on the same page. This ensures visual coherence and enhances the overall user experience.
+                            </p>
 
                             <div className="p-6 bg-gray-100 rb-c rounded-lg mb-6">
-                                <img src="/images/dropdown/size.svg" alt="Checkbox Size Chart" className="mx-auto" />
+                                <img src={imagePaths.sizes[0]} alt="Dropdown Size Chart" className="mx-auto" />
                             </div>
                             <p className="text-sm text-gray-600 mt-4 mb-8">
-                                Each size is designed to accommodate different screen sizes, contexts, and user needs, ensuring a versatile and adaptable component library.</p>
+                                Each size is designed to accommodate different screen sizes, contexts, and user needs, ensuring a versatile and adaptable component library.
+                            </p>
 
                             <table className="w-full border border-gray-300 mt-8 mb-16">
                                 <thead style={{ backgroundColor: '#f4f4f4' }}>
@@ -291,21 +327,25 @@ const DropdownOverviewContent = () => {
                                     <tr className="border-b border-gray-300">
                                         <td className="p-4 text-base font-bold text-black">Medium</td>
                                         <td className="p-4 text-base text-gray-700">
-                                            The medium size is the default and most commonly used option. When unsure, it's recommended to use the medium size for dropdowns.                                    </td>
+                                            The medium size is the default and most commonly used option. When unsure, it's recommended to use the medium size for dropdowns.
+                                        </td>
                                     </tr>
                                     <tr className="border-b border-gray-300">
                                         <td className="p-4 text-base font-bold text-black">Small</td>
                                         <td className="p-4 text-base text-gray-700">
-                                            This size is suitable for situations with limited space or when integrating a dropdown into a lengthy and intricate form.                                    </td>
+                                            This size is suitable for situations with limited space or when integrating a dropdown into a lengthy and intricate form.
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td className="p-4 text-base font-bold text-black">Extra Small</td>
                                         <td className="p-4 text-base text-gray-700">
-                                            This size is ideal for situations with limited space or when integrating a dropdown into a lengthy and complex form. It's important to align the sizing of the dropdown with other UI components for a cohesive design.                                    </td>
+                                            This size is ideal for situations with limited space or when integrating a dropdown into a lengthy and complex form. It's important to align the sizing of the dropdown with other UI components for a cohesive design.
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
                         </section>
+
                         {/* Implementation Considerations Section */}
                         <section id="implementation-considerations">
                             <h3 className="text-2xl font-bold text-black" style={{ lineHeight: '34px' }}>
@@ -321,14 +361,12 @@ const DropdownOverviewContent = () => {
                                         <strong>Accessibility:</strong> Prioritize accessibility by avoiding truncated labels. Verify that menu item widths do not exceed the maximum specified width to prevent truncation. Additionally, implement a focus lock mechanism to trap focus within the menu, ensuring seamless keyboard navigation and usability.
                                     </li>
                                     <li>
-                                        <strong>Visual Clarity:</strong> Enhance visual clarity by providing clear visual cues for different dropdown states (collapsed, expanded, focused and disabled). This includes maintaining consistent styling and alignment to facilitate easy identification of each option's current state. Strive for a visually appealing design with adequate spacing and alignment to enhance user interaction and comprehension.
+                                        <strong>Visual Clarity:</strong> Enhance visual clarity by providing clear visual cues for different dropdown states (collapsed, expanded, focused, and disabled). This includes maintaining consistent styling and alignment to facilitate easy identification of each option's current state. Strive for a visually appealing design with adequate spacing and alignment to enhance user interaction and comprehension.
                                     </li>
                                 </ul>
 
                             </p>
                         </section>
-
-
 
                         <hr className="border-gray-300 mb-16" style={{ marginTop: '64px', marginBottom: '64px' }} />
                     </section>
@@ -341,38 +379,39 @@ const DropdownOverviewContent = () => {
                         </p>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
-                            {/* Extra-Large Checkbox */}
+                            {/* Large Dropdown */}
                             <div>
                                 <div className="p-6 bg-gray-100 rb-c rounded-lg mb-6">
-                                    <img src="/images/dropdown/metrics001.svg" alt="Extra-Large Checkbox" className="mx-auto" />
+                                    <img src={imagePaths.metrics[0]} alt="Large Dropdown" className="mx-auto" />
                                 </div>
                                 <h4 className="text-lg font-bold text-black mb-4">Large Dropdown</h4>
                                 <p className="text-base text-gray-600 mb-4">
-                                Enhances prominence and touchability, best for key actions where attention is paramount.
+                                    Enhances prominence and touchability, best for key actions where attention is paramount.
                                 </p>
 
                                 <ul className="list-none text-base text-gray-600 mb-4">
                                     <li>Input Height:<strong>44pt</strong></li>
-                                    <li>Input Padding<strong>12pt, 8pt, 12pt, 12pt</strong></li>
-                                    <li>Width Minimum<strong>230pt</strong></li>
+                                    <li>Input Padding:<strong>12pt, 8pt, 12pt, 12pt</strong></li>
+                                    <li>Width Minimum:<strong>230pt</strong></li>
                                     <li>Font Size:<strong>14pt</strong></li>
                                     <li>Font Weight:<strong>Semibold</strong></li>
                                     <li>Icon Size:<strong>14pt</strong></li>
                                 </ul>
                             </div>
 
-                            {/* Large Checkbox */}
+                            {/* Medium Dropdown */}
                             <div>
                                 <div className="p-6 bg-gray-100 rb-c rounded-lg mb-6">
-                                    <img src="/images/dropdown/metrics002.svg" alt="Large Checkbox" className="mx-auto" />
+                                    <img src={imagePaths.metrics[1]} alt="Medium Dropdown" className="mx-auto" />
                                 </div>
                                 <h4 className="text-lg font-bold text-black mb-4">Medium Dropdown</h4>
                                 <p className="text-base text-gray-600 mb-4">
-                                Increases visibility and ease of interaction, perfect for touch screens and primary selection tasks.                                 </p>
+                                    Increases visibility and ease of interaction, perfect for touch screens and primary selection tasks.
+                                </p>
                                 <ul className="list-none text-base text-gray-600 mb-4">
                                     <li>Input Height:<strong>40pt</strong></li>
-                                    <li>Input Padding<strong>10pt, 6pt, 10pt, 12pt</strong></li>
-                                    <li>Width Minimum<strong>230pt</strong></li>
+                                    <li>Input Padding:<strong>10pt, 6pt, 10pt, 12pt</strong></li>
+                                    <li>Width Minimum:<strong>230pt</strong></li>
                                     <li>Font Size:<strong>14pt</strong></li>
                                     <li>Font Weight:<strong>Semibold</strong></li>
                                     <li>Icon Size:<strong>14pt</strong></li>
@@ -381,38 +420,38 @@ const DropdownOverviewContent = () => {
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
-                            {/* Medium Checkbox */}
+                            {/* Small Dropdown */}
                             <div>
                                 <div className="p-6 bg-gray-100 rb-c rounded-lg mb-6">
-                                    <img src="/images/dropdown/metrics003.svg" alt="Large Checkbox" className="mx-auto" />
+                                    <img src={imagePaths.metrics[2]} alt="Small Dropdown" className="mx-auto" />
                                 </div>
                                 <h4 className="text-lg font-bold text-black mb-4">Small Dropdown</h4>
                                 <p className="text-base text-gray-600 mb-4">
-                                The versatile standard, balancing visibility and compactness, ideal for general use across desktop and mobile interfaces.                               
+                                    The versatile standard, balancing visibility and compactness, ideal for general use across desktop and mobile interfaces.
                                 </p>
                                 <ul className="list-none text-base text-gray-600 mb-4">
                                     <li>Input Height:<strong>36pt</strong></li>
-                                    <li>Input Padding<strong>8pt, 8pt, 8pt, 12pt</strong></li>
-                                    <li>Width Minimum<strong>160pt</strong></li>
+                                    <li>Input Padding:<strong>8pt, 8pt, 8pt, 12pt</strong></li>
+                                    <li>Width Minimum:<strong>160pt</strong></li>
                                     <li>Font Size:<strong>14pt</strong></li>
                                     <li>Font Weight:<strong>Semibold</strong></li>
                                     <li>Icon Size:<strong>12pt</strong></li>
                                 </ul>
                             </div>
 
-                            {/* Small Checkbox */}
+                            {/* Extra Small Dropdown */}
                             <div>
                                 <div className="p-6 bg-gray-100 rb-c rounded-lg mb-6">
-                                    <img src="/images/dropdown/metrics004.svg" alt="Small Checkbox" className="mx-auto" />
+                                    <img src={imagePaths.metrics[3]} alt="Extra Small Dropdown" className="mx-auto" />
                                 </div>
                                 <h4 className="text-lg font-bold text-black mb-4">Extra Small Dropdown</h4>
-
                                 <p className="text-base text-gray-600 mb-4">
-                                Optimal for dense layouts where space is limited, ensuring functionality without compromising on accessibility.                                </p>
+                                    Optimal for dense layouts where space is limited, ensuring functionality without compromising on accessibility.
+                                </p>
                                 <ul className="list-none text-base text-gray-600 mb-4">
                                     <li>Input Height:<strong>28pt</strong></li>
-                                    <li>Input Padding<strong>4pt, 8pt, 4pt, 12pt</strong></li>
-                                    <li>Width Minimum<strong>Minimum 140pt</strong></li>
+                                    <li>Input Padding:<strong>4pt, 8pt, 4pt, 12pt</strong></li>
+                                    <li>Width Minimum:<strong>Minimum 140pt</strong></li>
                                     <li>Font Size:<strong>10pt</strong></li>
                                     <li>Font Weight:<strong>Semibold</strong></li>
                                     <li>Icon Size:<strong>10pt</strong></li>
@@ -427,13 +466,14 @@ const DropdownOverviewContent = () => {
                     <section id="best-practices">
                         <h2 className="text-2xl font-bold text-black mb-6" style={{ lineHeight: '34px' }}>Best Practices</h2>
                         <p className="text-base text-gray-600 mb-6" style={{ lineHeight: '24px' }}>
-                        To create intuitive and accessible dropdown components, it's essential to meticulously consider design principles and usage scenarios. In this guide, we present 'Do' and 'Don't' examples to outline best practices in dropdown design. These comparisons aim to elucidate effective strategies and common pitfalls, providing valuable insights to help you achieve optimal implementation of dropdowns in your interfaces.                        </p>
+                            To create intuitive and accessible dropdown components, it's essential to meticulously consider design principles and usage scenarios. In this guide, we present 'Do' and 'Don't' examples to outline best practices in dropdown design. These comparisons aim to elucidate effective strategies and common pitfalls, providing valuable insights to help you achieve optimal implementation of dropdowns in your interfaces.
+                        </p>
 
                         <div className="grid grid-cols-2 gap-16 pb-16">
                             {/* Row 1 */}
                             <div>
                                 <div className="p-6 bg-gray-100 rb-c rounded-lg mb-6">
-                                    <img src="/images/dropdown/bp001.svg" alt="Clear and Direct Labeling" className="mx-auto" />
+                                    <img src={imagePaths.bestPractices[0]} alt="Clear and Direct Labeling" className="mx-auto" />
                                 </div>
                                 <img src="/images/do.svg" alt="Use Clear and Direct Labeling Icon" className="inline mr-4" />
                                 <h3 className="inline text-lg font-bold text-green-600 mb-2">Use Clear and Direct Labeling</h3>
@@ -441,27 +481,27 @@ const DropdownOverviewContent = () => {
                             </div>
                             <div>
                                 <div className="p-6 bg-gray-100 rb-c rounded-lg mb-6">
-                                    <img src="/images/dropdown/bp002.svg" alt="Avoid Vague Labeling" className="mx-auto" />
+                                    <img src={imagePaths.bestPractices[1]} alt="Avoid Removing the Label" className="mx-auto" />
                                 </div>
-                                <img src="/images/dont.svg" alt="Avoid Vague Labeling Icon" className="inline mr-4" />
+                                <img src="/images/dont.svg" alt="Avoid Removing the Label Icon" className="inline mr-4" />
                                 <h3 className="inline text-lg font-bold text-red-600 mb-2">Avoid Removing the Label</h3>
-                                <p className="text-base text-gray-600 mb-6">Don't remove a label unless the dropdown is next to another component which already has a label. </p>
+                                <p className="text-base text-gray-600 mb-6">Don't remove a label unless the dropdown is next to another component which already has a label.</p>
                             </div>
 
                             {/* Row 2 */}
                             <div>
                                 <div className="p-6 bg-gray-100 rb-c rounded-lg mb-6">
-                                    <img src="/images/dropdown/bp003.svg" alt="Ensure Easy Clickability" className="mx-auto" />
+                                    <img src={imagePaths.bestPractices[2]} alt="Use Clear and Direct Options" className="mx-auto" />
                                 </div>
-                                <img src="/images/do.svg" alt="Ensure Easy Clickability Icon" className="inline mr-4" />
+                                <img src="/images/do.svg" alt="Use Clear and Direct Options Icon" className="inline mr-4" />
                                 <h3 className="inline text-lg font-bold text-green-600 mb-2">Use Clear and Direct Options</h3>
                                 <p className="text-base text-gray-600 mb-6">Do keep the description of the dropdown options as short as possible to improve readability.</p>
                             </div>
                             <div>
                                 <div className="p-6 bg-gray-100 rb-c rounded-lg mb-6">
-                                    <img src="/images/dropdown/bp004.svg" alt="Avoid Neglecting Adequate Spacing" className="mx-auto" />
+                                    <img src={imagePaths.bestPractices[3]} alt="Avoid Long and Multiple Line Options" className="mx-auto" />
                                 </div>
-                                <img src="/images/dont.svg" alt="Avoid Neglecting Adequate Spacing Icon" className="inline mr-4" />
+                                <img src="/images/dont.svg" alt="Avoid Long and Multiple Line Options Icon" className="inline mr-4" />
                                 <h3 className="inline text-lg font-bold text-red-600 mb-2">Avoid Long and Multiple Line Options</h3>
                                 <p className="text-base text-gray-600 mb-6">Don't use lengthy option descriptions because the text can get truncated and users will find it difficult to read.</p>
                             </div>
@@ -469,17 +509,17 @@ const DropdownOverviewContent = () => {
                             {/* Row 3 */}
                             <div>
                                 <div className="p-6 bg-gray-100 rb-c rounded-lg mb-6">
-                                    <img src="/images/dropdown/bp005.svg" alt="Provide Immediate Visual Feedback" className="mx-auto" />
+                                    <img src={imagePaths.bestPractices[4]} alt="Use For More than Four Options" className="mx-auto" />
                                 </div>
-                                <img src="/images/do.svg" alt="Provide Immediate Visual Feedback Icon" className="inline mr-4" />
+                                <img src="/images/do.svg" alt="Use For More than Four Options Icon" className="inline mr-4" />
                                 <h3 className="inline text-lg font-bold text-green-600 mb-2">Use For More than Four Options</h3>
-                                <p className="text-base text-gray-600 mb-6">Do use a dropdown if there’s more than four options to choose from. If there’s lees than three options use the checkbox component.</p>
+                                <p className="text-base text-gray-600 mb-6">Do use a dropdown if there’s more than four options to choose from. If there’s less than three options use the checkbox component.</p>
                             </div>
                             <div>
                                 <div className="p-6 bg-gray-100 rb-c rounded-lg mb-6">
-                                    <img src="/images/dropdown/bp006.svg" alt="Avoid Delayed or Obscure Feedback" className="mx-auto" />
+                                    <img src={imagePaths.bestPractices[5]} alt="Avoid For Small Amount of Selections" className="mx-auto" />
                                 </div>
-                                <img src="/images/dont.svg" alt="Avoid Delayed or Obscure Feedback Icon" className="inline mr-4" />
+                                <img src="/images/dont.svg" alt="Avoid For Small Amount of Selections Icon" className="inline mr-4" />
                                 <h3 className="inline text-lg font-bold text-red-600 mb-2">Avoid For Small Amount of Selections</h3>
                                 <p className="text-base text-gray-600 mb-6">Don't use if there’s less than three options.</p>
                             </div>
@@ -487,23 +527,22 @@ const DropdownOverviewContent = () => {
                             {/* Row 4 */}
                             <div>
                                 <div className="p-6 bg-gray-100 rb-c rounded-lg mb-6">
-                                    <img src="/images/dropdown/bp007.svg" alt="Utilize the Indeterminate State Wisely" className="mx-auto" />
+                                    <img src={imagePaths.bestPractices[6]} alt="Use an Order For Your Options" className="mx-auto" />
                                 </div>
-                                <img src="/images/do.svg" alt="Utilize the Indeterminate State Wisely Icon" className="inline mr-4" />
+                                <img src="/images/do.svg" alt="Use an Order For Your Options Icon" className="inline mr-4" />
                                 <h3 className="inline text-lg font-bold text-green-600 mb-2">Use an Order For Your Options</h3>
                                 <p className="text-base text-gray-600 mb-6">Do define order to present your list of options. A-Z, most popular items first, or logical order.</p>
                             </div>
                             <div>
                                 <div className="p-6 bg-gray-100 rb-c rounded-lg mb-6">
-                                    <img src="/images/dropdown/bp008.svg" alt="Avoid Overusing the Indeterminate State" className="mx-auto" />
+                                    <img src={imagePaths.bestPractices[7]} alt="Avoid Random Order For Options" className="mx-auto" />
                                 </div>
-                                <img src="/images/dont.svg" alt="Avoid Overusing the Indeterminate State Icon" className="inline mr-4" />
-                                <h3 className="inline text-lg font-bold text-red-600 mb-2">Use an Order For Your Options</h3>
+                                <img src="/images/dont.svg" alt="Avoid Random Order For Options Icon" className="inline mr-4" />
+                                <h3 className="inline text-lg font-bold text-red-600 mb-2">Avoid Random Order For Options</h3>
                                 <p className="text-base text-gray-600 mb-6">Don't present a mere list of items without thoughtful consideration of the best way to present them. Failing to do so can lead to user frustration and hinder the overall user experience.</p>
                             </div>
                         </div>
                     </section>
-
                 </div>
             </div>
 
@@ -516,4 +555,3 @@ const DropdownOverviewContent = () => {
 }
 
 export default DropdownOverviewContent;
-

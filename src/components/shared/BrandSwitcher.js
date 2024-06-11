@@ -1,8 +1,16 @@
-// BrandSwitcher.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const BrandSwitcher = ({ onBrandChange }) => {
-    const [activeButton, setActiveButton] = useState('anthem');
+    const [activeButton, setActiveButton] = useState(null); // Set initial state to null
+
+    useEffect(() => {
+        const storedBrand = localStorage.getItem('selectedBrand');
+        if (storedBrand) {
+            setActiveButton(storedBrand);
+        } else {
+            setActiveButton('anthem'); // Default brand if none is stored
+        }
+    }, []);
 
     const handleMouseEnter = (buttonType) => {
         document.getElementById(`${buttonType}-button`).classList.add('hover');
@@ -15,7 +23,13 @@ const BrandSwitcher = ({ onBrandChange }) => {
     const toggleActiveState = (buttonType) => {
         setActiveButton(buttonType);
         onBrandChange(buttonType); // Notify parent of brand change
+        localStorage.setItem('selectedBrand', buttonType); // Persist the selection
     };
+
+    // Render nothing until the activeButton state is set
+    if (!activeButton) {
+        return null;
+    }
 
     return (
         <div className="proportional-box fixed bottom-0 left-1/2 transform -translate-x-1/2 mb-12">

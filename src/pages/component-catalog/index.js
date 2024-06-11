@@ -5,11 +5,11 @@ import CompCatalog from '../../components/component-catalog/CompCatalog';
 import ComponentDetails from '../../components/component-catalog/ComponentDetails';
 import ButtonHeader from '../../components/button-detail/ButtonHeader';
 import CheckboxHeader from '../../components/checkbox-detail/CheckboxHeader';
+import DropdownHeader from '../../components/dropdown-detail/DropdownHeader';
 import Footer from '../../components/shared/Footer';
 import SubFooter from '../../components/shared/SubFooter';
 import ButtonOverviewContent from '../../components/component-catalog/ButtonOverviewContent';
 import CheckboxOverviewContent from '../../components/component-catalog/CheckboxOverviewContent';
-import DropdownHeader from '../../components/dropdown-detail/DropdownHeader';
 import DropdownOverviewContent from '../../components/component-catalog/DropdownOverviewContent';
 import GNav from '../../components/shared/GNav';
 import BrandSwitcher from '../../components/shared/BrandSwitcher';
@@ -54,6 +54,7 @@ const ComponentCatalog = () => {
     const [currentPage, setCurrentPage] = useState("Overview");
     const [activeButtonTab, setActiveButtonTab] = useState("Overview");
     const [activeCheckboxTab, setActiveCheckboxTab] = useState("Overview");
+    const [activeDropdownTab, setActiveDropdownTab] = useState("Overview");
 
     const handleChangePage = (pageName) => {
         setCurrentPage(pageName);
@@ -65,6 +66,10 @@ const ComponentCatalog = () => {
 
     const handleCheckboxTabChange = (tabName) => {
         setActiveCheckboxTab(tabName);
+    };
+
+    const handleDropdownTabChange = (tabName) => {
+        setActiveDropdownTab(tabName);
     };
 
     const handleBrandChange = (brand) => {
@@ -105,10 +110,10 @@ const ComponentCatalog = () => {
             case "Dropdown":
                 return (
                     <>
-                        <DropdownHeader onTabChange={handleCheckboxTabChange} />
-                        {activeCheckboxTab === "Overview" && <DropdownOverviewContent brand={activeBrand} />}
-                        {activeCheckboxTab === "Examples" && <PlaceholderContent title="Examples" />}
-                        {activeCheckboxTab === "Accessibility" && <PlaceholderContent title="Accessibility" />}
+                        <DropdownHeader onTabChange={handleDropdownTabChange} />
+                        {activeDropdownTab === "Overview" && <DropdownOverviewContent brand={activeBrand} />}
+                        {activeDropdownTab === "Examples" && <PlaceholderContent title="Examples" />}
+                        {activeDropdownTab === "Accessibility" && <PlaceholderContent title="Accessibility" />}
                         <ComponentDetails />
                     </>
                 );
