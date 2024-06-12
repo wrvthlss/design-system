@@ -55,8 +55,8 @@ export const Primary: Story = {
   args: {
     primary: true,
     label: "Button",
-    initialBackgroundColor: '--p100',
-    hoverBackgroundColor: '--p200',
+    initialBackgroundColor: "--p100",
+    hoverBackgroundColor: "--p200",
     activeBackgroundColor: '--p300',
     showIcon: false,
   },
