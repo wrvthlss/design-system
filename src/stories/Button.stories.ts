@@ -51,10 +51,11 @@ const meta: Meta<typeof Button> = {
 export default meta;
 type Story = StoryObj<typeof Button>;
 
-export const Primary: Story = {
+// Anthem Button Story - Set as Default
+export const Anthem: Story = {
   args: {
     primary: true,
-    label: "Button",
+    label: "Anthem Button",
     initialBackgroundColor: "--p100",
     hoverBackgroundColor: "--p200",
     activeBackgroundColor: '--p300',
@@ -62,6 +63,17 @@ export const Primary: Story = {
   },
 };
 
+// Carelon Button Story
+export const Carelon: Story = {
+  args: {
+    primary: true,
+    label: "Carelon Button",
+    initialBackgroundColor: "--c100",
+    hoverBackgroundColor: "--c200",
+    activeBackgroundColor: '--c300',
+    showIcon: false,
+  },
+};
 
 
 // import type { Meta, StoryObj } from "@storybook/react";
