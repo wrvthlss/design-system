@@ -21,6 +21,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/Button.stories.ts", "src/Button.tsx", "src/Button.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/Button.stories.ts", "src/Button.tsx", "src/Button.tsx", "src/pages/_app.js", "src/contexts/BrandContext.js", "src/components/shared/BrandSwitcher.js"],
   "exclude": ["node_modules"]
 }

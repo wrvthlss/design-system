@@ -1,7 +1,8 @@
 // ButtonOverviewContent.js
-import React from 'react';
+import React, { useEffect } from 'react';
 import JumpLinkNav from '../shared/JumpLinkNav';
 import JumpLinkNavMobi from '../shared/JumpLinkNavMobi';
+import ParentComponent from '../shared/ParentComponent';
 
 const ButtonOverviewContent = ({ brand }) => {
     const sections = [
@@ -74,8 +75,12 @@ const ButtonOverviewContent = ({ brand }) => {
         ]
     };
 
+
+
     return (
+
         <div className='flex bg-white'>
+            <ParentComponent />
             {/* Main Content Area */}
             <div className="flex-1 pt-3 bg-white">
                 {/* Mobile JumpLinkNavMobi */}
@@ -128,7 +133,6 @@ const ButtonOverviewContent = ({ brand }) => {
                                 sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
                             ></iframe>
                         </div>
-
                         {/* Separator Line */}
                         <hr className="border-gray-300 mb-16" style={{ marginTop: '64px', marginBottom: '64px' }} />
                     </section>
