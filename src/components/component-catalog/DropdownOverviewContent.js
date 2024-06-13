@@ -92,14 +92,13 @@ const DropdownOverviewContent = ({ brand }) => {
                         {/* LIVE CODE EMBED */}
                         <div className="mt-6 mb-6">
                             <iframe
-                                src="http://localhost:6006/?path=/story/example-dropdown--anthem"
+                                src={`http://localhost:6006/?path=/story/example-dropdown--${brand.toLowerCase()}`}
                                 style={{ width: '100%', height: '600px', border: 0, borderRadius: '4px', overflow: 'hidden' }}
                                 title="Storybook Dropdown Demo"
                                 allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
                                 sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
                             ></iframe>
                         </div>
-
                         <hr className="border-gray-300 mb-16" style={{ marginTop: '64px', marginBottom: '64px' }} />
                     </section>
 
