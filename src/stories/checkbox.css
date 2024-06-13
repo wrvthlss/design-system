@@ -5,6 +5,7 @@
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
   border: 1px solid #ccc;
+  position: relative;
 }
 
 .checkbox.checked {
@@ -17,9 +18,12 @@
 }
 
 .checkmark {
-  color: white;
-  font-size: 16px;
-  line-height: 24px;
-  text-align: center;
-  display: block;
+  position: absolute;
+  top: 5px;
+  left: 9px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
 }

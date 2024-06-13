@@ -54,7 +54,7 @@ export const Checkbox = ({
       onMouseOut={handleMouseOut}
       onMouseDown={handleMouseDown}
     >
-      {checked && <span className="checkmark">&#x2713;</span>}
+      {checked && <span className="checkmark"></span>}
     </div>
   );
 };
