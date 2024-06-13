@@ -75,6 +75,30 @@ export const Carelon: Story = {
   },
 };
 
+// Elevance Button Story
+export const Elevance: Story = {
+  args: {
+    primary: true,
+    label: "Elevance Button",
+    initialBackgroundColor: "--e100",
+    hoverBackgroundColor: "--e200",
+    activeBackgroundColor: '--e300',
+    showIcon: false,
+  },
+};
+
+// Wellpoint Button Story
+export const Wellpoint: Story = {
+  args: {
+    primary: true,
+    label: "Wellpoint Button",
+    initialBackgroundColor: "--wp100",
+    hoverBackgroundColor: "--wp200",
+    activeBackgroundColor: '--wp300',
+    showIcon: false,
+  },
+};
+
 
 // import type { Meta, StoryObj } from "@storybook/react";
 // import { Button } from "./Button";
