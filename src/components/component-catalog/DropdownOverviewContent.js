@@ -52,6 +52,13 @@ const DropdownOverviewContent = ({ brand }) => {
         ]
     };
 
+    const storybookUrl = {
+        Anthem: "http://localhost:6006/?path=/story/example-dropdown--anthem",
+        Carelon: "http://localhost:6006/?path=/story/example-dropdown--carelon",
+        Elevance: "http://localhost:6006/?path=/story/example-dropdown--elevance",
+        Wellpoint: "http://localhost:6006/?path=/story/example-dropdown--wellpoint",
+    };
+
     return (
         <div className='flex bg-white'>
             {/* Main Content Area */}
@@ -80,6 +87,18 @@ const DropdownOverviewContent = ({ brand }) => {
                         <p className="text-sm text-gray-600 mt-4 mb-8" style={{ lineHeight: '20px' }}>
                             The above states illustrate the expanded version the dropdown component with label.  Showcasing the dropdown options with a hover state.
                         </p>
+                        <h3 className='text-base font-bold text-black leading-8'>Live Demo</h3>
+                        <p className='text-gray-700 mt-2 leading-6'>Dive into the full capabilities of our checkbox components with our advanced live demo. This interactive tool lets you explore different checkbox variants, states, sizes, themes, and more, providing a hands-on way to tailor checkboxes to your exact needs. Customize colors, add icons, and edit text—all with instant visual feedback and corresponding code generation for seamless integration into your projects.</p>
+                        {/* LIVE CODE EMBED */}
+                        <div className="mt-6 mb-6">
+                            <iframe
+                                src="http://localhost:6006/?path=/story/example-dropdown--anthem"
+                                style={{ width: '100%', height: '600px', border: 0, borderRadius: '4px', overflow: 'hidden' }}
+                                title="Storybook Dropdown Demo"
+                                allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+                                sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+                            ></iframe>
+                        </div>
 
                         <hr className="border-gray-300 mb-16" style={{ marginTop: '64px', marginBottom: '64px' }} />
                     </section>

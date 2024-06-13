@@ -1,0 +1,70 @@
+/* dropdown.css */
+@import "../demo/tokens.css";
+
+.custom-select {
+  position: relative;
+  font-family: "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 700;
+}
+
+.custom-select select {
+  display: none; /*hide original SELECT element:*/
+}
+
+.select-selected {
+  background-color: white;
+  border-radius: var(--border-radius-m);
+  border: 1px solid gray;
+  cursor: pointer;
+  padding: 8px 16px;
+  user-select: none;
+}
+
+/*style the arrow inside the select element:*/
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #333 transparent transparent transparent;
+}
+
+/*style the items (options), including the selected item:*/
+.select-items div,
+.select-selected {
+  color: #333;
+  padding: 8px 16px;
+  cursor: pointer;
+  user-select: none;
+}
+
+/*style items (options):*/
+.select-items {
+  position: absolute;
+  background-color: white;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  border: 1px solid gray;
+  border-radius: var(--border-radius-m);
+}
+
+/*hide the items when the select box is closed:*/
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover,
+.same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: var(--hover-text-color);
+}
+
+.select-disabled {
+  cursor: not-allowed;
+  background-color: lightgray;
+}
