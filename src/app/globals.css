@@ -190,12 +190,28 @@ input:focus {
     color: white; /* Ensure text is readable */
 }
 
+.getstarted-design-head {
+    background-image: url('/images/get-started/overview/img-header-design.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white; /* Ensure text is readable */
+}
+
 .user-sections div {
     max-width: 930px;
 }
 
 .gticon {
     margin-top: -64px;
+}
+
+.gs-design a,
+.gs-figma a{
+    font-size: 18px;
+    text-decoration: underline;
+    cursor: pointer;
+    padding-top: 18px;
+    color: limegreen;
 }
 
 .us-design,
@@ -217,6 +233,19 @@ input:focus {
     transform: translateY(-50%);
 }
 
+.spanlink {
+    text-decoration: underline;
+}
+
+.en-lib-list {
+    list-style: disc;
+}
+
+.en-lib-list li {
+    margin-left: 32px;
+    padding-bottom: 8px;
+    font-size: 18px;
+}
 
 @media (max-width: 768px) {
     .chev-right {

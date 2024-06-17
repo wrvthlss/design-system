@@ -54,6 +54,7 @@ const GettingStarted = () => {
                 <h2 className='text-3xl font-semibold'>Get started</h2>
                 <p className='text-lg pb-8'>To help familiarize yourself with EDS we provide a step by step process to help familiarize yourself with our design system and guidelines. Bookmark this page for quick access to reference color usage, layout, component use cases and much more!</p>
 
+                <a href='/getstarted-design'>
                 <div className='us-design pb-8 mb-8 flex items-center'>
                     <img src='/images/get-started/overview/img-icon-getstarted-design.svg' alt='Design Icon' className='mr-4 gticon' />
                     <div className='flex flex-col border-b border-lightgray pb-8 flex-grow relative'>
@@ -62,7 +63,9 @@ const GettingStarted = () => {
                         <div className='chev-right'>&#10095;</div>
                     </div>
                 </div>
+                </a>
 
+                <a href='/getstarted-develop'>
                 <div className='us-develop pb-8 mb-8 flex items-center'>
                     <img src='/images/get-started/overview/img-icon-getstarted-develop.svg' alt='Develop Icon' className='mr-4 gticon' />
                     <div className='flex flex-col border-b border-lightgray pb-8 flex-grow relative'>
@@ -71,6 +74,7 @@ const GettingStarted = () => {
                         <div className='chev-right'>&#10095;</div>
                     </div>
                 </div>
+                </a>
 
                 <div className='us-research pb-8 mb-8 flex items-center'>
                     <img src='/images/get-started/overview/img-icon-getstarted-research.svg' alt='Research Icon' className='mr-4 gticon' />
