@@ -21,7 +21,7 @@ const MastheadLockup = () => (
                 integrity and maximizing design and development resources.
             </p>
             <div className="btn-conflex space-x-4">
-                <Button variant="primary" className='btn-l'>Get Started</Button>
+                <Button variant="primary" className='btn-l'><a href='/getting-started'>Get Started</a></Button>
                 <Button variant="ghost" className='btn-r'><a href='/component-catalog'>Components</a></Button>
             </div>
         </div>
