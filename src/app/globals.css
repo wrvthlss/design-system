@@ -182,6 +182,50 @@ input:focus {
     font-size: 18px;
 }
 
+/* 000 Getting started */
+.get-started-head {
+    background-image: url('/images/get-started/overview/img-header-getstarted.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white; /* Ensure text is readable */
+}
+
+.user-sections div {
+    max-width: 930px;
+}
+
+.gticon {
+    margin-top: -64px;
+}
+
+.us-design,
+.us-develop,
+.us-research,
+.us-content,
+.us-access {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.chev-right {
+    color: #333;
+    position: absolute;
+    right: 0; /* 72px from the right edge of the content */
+    bottom: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+
+@media (max-width: 768px) {
+    .chev-right {
+        right: -36px; /* Adjust padding for smaller screens if needed */
+    }
+}
+
+
+
 /* Tailwind CSS for Card Components */
 .colorCard,
 .imageCard {
