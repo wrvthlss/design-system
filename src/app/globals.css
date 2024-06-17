@@ -197,6 +197,13 @@ input:focus {
     color: white; /* Ensure text is readable */
 }
 
+.getstarted-develop-head {
+    background-image: url('/images/get-started/overview/img-header-develop.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white; /* Ensure text is readable */
+}
+
 .user-sections div {
     max-width: 930px;
 }
