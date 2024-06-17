@@ -122,9 +122,6 @@ input:focus {
     animation-direction: alternate;
 }
 
-.mhl {
-    
-}
 
 @keyframes animate {
     0% {
@@ -174,7 +171,16 @@ input:focus {
 .container-catalog {
     max-width: 100%!important;
 }
-
+.masthead-hl {
+    font-size: 3.75rem;
+    color: white;
+    line-height: 58px;
+    padding-bottom: 16px;
+}
+.lockup-body-text {
+    padding-bottom: 16px;
+    font-size: 18px;
+}
 
 /* Tailwind CSS for Card Components */
 .colorCard,
@@ -366,8 +372,29 @@ input:focus {
 }
 
 @media (max-width: 425px) {
+    .masthead-hl {
+        font-size: 2.75rem!important;
+        line-height: 48px!important;
+        padding-left: 24px!important;
+        padding-bottom: 12px!important;
+    }
+    .btn-r {
+        padding-left: 24px;
+        padding-right: 24px;
+
+    }
+    .btn-l {
+        margin-left: 24px;
+        border: 1px solid white;
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+    .mhspacer {
+        margin-top: -350px!important;
+    }
     .lockup-body-text {
-        padding: 0 25px 0 25px;
+        padding: 0 25px 16px 25px;
+        font-size: 16px;
     }
 
     .hero-headline {

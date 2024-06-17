@@ -12,8 +12,8 @@ const Button = ({ children, variant = "primary", className = "" }) => {
 
 const MastheadLockup = () => (
     <div className='flex items-center justify-center h-screen'>
-        <div className="space-y-7">
-            <h1 className="text-white text-6xl font-bold inter-font-bold">
+        <div className="mhspacer">
+            <h1 className="masthead-hl font-bold inter-font-bold">
                 Unify Your Vision,<br /> Elevate Your Design.
             </h1>
             <p className="lockup-body-text text-white max-w-xl inter-font">
