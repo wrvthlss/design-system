@@ -208,8 +208,25 @@ input:focus {
     max-width: 930px;
 }
 
-.gticon {
-    margin-top: -64px;
+
+.startdes {
+    margin-bottom: 63px;
+}
+
+.startdev {
+    margin-bottom: 65px;
+}
+
+.startres {
+    margin-bottom: 65px;
+}
+
+.startcon {
+    margin-bottom: 65px;
+}
+
+.startacc {
+    margin-bottom: 30px;
 }
 
 .gs-design a,
