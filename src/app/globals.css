@@ -254,6 +254,19 @@ input:focus {
     font-size: 18px;
 }
 
+.btp-container {
+    position: relative;
+    /* Ensure it has a height */
+    height: 100px; /* Adjust as needed */
+}
+
+.stp-ico {
+    /* Ensure the button has the correct styles */
+    width: 50px; /* Adjust as needed */
+    height: 50px; /* Adjust as needed */
+}
+
+
 @media (max-width: 768px) {
     .chev-right {
         right: -36px; /* Adjust padding for smaller screens if needed */

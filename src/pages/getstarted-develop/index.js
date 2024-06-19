@@ -14,13 +14,11 @@ import DropdownOverviewContent from '../../components/component-catalog/Dropdown
 import GNav from '../../components/shared/GNav';
 import BrandSwitcher from '../../components/shared/BrandSwitcher';
 
-
 const GettingStartedDevelop = () => {
 
     const [showBackToTop, setShowBackToTop] = useState(false);
 
     useEffect(() => {
-
         const handleScroll = () => {
             const footerElement = document.querySelector('.container');
             if (footerElement) {
@@ -41,12 +39,10 @@ const GettingStartedDevelop = () => {
     };
 
     return (
-        <div className="container-catalog mx-auto bg-white">
-
+        <div className="container container-catalog mx-auto bg-white">
             <span className='cat-g-nav'>
                 <GNav />
             </span>
-
 
             <div className='getstarted-develop-head px-19 pt-16 pb-8 mb-9'>
                 <h1 className='font-semibold text-4xl pb-3'>Develop</h1>
@@ -80,13 +76,11 @@ const GettingStartedDevelop = () => {
             </section>
 
             <section className='gs-figma px-19 pb-16'>
-
                 <h2 className='text-2xl font-semibold pb-2'>Project Setup</h2>
                 <p className='text-lg pb-8'>Checkout our step by step video walkthrough to get your project started on the right path.</p>
                 <div className='flex justify-center pb-12'>
                     <iframe width="560" height="315" src="https://www.youtube.com/embed/Cx2dkpBxst8?si=RUwY8w-zDRZuni-4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
-
 
                 <h2 className='text-2xl font-semibold pb-2'>Design Tokens</h2>
                 <p className='text-lg pb-8'>What are design tokens?</p>
@@ -99,25 +93,15 @@ const GettingStartedDevelop = () => {
                 <p className='text-lg pb-8'>Apply CSS classes directly to HTML elements within your markup. For example, to set the background color to blue, you would add the bg-blue-500 class. You can apply classes like text-base for text size and font-semibold for font weight.</p>
                 <p className='text-lg pb-14'>By applying CSS utility classes directly within HTML markup, developers can rapidly prototype and build UI components without the need for writing custom CSS. This approach promotes consistency, efficiency, and maintainability in front-end development projects.</p>
 
-
                 <h2 className='text-2xl font-semibold pb-2'>Figma Dev Mode</h2>
                 <p className='text-lg pb-8'>Dev Mode in Figma gives you everything you need to navigate design files and transform designs into code. With Dev Mode, designers and developers can stay on the same page, making sure important details aren't lost in the handoff process.</p>
                 <div className='flex justify-center pb-4'>
                     <iframe width="560" height="315" src="https://www.youtube.com/embed/VcOJ2V1-2Io?si=amhMqGXuszaJ4eWF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
                 <p className='italic text-center'>A step-by-step guide to using Figma. Dive into a world of creativity and collaboration — <span className='spanlink'>Let's get started!</span></p>
-
-
-
             </section>
 
-
-            <div>
-
-            </div>
-
-
-            <div>
+            <div className='btp-container'>
                 {showBackToTop && (
                     <button
                         onClick={scrollToTop}
@@ -125,7 +109,7 @@ const GettingStartedDevelop = () => {
                         style={{
                             bottom: '5%',
                             right: '8%',
-                            opacity: 1
+                            display: showBackToTop ? 'block' : 'none'
                         }}
                     >
                         <img src="/images/returnToTop.svg" alt="Back to Top" />

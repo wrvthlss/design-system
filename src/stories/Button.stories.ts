@@ -60,6 +60,7 @@ export const Anthem: Story = {
     hoverBackgroundColor: "--p200",
     activeBackgroundColor: '--p300',
     showIcon: false,
+    size: "medium"
   },
 };
 
@@ -155,3 +156,4 @@ export const Wellpoint: Story = {
 //     showIcon: false,
 //   },
 // };
+

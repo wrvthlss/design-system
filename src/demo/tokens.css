@@ -1,5 +1,4 @@
 :root {
-  --animation-rotate: rotate 1.2s infinite cubic-bezier(0.55, 0, 0.1, 1);
   --border-radius-s: 4px;
   --border-radius-m: 8px;
   --border-radius-l: 16px;
@@ -51,13 +50,4 @@
   --spacing-l: 16px;
   --z-index: 1000;
   --border-normal: 3px dashed red;
-}
-
-@keyframes rotate {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }

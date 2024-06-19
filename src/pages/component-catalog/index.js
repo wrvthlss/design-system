@@ -123,7 +123,7 @@ const ComponentCatalog = () => {
     };
 
     return (
-        <div className="container-catalog mx-auto">
+        <div className="container container-catalog mx-auto">
             <span className='cat-g-nav'>
                 <GNav />
             </span>
@@ -134,19 +134,21 @@ const ComponentCatalog = () => {
                     {renderPage()}
                 </div>
             </div>
-            {showBackToTop && (
-                <button
-                    onClick={scrollToTop}
-                    className="stp-ico fixed z-50 transition-opacity duration-500 ease-in-out"
-                    style={{
-                        bottom: '5%',
-                        right: '8%',
-                        opacity: 1
-                    }}
-                >
-                    <img src="/images/returnToTop.svg" alt="Back to Top" />
-                </button>
-            )}
+            <div className='btp-container'>
+                {showBackToTop && (
+                    <button
+                        onClick={scrollToTop}
+                        className="stp-ico fixed z-50 transition-opacity duration-500 ease-in-out"
+                        style={{
+                            bottom: '5%',
+                            right: '8%',
+                            display: showBackToTop ? 'block' : 'none'
+                        }}
+                    >
+                        <img src="/images/returnToTop.svg" alt="Back to Top" />
+                    </button>
+                )}
+            </div>
             <Footer />
             <SubFooter />
             <BrandSwitcher onBrandChange={handleBrandChange} />
