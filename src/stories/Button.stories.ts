@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Button } from "./Button";
+import '../demo/tokens.css'; // Ensure the path is correct
 
 const meta: Meta<typeof Button> = {
   title: "Example/Button",
@@ -51,20 +52,19 @@ const meta: Meta<typeof Button> = {
 export default meta;
 type Story = StoryObj<typeof Button>;
 
-// Anthem Button Story - Set as Default
+// Define stories
 export const Anthem: Story = {
   args: {
-    primary: true,
-    label: "Anthem Button",
+    primary: false,
+    label: "Click Here",
     initialBackgroundColor: "--p100",
     hoverBackgroundColor: "--p200",
     activeBackgroundColor: '--p300',
-    showIcon: false,
+    showIcon: true,
     size: "medium"
   },
 };
 
-// Carelon Button Story
 export const Carelon: Story = {
   args: {
     primary: true,
@@ -76,7 +76,6 @@ export const Carelon: Story = {
   },
 };
 
-// Elevance Button Story
 export const Elevance: Story = {
   args: {
     primary: true,
@@ -88,7 +87,6 @@ export const Elevance: Story = {
   },
 };
 
-// Wellpoint Button Story
 export const Wellpoint: Story = {
   args: {
     primary: true,

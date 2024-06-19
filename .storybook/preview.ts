@@ -1,21 +1,23 @@
 import type { Preview } from "@storybook/react";
+import '../src/demo/tokens.css'; // Ensure the path is correct
 
 const preview: Preview = {
   parameters: {
     controls: {
       matchers: {
         color: /(background|color)$/i,
-        date: /Date$/i,
+        date: /Date$/,
       },
     },
     designTokens: {
+      tabs: ['Colors', 'FontSize', 'LetterSpacing', 'Border', 'Opacity'],
       disable: false,
       defaultTab: "Colors",
-      showSearch: true,
-      editable: true,
+      showSearch: false,
+      editable: false,
     },
-    actions: { disable: true }, // Disable the Actions tab
-    interactions: { disable: true }, // Disable the Interactions tab
+    actions: { disable: true },
+    interactions: { disable: true },
     backgrounds: {
       default: 'light',
       values: [
@@ -28,7 +30,7 @@ const preview: Preview = {
         type: 'code',
       },
     },
-    layout: 'bottom', // Set the addon panel orientation to the bottom
+    layout: 'bottom',
   },
 };
 

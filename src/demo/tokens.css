@@ -1,8 +1,8 @@
 :root {
-  --border-radius-s: 4px;
-  --border-radius-m: 8px;
-  --border-radius-l: 16px;
-  --border: 3px dashed var(--brand);
+  /**
+  * @tokens Colors
+  * @presenter Color
+  */
   --b100: hsl(240, 100%, 90%);
   --b200: hsl(240, 100%, 80%);
   --b300: hsl(240, 100%, 70%);
@@ -25,29 +25,45 @@
   --e100: hsl(216.73,64.76%,44.51%);
   --e200: hsl(216.73,64.76%,44.51%);
   --e300: hsl(219.29,60.87%,27.06%);
-  --brand: blue;
-  --hex: #37dd35;
-  --gradient: linear-gradient(90deg, #f00 0%, #0f0 50%, #f00 100%);
-  --gradient-with-var: linear-gradient(90deg, var(--brand) 0%, #f00 100%);
-  --easing-swift: cubic-bezier(0.55, 0, 0.1, 1);
-  --base-font-family: system-ui, sans-serif;
-  --mono-font-family: Monaco, monospace;
-  --web-font-family: "Open Sans";
+
+  /**
+  * @tokens FontSize
+  * @presenter FontSize
+  */
   --font-size-s: 0.75rem;
   --font-size-m: 0.875rem;
   --font-size-l: 1rem;
   --font-weight-regular: 400;
   --font-weight-bold: 600;
+
+  /**
+  * @tokens LetterSpacing
+  * @presenter LetterSpacing
+  */
   --line-height: 1.5;
   --letter-spacing-none: 0;
   --letter-spacing-s: 1px;
   --letter-spacing-m: 2px;
-  --opacity: 0.5;
-  --shadow-m: 0 1px 3px rgba(0, 0, 0, 0.2);
-  --shadow-l: 0 1px 5px rgba(0, 0, 0, 0.3);
   --spacing-s: 8px;
   --spacing-m: 12px;
   --spacing-l: 16px;
   --z-index: 1000;
-  --border-normal: 3px dashed red;
+
+  /**
+  * @tokens Border
+  * @presenter Border
+  */
+  --border-radius-s: 4px;
+  --border-radius-m: 8px;
+  --border-radius-l: 16px;
+  --border: 3px dashed var(--brand);
+
+  /**
+  * @tokens Opacity
+  * @presenter Opacity
+  */
+  --opacity: 0.5;
+  --shadow-m: 0 1px 3px rgba(0, 0, 0, 0.2);
+  --shadow-l: 0 1px 5px rgba(0, 0, 0, 0.3);
+
 }
