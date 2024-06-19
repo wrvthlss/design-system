@@ -1,7 +1,7 @@
 import React from "react";
 import "./button.css";
 
-interface ButtonProps {
+export interface ButtonProps {
   primary?: boolean;
   initialBackgroundColor?: string;
   hoverBackgroundColor?: string;
@@ -12,7 +12,7 @@ interface ButtonProps {
   onClick?: () => void;
 }
 
-export const Button = ({
+export const Button: React.FC<ButtonProps> = ({
   primary = false,
   size = "medium",
   initialBackgroundColor,
@@ -23,8 +23,8 @@ export const Button = ({
   ...props
 }: ButtonProps) => {
   const mode = primary ? "storybook-button--primary" : "storybook-button--secondary";
-  
-  const baseStyle = primary 
+
+  const baseStyle = primary
     ? {
         backgroundColor: initialBackgroundColor && initialBackgroundColor.startsWith('--')
           ? `var(${initialBackgroundColor})`
@@ -33,7 +33,7 @@ export const Button = ({
     : {
         backgroundColor: "transparent",
         color: "var(--anthem-brand-100)",
-        border: "2px solid var(--anthem-brand-100)"
+        border: "2px solid var(--anthem-brand-100)",
       };
 
   return (

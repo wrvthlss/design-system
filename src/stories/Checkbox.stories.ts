@@ -53,7 +53,7 @@ export const Anthem: Story = {
     initialColor: "white",
     hoverColor: "#80CEFF",
     checkedColor: "#1355E9",
-    disabled: false,
+    disabled: true,
   },
 };
 
