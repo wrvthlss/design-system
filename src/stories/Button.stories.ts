@@ -47,32 +47,11 @@ const meta: Meta<typeof Button> = {
       },
     },
   },
-  // parameters: {
-  //   docs: {
-  //     source: {
-  //       type: 'dynamic',
-  //       transformSource: (source: string, storyContext: any) => {
-  //         const { args } = storyContext;
-  //         return `
-  //           <Button 
-  //             primary={${args.primary}} 
-  //             initialBackgroundColor="${args.initialBackgroundColor}" 
-  //             hoverBackgroundColor="${args.hoverBackgroundColor}" 
-  //             activeBackgroundColor="${args.activeBackgroundColor}" 
-  //             showIcon={${args.showIcon}} 
-  //             label="${args.label}" 
-  //           />
-  //         `;
-  //       },
-  //     },
-  //   },
-  // },
 };
 
 export default meta;
 type Story = StoryObj<typeof Button>;
 
-// Define stories
 export const Anthem: Story = {
   args: {
     primary: true,
@@ -117,5 +96,3 @@ export const Wellpoint: Story = {
     showIcon: false,
   },
 };
-
-

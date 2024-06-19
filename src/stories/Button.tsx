@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./button.css";
+import { useDebounce } from "./useDebouce/useDebouce";
 
 export interface ButtonProps {
   primary?: boolean;
@@ -22,14 +23,25 @@ export const Button: React.FC<ButtonProps> = ({
   showIcon = false,
   ...props
 }: ButtonProps) => {
+  const debouncedInitialBackgroundColor = useDebounce(initialBackgroundColor, 300);
+  const [backgroundColor, setBackgroundColor] = useState<string | undefined>(
+    debouncedInitialBackgroundColor && debouncedInitialBackgroundColor.startsWith('--') 
+      ? `var(${debouncedInitialBackgroundColor})` 
+      : debouncedInitialBackgroundColor
+  );
+
+  useEffect(() => {
+    setBackgroundColor(
+      debouncedInitialBackgroundColor && debouncedInitialBackgroundColor.startsWith('--') 
+        ? `var(${debouncedInitialBackgroundColor})` 
+        : debouncedInitialBackgroundColor
+    );
+  }, [debouncedInitialBackgroundColor]);
+
   const mode = primary ? "storybook-button--primary" : "storybook-button--secondary";
 
   const baseStyle = primary
-    ? {
-        backgroundColor: initialBackgroundColor && initialBackgroundColor.startsWith('--')
-          ? `var(${initialBackgroundColor})`
-          : initialBackgroundColor,
-      }
+    ? { backgroundColor }
     : {
         backgroundColor: "transparent",
         color: "var(--anthem-brand-100)",
@@ -42,27 +54,26 @@ export const Button: React.FC<ButtonProps> = ({
       className={["storybook-button", `storybook-button--${size}`, mode].join(" ")}
       style={baseStyle}
       {...props}
-      onMouseOver={(e) => {
+      onMouseOver={() => {
         if (hoverBackgroundColor && hoverBackgroundColor.startsWith('--')) {
-          e.currentTarget.style.backgroundColor = primary ? `var(${hoverBackgroundColor})` : `var(--w100)`;
+          setBackgroundColor(primary ? `var(${hoverBackgroundColor})` : `var(--w100)`);
         }
       }}
-      onMouseOut={(e) => {
-        if (initialBackgroundColor && initialBackgroundColor.startsWith('--')) {
-          e.currentTarget.style.backgroundColor = primary ? `var(${initialBackgroundColor})` : "transparent";
-          e.currentTarget.style.color = !primary ? `var(--anthem-brand-100)` : "";
-          e.currentTarget.style.border = !primary ? `2px solid var(--anthem-brand-100)` : "";
-        }
+      onMouseOut={() => {
+        setBackgroundColor(
+          debouncedInitialBackgroundColor && debouncedInitialBackgroundColor.startsWith('--') 
+            ? primary ? `var(${debouncedInitialBackgroundColor})` : "transparent"
+            : debouncedInitialBackgroundColor
+        );
       }}
-      onMouseDown={(e) => {
+      onMouseDown={() => {
         if (activeBackgroundColor && activeBackgroundColor.startsWith('--')) {
-          e.currentTarget.style.backgroundColor = primary ? `var(${activeBackgroundColor})` : `var(--anthem-brand-100)`;
-          e.currentTarget.style.color = !primary ? `var(--w100)` : "";
+          setBackgroundColor(primary ? `var(${activeBackgroundColor})` : `var(--anthem-brand-100)`);
         }
       }}
-      onMouseUp={(e) => {
+      onMouseUp={() => {
         if (hoverBackgroundColor && hoverBackgroundColor.startsWith('--')) {
-          e.currentTarget.style.backgroundColor = primary ? `var(${hoverBackgroundColor})` : `var(--w100)`;
+          setBackgroundColor(primary ? `var(${hoverBackgroundColor})` : `var(--w100)`);
         }
       }}
     >
