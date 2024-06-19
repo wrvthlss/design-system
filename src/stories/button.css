@@ -45,19 +45,19 @@
 
 .storybook-button--secondary {
   background-color: transparent;
-  color: var(--p100);
-  border: 2px solid var(--p100);
+  color: var(--anthem-brand-100);
+  border: 2px solid var(--anthem-brand-100);
 }
 
 .storybook-button--secondary:hover {
-  background-color: var(--w100);
+  background-color: var(--wellpoint-brand-100);
 }
 
 .storybook-button--secondary:active {
-  background-color: var(--p100);
+  background-color: var(--anthem-brand-100);
   color: var(--w100);
 }
 
 .storybook-button--secondary .icon {
-  background-color: var(--p100); /* Example color */
+  background-color: var(--anthem-brand-100); /* Example color */
 }

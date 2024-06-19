@@ -56,11 +56,11 @@ type Story = StoryObj<typeof Button>;
 export const Anthem: Story = {
   args: {
     primary: false,
-    label: "Click Here",
-    initialBackgroundColor: "--p100",
-    hoverBackgroundColor: "--p200",
-    activeBackgroundColor: '--p300',
-    showIcon: true,
+    label: "Anthem Button",
+    initialBackgroundColor: "--anthem-brand-100",
+    hoverBackgroundColor: "--anthem-brand-200",
+    activeBackgroundColor: '--anthem-brand-300',
+    showIcon: false,
     size: "medium"
   },
 };
@@ -69,9 +69,9 @@ export const Carelon: Story = {
   args: {
     primary: true,
     label: "Carelon Button",
-    initialBackgroundColor: "--c100",
-    hoverBackgroundColor: "--c200",
-    activeBackgroundColor: '--c300',
+    initialBackgroundColor: "--carelon-brand-100",
+    hoverBackgroundColor: "--carelon-brand-200",
+    activeBackgroundColor: '--carelon-brand-300',
     showIcon: false,
   },
 };
@@ -80,9 +80,9 @@ export const Elevance: Story = {
   args: {
     primary: true,
     label: "Elevance Button",
-    initialBackgroundColor: "--e100",
-    hoverBackgroundColor: "--e200",
-    activeBackgroundColor: '--e300',
+    initialBackgroundColor: "--elevance-brand-100",
+    hoverBackgroundColor: "--elevance-brand-200",
+    activeBackgroundColor: '--elevance-brand-300',
     showIcon: false,
   },
 };
@@ -91,9 +91,9 @@ export const Wellpoint: Story = {
   args: {
     primary: true,
     label: "Wellpoint Button",
-    initialBackgroundColor: "--wp100",
-    hoverBackgroundColor: "--wp200",
-    activeBackgroundColor: '--wp300',
+    initialBackgroundColor: "--wellpoint-brand-100",
+    hoverBackgroundColor: "--wellpoint-brand-200",
+    activeBackgroundColor: '--wellpoint-brand-300',
     showIcon: false,
   },
 };

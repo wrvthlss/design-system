@@ -32,8 +32,8 @@ export const Button = ({
       }
     : {
         backgroundColor: "transparent",
-        color: "var(--p100)",
-        border: "2px solid var(--p100)"
+        color: "var(--anthem-brand-100)",
+        border: "2px solid var(--anthem-brand-100)"
       };
 
   return (
@@ -50,13 +50,13 @@ export const Button = ({
       onMouseOut={(e) => {
         if (initialBackgroundColor && initialBackgroundColor.startsWith('--')) {
           e.currentTarget.style.backgroundColor = primary ? `var(${initialBackgroundColor})` : "transparent";
-          e.currentTarget.style.color = !primary ? `var(--p100)` : "";
-          e.currentTarget.style.border = !primary ? `2px solid var(--p100)` : "";
+          e.currentTarget.style.color = !primary ? `var(--anthem-brand-100)` : "";
+          e.currentTarget.style.border = !primary ? `2px solid var(--anthem-brand-100)` : "";
         }
       }}
       onMouseDown={(e) => {
         if (activeBackgroundColor && activeBackgroundColor.startsWith('--')) {
-          e.currentTarget.style.backgroundColor = primary ? `var(${activeBackgroundColor})` : `var(--p100)`;
+          e.currentTarget.style.backgroundColor = primary ? `var(${activeBackgroundColor})` : `var(--anthem-brand-100)`;
           e.currentTarget.style.color = !primary ? `var(--w100)` : "";
         }
       }}
